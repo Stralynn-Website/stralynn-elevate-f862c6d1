@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Stralynn — Consulting for the AI era" },
-      { name: "description", content: "Stralynn helps enterprises reinvent themselves through AI, intelligent operations, and rigorous execution." },
+      { name: "description", content: "We are an experienced IT consulting organization & leading Digital Strategy and Transformation across industries. Our expertise in Digital, Technical & Creative competencies unite together in successfully driving the digital transformation journey for our customers." },
       { property: "og:title", content: "Stralynn — Consulting for the AI era" },
       { property: "og:description", content: "AI, M&A, BPO and enterprise transformation for ambitious leaders." },
       { property: "og:type", content: "website" },

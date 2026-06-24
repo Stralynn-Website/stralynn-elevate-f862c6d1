@@ -55,7 +55,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-cream/60 max-w-sm text-sm leading-relaxed">
-              We help ambitious enterprises reinvent themselves through AI, intelligent operations and rigorous execution.
+              We are an experienced IT consulting organization & leading Digital Strategy and Transformation across industries. Our expertise in Digital, Technical & Creative competencies unite together in successfully driving the digital transformation journey for our customers.
             </p>
             <div className="flex gap-3 mt-6">
               {socials.map((s) => (
