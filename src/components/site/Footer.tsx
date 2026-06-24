@@ -47,7 +47,7 @@ export function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6 group w-fit">
               <div className="h-14 w-14 rounded-full bg-cream/95 grid place-items-center">
-                <img src={stralynnCircle.url} alt="Stralynn" className="h-12 w-12 object-contain" />
+                <img src={stralynnLogo} alt="Stralynn" className="h-12 w-12 object-contain" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-display text-xl font-bold tracking-[0.18em] text-cream">STRALYNN</span>
