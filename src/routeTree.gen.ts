@@ -19,6 +19,7 @@ import { Route as ServicesEnterpriseImplementationsRouteImport } from './routes/
 import { Route as ServicesBpoTransformationRouteImport } from './routes/services.bpo-transformation'
 import { Route as ServicesAiDigitalTransformationRouteImport } from './routes/services.ai-digital-transformation'
 import { Route as IndustriesTechnologyRouteImport } from './routes/industries.technology'
+import { Route as IndustriesPublicSectorRouteImport } from './routes/industries.public-sector'
 import { Route as IndustriesPrivateEquityRouteImport } from './routes/industries.private-equity'
 import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
 import { Route as IndustriesFinancialServicesRouteImport } from './routes/industries.financial-services'
@@ -76,6 +77,11 @@ const IndustriesTechnologyRoute = IndustriesTechnologyRouteImport.update({
   path: '/industries/technology',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesPublicSectorRoute = IndustriesPublicSectorRouteImport.update({
+  id: '/industries/public-sector',
+  path: '/industries/public-sector',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesPrivateEquityRoute = IndustriesPrivateEquityRouteImport.update({
   id: '/industries/private-equity',
   path: '/industries/private-equity',
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
   '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/private-equity': typeof IndustriesPrivateEquityRoute
+  '/industries/public-sector': typeof IndustriesPublicSectorRoute
   '/industries/technology': typeof IndustriesTechnologyRoute
   '/services/ai-digital-transformation': typeof ServicesAiDigitalTransformationRoute
   '/services/bpo-transformation': typeof ServicesBpoTransformationRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
   '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/private-equity': typeof IndustriesPrivateEquityRoute
+  '/industries/public-sector': typeof IndustriesPublicSectorRoute
   '/industries/technology': typeof IndustriesTechnologyRoute
   '/services/ai-digital-transformation': typeof ServicesAiDigitalTransformationRoute
   '/services/bpo-transformation': typeof ServicesBpoTransformationRoute
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
   '/industries/healthcare': typeof IndustriesHealthcareRoute
   '/industries/private-equity': typeof IndustriesPrivateEquityRoute
+  '/industries/public-sector': typeof IndustriesPublicSectorRoute
   '/industries/technology': typeof IndustriesTechnologyRoute
   '/services/ai-digital-transformation': typeof ServicesAiDigitalTransformationRoute
   '/services/bpo-transformation': typeof ServicesBpoTransformationRoute
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/industries/financial-services'
     | '/industries/healthcare'
     | '/industries/private-equity'
+    | '/industries/public-sector'
     | '/industries/technology'
     | '/services/ai-digital-transformation'
     | '/services/bpo-transformation'
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/industries/financial-services'
     | '/industries/healthcare'
     | '/industries/private-equity'
+    | '/industries/public-sector'
     | '/industries/technology'
     | '/services/ai-digital-transformation'
     | '/services/bpo-transformation'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/industries/financial-services'
     | '/industries/healthcare'
     | '/industries/private-equity'
+    | '/industries/public-sector'
     | '/industries/technology'
     | '/services/ai-digital-transformation'
     | '/services/bpo-transformation'
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   IndustriesFinancialServicesRoute: typeof IndustriesFinancialServicesRoute
   IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
   IndustriesPrivateEquityRoute: typeof IndustriesPrivateEquityRoute
+  IndustriesPublicSectorRoute: typeof IndustriesPublicSectorRoute
   IndustriesTechnologyRoute: typeof IndustriesTechnologyRoute
   ServicesAiDigitalTransformationRoute: typeof ServicesAiDigitalTransformationRoute
   ServicesBpoTransformationRoute: typeof ServicesBpoTransformationRoute
@@ -275,6 +288,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesTechnologyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/public-sector': {
+      id: '/industries/public-sector'
+      path: '/industries/public-sector'
+      fullPath: '/industries/public-sector'
+      preLoaderRoute: typeof IndustriesPublicSectorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/private-equity': {
       id: '/industries/private-equity'
       path: '/industries/private-equity'
@@ -308,6 +328,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesFinancialServicesRoute: IndustriesFinancialServicesRoute,
   IndustriesHealthcareRoute: IndustriesHealthcareRoute,
   IndustriesPrivateEquityRoute: IndustriesPrivateEquityRoute,
+  IndustriesPublicSectorRoute: IndustriesPublicSectorRoute,
   IndustriesTechnologyRoute: IndustriesTechnologyRoute,
   ServicesAiDigitalTransformationRoute: ServicesAiDigitalTransformationRoute,
   ServicesBpoTransformationRoute: ServicesBpoTransformationRoute,
