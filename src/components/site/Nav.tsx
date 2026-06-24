@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
-import stralynnLogo from "../../assets/stralynn-logo.avif";
+import stralynnCircle from "../../assets/stralynn-circle.png.asset.json";
 
 type NavItem = {
   label: string;
@@ -27,7 +27,7 @@ const NAV: NavItem[] = [
       { label: "Private Equity", to: "/industries/private-equity", desc: "Portfolio value creation" },
       { label: "Financial Services", to: "/industries/financial-services", desc: "Banking, insurance & capital markets" },
       { label: "Technology", to: "/industries/technology", desc: "Scale-ups to platform giants" },
-
+      { label: "Public Sector", to: "/industries/public-sector", desc: "Government, defense & civic platforms" },
     ],
   },
   { label: "Insights", to: "/insights" },
@@ -58,13 +58,18 @@ export function Nav() {
       }`}
     >
       <div className="container-x flex h-[72px] items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className={`h-10 w-10 rounded-xl grid place-items-center transition-colors ${scrolled ? "bg-navy-deep" : "bg-cream/10 backdrop-blur border border-cream/15"}`}>
-            <img src={stralynnLogo} alt="Stralynn" className="h-7 w-7 object-contain" />
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className={`h-11 w-11 rounded-full grid place-items-center transition-colors ${scrolled ? "bg-cream" : "bg-cream/95 backdrop-blur border border-cream/20"}`}>
+            <img src={stralynnCircle.url} alt="Stralynn" className="h-9 w-9 object-contain" />
           </div>
-          <span className={`font-display font-semibold tracking-tight text-lg transition-colors ${scrolled ? "text-foreground" : "text-cream"}`}>
-            Stralynn
-          </span>
+          <div className="flex flex-col leading-none">
+            <span className={`font-display font-bold tracking-[0.18em] text-lg transition-colors ${scrolled ? "text-navy-deep" : "text-cream"}`}>
+              STRALYNN
+            </span>
+            <span className={`mt-1 text-[9px] font-semibold tracking-[0.22em] transition-colors ${scrolled ? "text-azure" : "text-cyan-glow"}`}>
+              REIMAGINE.DIGITALIZE.TRANSCEND
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

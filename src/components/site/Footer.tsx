@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import stralynnLogo from "../../assets/stralynn-logo.avif";
+import stralynnCircle from "../../assets/stralynn-circle.png.asset.json";
 
 const socials = [
   { label: "LinkedIn", href: "#", path: "M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" },
@@ -25,6 +25,7 @@ const columns: { title: string; links: { label: string; to: string }[] }[] = [
       { label: "Private Equity", to: "/industries/private-equity" },
       { label: "Financial Services", to: "/industries/financial-services" },
       { label: "Technology", to: "/industries/technology" },
+      { label: "Public Sector", to: "/industries/public-sector" },
     ],
   },
   {
@@ -45,10 +46,13 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_repeat(3,1fr)]">
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <div className="h-12 w-12 rounded-xl bg-cream/10 border border-cream/15 grid place-items-center">
-                <img src={stralynnLogo} alt="Stralynn" className="h-8 w-8 object-contain" />
+              <div className="h-14 w-14 rounded-full bg-cream/95 grid place-items-center">
+                <img src={stralynnCircle.url} alt="Stralynn" className="h-12 w-12 object-contain" />
               </div>
-              <span className="font-display text-xl font-semibold text-cream">Stralynn</span>
+              <div className="flex flex-col leading-none">
+                <span className="font-display text-xl font-bold tracking-[0.18em] text-cream">STRALYNN</span>
+                <span className="mt-1 text-[10px] font-semibold tracking-[0.22em] text-cyan-glow">REIMAGINE.DIGITALIZE.TRANSCEND</span>
+              </div>
             </Link>
             <p className="text-cream/60 max-w-sm text-sm leading-relaxed">
               We help ambitious enterprises reinvent themselves through AI, intelligent operations and rigorous execution.
