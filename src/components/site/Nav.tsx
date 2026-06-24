@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
-import stralynnCircle from "../../assets/stralynn-circle.png.asset.json";
+import stralynnLogo from "../../assets/stralynn-logo.avif";
 
 type NavItem = {
   label: string;
@@ -60,7 +60,7 @@ export function Nav() {
       <div className="container-x flex h-[72px] items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <div className={`h-11 w-11 rounded-full grid place-items-center transition-colors ${scrolled ? "bg-cream" : "bg-cream/95 backdrop-blur border border-cream/20"}`}>
-            <img src={stralynnCircle.url} alt="Stralynn" className="h-9 w-9 object-contain" />
+            <img src={stralynnLogo} alt="Stralynn" className="h-9 w-9 object-contain" />
           </div>
           <div className="flex flex-col leading-none">
             <span className={`font-display font-bold tracking-[0.18em] text-lg transition-colors ${scrolled ? "text-navy-deep" : "text-cream"}`}>
