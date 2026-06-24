@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
-import stralynnCircle from "../../assets/stralynn-circle.png.asset.json";
+import stralynnLogo from "../../assets/stralynn-logo.avif";
 
 type NavItem = {
   label: string;

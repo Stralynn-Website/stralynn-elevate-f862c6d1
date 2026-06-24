@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import stralynnCircle from "../assets/stralynn-circle.png.asset.json";
+import stralynnLogo from "../assets/stralynn-logo.avif";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Nav } from "../components/site/Nav";
 import { Footer } from "../components/site/Footer";
