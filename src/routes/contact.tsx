@@ -53,9 +53,9 @@ function Contact() {
                 <h2 className="font-display text-3xl font-semibold leading-tight">Three ways to start a conversation.</h2>
               </div>
               {[
-                { icon: Mail, t: "Email", d: "hello@stralynn.com" },
+                { icon: Mail, t: "Email", d: "connect@stralynn.com" },
                 { icon: Phone, t: "Phone", d: "+1 (415) 555-0142" },
-                { icon: MapPin, t: "Offices", d: "New York · London · Bangalore" },
+                { icon: MapPin, t: "LOCATIONS", d: "USA · Canada· India" },
               ].map((c) => (
                 <div key={c.t} className="flex items-start gap-4">
                   <div className="h-11 w-11 rounded-xl bg-secondary grid place-items-center shrink-0">
