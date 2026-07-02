@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, MapPin, Phone, Check } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Check } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal } from "../components/site/Reveal";
 
@@ -15,26 +15,46 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-function Field({
-  label, name, type = "text", as, required, placeholder,
-}: { label: string; name: string; type?: string; as?: "textarea"; required?: boolean; placeholder?: string }) {
-  const common = "peer w-full bg-transparent border-0 border-b border-border focus:border-azure outline-none py-3 text-foreground placeholder-transparent transition-colors";
+const REASONS = [
+  "General inquiry",
+  "New business opportunity",
+  "Media / Press",
+  "Careers",
+  "Partnerships",
+  "Other",
+];
+
+function LabeledInput({
+  label, name, type = "text", required, as, placeholder,
+}: { label: string; name: string; type?: string; required?: boolean; as?: "textarea"; placeholder?: string }) {
+  const inputCls = "w-full bg-transparent border border-border focus:border-azure outline-none rounded-md px-4 py-3 text-foreground transition-colors";
   return (
-    <label className="relative block group">
+    <div className="space-y-2">
+      <label htmlFor={name} className="block text-sm text-foreground">
+        {required && <span className="text-red-600 mr-1">*</span>}
+        {label}
+      </label>
       {as === "textarea" ? (
-        <textarea name={name} required={required} placeholder={placeholder ?? label} rows={4} className={common + " resize-none"} />
+        <textarea id={name} name={name} required={required} placeholder={placeholder} rows={6} className={inputCls + " resize-none"} />
       ) : (
-        <input name={name} type={type} required={required} placeholder={placeholder ?? label} className={common} />
+        <input id={name} name={name} type={type} required={required} placeholder={placeholder} className={inputCls} />
       )}
-      <span className="pointer-events-none absolute left-0 -top-2 text-xs uppercase tracking-widest text-muted-foreground transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:-top-2 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-azure">
-        {label}{required && " *"}
-      </span>
-    </label>
+    </div>
   );
 }
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [attempted, setAttempted] = useState(false);
+  const [privacyOk, setPrivacyOk] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setAttempted(true);
+    if (!privacyOk) return;
+    setSent(true);
+  };
+
   return (
     <>
       <PageHeader
@@ -50,11 +70,10 @@ function Contact() {
             <div className="space-y-10">
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Reach us</div>
-                <h2 className="font-display text-3xl font-semibold leading-tight">Three ways to start a conversation.</h2>
+                <h2 className="font-display text-3xl font-semibold leading-tight">Two ways to start a conversation.</h2>
               </div>
               {[
                 { icon: Mail, t: "Email", d: "connect@stralynn.com" },
-                { icon: Phone, t: "Phone", d: "+1 (415) 555-0142" },
                 { icon: MapPin, t: "LOCATIONS", d: "USA · Canada· India" },
               ].map((c) => (
                 <div key={c.t} className="flex items-start gap-4">
@@ -72,8 +91,9 @@ function Contact() {
 
           <Reveal delay={0.1}>
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="rounded-3xl border border-border bg-card p-8 md:p-10 shadow-soft"
+              noValidate
             >
               {sent ? (
                 <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-12">
@@ -84,21 +104,72 @@ function Contact() {
                   <p className="text-muted-foreground">A partner will be in touch within one business day.</p>
                 </motion.div>
               ) : (
-                <div className="space-y-8">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <Field label="Full name" name="name" required />
-                    <Field label="Work email" name="email" type="email" required />
+                <div className="space-y-10">
+                  <div className="space-y-2">
+                    <label htmlFor="reason" className="block text-sm text-foreground">
+                      Reason for contacting Stralynn
+                    </label>
+                    <select
+                      id="reason"
+                      name="reason"
+                      defaultValue=""
+                      className="w-full bg-transparent border border-border focus:border-azure outline-none rounded-md px-4 py-3 text-foreground transition-colors"
+                    >
+                      <option value="" disabled>Reason for contacting Stralynn</option>
+                      {REASONS.map((r) => <option key={r} value={r}>{r}</option>)}
+                    </select>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <Field label="Company" name="company" />
-                    <Field label="Role" name="role" />
+
+                  <div className="space-y-6">
+                    <h3 className="font-display text-2xl font-semibold">About you</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <LabeledInput label="First Name" name="firstName" required />
+                      <LabeledInput label="Last Name" name="lastName" required />
+                    </div>
+                    <LabeledInput label="Email Address" name="email" type="email" required />
+                    <LabeledInput label="Phone Number:" name="phone" type="tel" />
                   </div>
-                  <Field label="What are you working on?" name="message" as="textarea" required />
+
+                  <div className="space-y-6">
+                    <h3 className="font-display text-2xl font-semibold">About your business</h3>
+                    <LabeledInput label="Company Name:" name="company" required />
+                  </div>
+
+                  <div className="space-y-6">
+                    <h3 className="font-display text-2xl font-semibold">Your message</h3>
+                    <LabeledInput
+                      label="Message:"
+                      name="message"
+                      as="textarea"
+                      required
+                      placeholder="Describe your reason for contacting Stralynn in 1,500 characters or less..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="flex items-start gap-3 text-sm">
+                      <input
+                        type="checkbox"
+                        checked={privacyOk}
+                        onChange={(e) => setPrivacyOk(e.target.checked)}
+                        className="mt-1 h-4 w-4 accent-azure"
+                      />
+                      <span>
+                        <span className="text-red-600 mr-1">*</span>
+                        I have read and understand{" "}
+                        <a href="#" className="underline text-azure">Stralynn's Privacy Notice</a>.
+                      </span>
+                    </label>
+                    {attempted && !privacyOk && (
+                      <p className="mt-2 text-sm text-red-600">This field is required</p>
+                    )}
+                  </div>
+
                   <button
                     type="submit"
                     className="group mt-2 inline-flex items-center gap-2 rounded-full gradient-hero text-cream px-6 py-3.5 text-sm font-semibold hover:opacity-95 transition-all"
                   >
-                    Send message <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    Submit <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
                 </div>
               )}
