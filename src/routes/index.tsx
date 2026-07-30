@@ -322,51 +322,29 @@ function Home() {
             <div className="lg:sticky lg:top-32">
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Industries</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Industry-specific systems architecture & <span className="font-editorial italic">compliance frameworks</span>.
+                Vertical IT consulting capabilities & <span className="font-editorial italic">sector boundaries</span>.
               </h2>
               <p className="mt-5 text-muted-foreground leading-relaxed">
-                Vertical technical solutions tailored to the regulatory compliance and transactional speeds required by commercial, financial, and government markets.
+                Stralynn aligns enterprise technology implementations with industry-specific regulatory standards and operational business models across five distinct sectors.
               </p>
             </div>
           </Reveal>
-          <div className="space-y-10">
-            <Reveal>
-              <div className="p-8 rounded-2xl bg-card border border-border">
-                <h3 className="font-display text-2xl font-semibold mb-3">Private Equity & Financial Services Integration</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Stralynn accelerates portfolio operations, fund-level visibility, and 100-day execution plans to drive rapid EBITDA optimization. Technical teams isolate carve-out data separations and execute vendor rationalization under tight transaction constraints.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="p-8 rounded-2xl bg-card border border-border">
-                <h3 className="font-display text-2xl font-semibold mb-3">Healthcare & Technology Platform Optimization</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Engineering teams build scalable cloud environments that prioritize zero-downtime delivery while maintaining the absolute integrity of sensitive operational and clinical data assets.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="p-8 rounded-2xl bg-card border border-border">
-                <h3 className="font-display text-2xl font-semibold mb-3">Public Sector Legacy Modernization</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Government procurement officers utilize Stralynn to execute legacy portal modernizations and complex mainframe system migrations safely. Next-gen portal development aligns with strict public data sovereignty, FISMA requirements, and NIST 800-53 controls.
-                </p>
-              </div>
-            </Reveal>
-
-            <Stagger className="grid grid-cols-2 md:grid-cols-5 gap-3 pt-4">
-              {industries.map((i) => (
-                <StaggerItem key={i.name}>
-                  <Link to={i.to} className="group flex flex-col items-center gap-3 p-5 rounded-xl bg-card border border-border hover-lift text-center">
-                    <div className="h-10 w-10 rounded-lg bg-secondary grid place-items-center group-hover:gradient-hero transition-all">
-                      <i.icon className="h-5 w-5 text-navy group-hover:text-cream transition-colors" />
-                    </div>
-                    <div className="text-sm font-semibold">{i.name}</div>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </Stagger>
+          <Stagger className="grid sm:grid-cols-2 gap-5">
+            {industries.map((i) => (
+              <StaggerItem key={i.name} className="h-full">
+                <Link to={i.to} className="group flex flex-col h-full p-8 rounded-2xl bg-card border border-border hover-lift">
+                  <div className="h-11 w-11 rounded-xl bg-secondary grid place-items-center mb-5 group-hover:gradient-hero transition-all">
+                    <i.icon className="h-5 w-5 text-navy group-hover:text-cream transition-colors" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold mb-3">{i.name}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{i.desc}</p>
+                  <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-navy group-hover:text-azure transition-colors">
+                    Explore sector <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
           </div>
         </div>
       </section>
