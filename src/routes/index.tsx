@@ -379,10 +379,10 @@ function Home() {
                     <CalendarCheck className="h-3.5 w-3.5" /> Commercial & Private Equity
                   </div>
                   <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                    Book a 30-minute scoping call.
+                    Schedule a 30-minute strategic consultation.
                   </h3>
                   <p className="mt-4 text-cream/75 max-w-md">
-                    Evaluate active M&A timelines, Salesforce rollouts, or ERP cutover schedules with a senior partner.
+                    Review active M&A integration deadlines, Salesforce deployments, or ERP cutover schedules with a senior partner.
                   </p>
                   <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold">
                     Schedule scoping call
