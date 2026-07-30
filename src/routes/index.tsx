@@ -397,10 +397,10 @@ function Home() {
                   <ClipboardCheck className="h-3.5 w-3.5" /> Public Sector Procurement
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                  Formal agency intake & RFI/RFP response.
+                  Public sector procurement pathway.
                 </h3>
                 <p className="mt-4 text-muted-foreground max-w-md">
-                  Download our Capability Statement, request a security architecture brief, or submit an official agency RFI/RFP.
+                  Access Stralynn's official Capability Statement, request a technical security briefing, or submit an agency RFI/RFP requirement.
                 </p>
                 <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full border border-navy/20 text-navy px-6 py-3.5 text-sm font-semibold hover:bg-navy hover:text-cream transition-colors">
                   Contact public sector team
