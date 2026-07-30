@@ -19,24 +19,80 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Brain, title: "AI Transformation", desc: "Deploying enterprise AI agents, automated workflows, and language model layers.", to: "/services/ai-digital-transformation" },
-  { icon: Handshake, title: "M&A Technical Integration", desc: "Simultaneous operational due diligence and post-acquisition technology consolidation.", to: "/services/ma-advisory" },
-  { icon: Workflow, title: "BPO Transformation", desc: "Modernizing business process outsourcing stacks through integrated intelligence layers.", to: "/services/bpo-transformation" },
-  { icon: Building2, title: "Enterprise Implementations", desc: "Structural deployment and alignment of Salesforce, ERP systems, and Certinia architectures.", to: "/services/enterprise-implementations" },
+  {
+    icon: Brain,
+    title: "AI Transformation",
+    desc: "Architecting enterprise AI agent frameworks, custom LLM integrations, and intelligent process automation layers.",
+    outcome: "Reclaims executive and operational bandwidth, accelerates decision speed, and drives high-margin operational efficiency.",
+    to: "/services/ai-digital-transformation",
+  },
+  {
+    icon: Handshake,
+    title: "M&A Technical Integration",
+    desc: "Conducting technical due diligence, carve-out data separations, and post-acquisition tech stack consolidations.",
+    outcome: "Protects deal timelines, eliminates post-close transition risk, and captures portfolio synergies within 60–90 day windows.",
+    to: "/services/ma-advisory",
+  },
+  {
+    icon: Workflow,
+    title: "BPO Transformation",
+    desc: "Re-engineering legacy outsourcing stacks through autonomous workflow automation and straight-through processing.",
+    outcome: "Shrinks operational overhead, reduces manual error rates, and elevates delivery speed across enterprise workflows.",
+    to: "/services/bpo-transformation",
+  },
+  {
+    icon: Building2,
+    title: "Enterprise Implementations",
+    desc: "Executing complex architectures across Salesforce, ERP platforms, and Certinia enterprise environments.",
+    outcome: "Guarantees zero-downtime platform cutovers, complete data integrity, and unified real-time visibility across global operations.",
+    to: "/services/enterprise-implementations",
+  },
 ];
 
 const industries = [
-  { icon: Banknote, name: "Private Equity", to: "/industries/private-equity" },
-  { icon: ShieldCheck, name: "Financial Services", to: "/industries/financial-services" },
-  { icon: Stethoscope, name: "Healthcare", to: "/industries/healthcare" },
-  { icon: Cpu, name: "Technology", to: "/industries/technology" },
-  { icon: Landmark, name: "Public Sector", to: "/industries/public-sector" },
+  {
+    icon: Banknote,
+    name: "Private Equity",
+    to: "/industries/private-equity",
+    desc: "Accelerating 100-day execution plans, complex carve-out data separations, and system consolidations to drive measurable EBITDA growth and portfolio visibility.",
+  },
+  {
+    icon: Stethoscope,
+    name: "Healthcare",
+    to: "/industries/healthcare",
+    desc: "Engineering resilient, zero-downtime cloud infrastructure that guarantees absolute data integrity and secure compliance for scaling healthcare organizations.",
+  },
+  {
+    icon: ShieldCheck,
+    name: "Financial Services",
+    to: "/industries/financial-services",
+    desc: "Modernizing legacy platform stacks through automated workflows and secure database transitions to reduce operational overhead.",
+  },
+  {
+    icon: Cpu,
+    name: "Technology",
+    to: "/industries/technology",
+    desc: "Building scalable cloud architectures, AI agent layers, and unified Salesforce and ERP implementations to increase enterprise speed-to-market.",
+  },
+  {
+    icon: Landmark,
+    name: "Public Sector",
+    to: "/industries/public-sector",
+    desc: "Delivering Next-Gen Portal Development and legacy mainframe migrations fully compliant with NIST 800-53, FISMA standards, and ADA accessibility requirements.",
+  },
 ];
 
 const stats = [
-  { kpi: "42TB", label: "Data migrated and validated within a 90-day window" },
-  { kpi: "800GB", label: "Cloud database cutover with sub-10% error rates" },
-  { kpi: "90 Days", label: "Post-close ERP cutover with zero operational data loss" },
+  { kpi: "42TB", label: "Core data assets successfully migrated and validated within a compressed 90-day window" },
+  { kpi: "800GB", label: "Multi-cloud database transition executed with total schema integrity and zero business disruption" },
+  { kpi: "90 Days", label: "Complete enterprise content platform cutover finalized post-close with zero operational data loss" },
+];
+
+const leadershipSignals = [
+  "Former Fortune 500 CIO (Royal Philips & Reliance)",
+  "Thoma Bravo Operating Partner Alumna",
+  "NACD.DC Certified Director",
+  "Former Board Director (Mimecast)",
 ];
 
 function Home() {
