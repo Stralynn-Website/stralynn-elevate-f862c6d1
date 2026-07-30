@@ -128,17 +128,17 @@ function Home() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg md:text-xl text-cream/75 leading-relaxed">
-              Stralynn executes specialized IT consulting services, driving complex ERP modernizations, Salesforce implementations, and data migrations for Private Equity-backed enterprises and public sector agencies.
+              Stralynn executes specialized IT consulting services, driving complex Enterprise modernizations, Salesforce implementations, and data migrations for Private Equity backed enterprises and public sector agencies.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-wrap gap-4">
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
-                Book a scoping call
+                Schedule a Conversation
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream hover:bg-cream/10 transition-colors">
-                Fill out the contact form
+                Contact us
               </Link>
             </div>
           </Reveal>
