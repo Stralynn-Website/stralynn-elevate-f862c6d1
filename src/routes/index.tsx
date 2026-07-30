@@ -161,10 +161,10 @@ function Home() {
       <section className="border-y border-border bg-background py-10">
         <div className="container-x">
           <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground text-center mb-6">
-            Trusted across private equity, healthcare, financial services & the public sector
+            Trusted across Private Equity, Healthcare, Financial Services & the Public Sector
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-foreground/40 font-display text-xl md:text-2xl font-semibold">
-            {["Salesforce", "Certinia", "NetSuite", "SAP", "Oracle", "AWS", "Azure"].map((b) => (
+            {["Salesforce", "Certinia", "NetSuite", "SAP", "Oracle", "Google Cloud", "AWS", "Azure"].map((b) => (
               <span key={b} className="hover:text-foreground transition-colors">{b}</span>
             ))}
           </div>
