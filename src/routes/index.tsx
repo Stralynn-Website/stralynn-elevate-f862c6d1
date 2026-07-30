@@ -275,10 +275,10 @@ function Home() {
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-                  Structured IT consulting services and clear service boundaries.
+                  Enterprise technical consulting services & <span className="font-editorial italic text-azure">value delivery.</span>
                 </h2>
                 <p className="mt-5 text-muted-foreground max-w-2xl leading-relaxed">
-                  A defined portfolio of IT services designed to modernize legacy environments, integrate enterprise platforms, and deploy scalable AI agents.
+                  Stralynn delivers specialized IT consulting services engineered to modernize core enterprise systems, eliminate integration risk, and deploy high-margin AI automation workflows.
                 </p>
               </div>
             </Reveal>
@@ -291,16 +291,20 @@ function Home() {
 
           <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {services.map((s) => (
-              <StaggerItem key={s.title}>
+              <StaggerItem key={s.title} className="h-full">
                 <Link
                   to={s.to}
-                  className="block h-full p-7 rounded-2xl bg-card border border-border hover-lift group"
+                  className="flex flex-col h-full p-7 rounded-2xl bg-card border border-border hover-lift group"
                 >
                   <div className="h-12 w-12 rounded-xl gradient-hero grid place-items-center mb-6">
                     <s.icon className="h-5 w-5 text-cream" />
                   </div>
                   <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <div className="mt-5 pt-5 border-t border-border">
+                    <div className="text-[10px] uppercase tracking-[0.22em] text-azure mb-2">Business outcome</div>
+                    <p className="text-sm text-foreground/80 leading-relaxed">{s.outcome}</p>
+                  </div>
                   <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-navy group-hover:text-azure transition-colors">
                     Learn more <ArrowUpRight className="h-4 w-4" />
                   </div>
