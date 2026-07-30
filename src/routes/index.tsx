@@ -345,7 +345,6 @@ function Home() {
               </StaggerItem>
             ))}
           </Stagger>
-          </div>
         </div>
       </section>
 
