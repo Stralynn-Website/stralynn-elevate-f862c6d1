@@ -220,6 +220,53 @@ function Home() {
         </div>
       </section>
 
+      {/* LEADERSHIP */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-navy-deep text-cream">
+        <div aria-hidden className="absolute inset-0 [background:radial-gradient(800px_450px_at_20%_20%,oklch(0.72_0.14_220/.22),transparent_60%)]" />
+        <div className="relative container-x grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16">
+          <Reveal>
+            <div className="lg:sticky lg:top-32">
+              <div className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 backdrop-blur px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-cream/85 mb-5">
+                <ShieldCheck className="h-3.5 w-3.5 text-cyan-glow" /> Leadership
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
+                Executive leadership & <span className="font-editorial italic gradient-accent-text">methodological governance.</span>
+              </h2>
+              <ul className="mt-8 space-y-3">
+                {leadershipSignals.map((s) => (
+                  <li key={s} className="flex items-start gap-3 text-sm text-cream/75">
+                    <ClipboardCheck className="h-4 w-4 mt-0.5 shrink-0 text-cyan-glow" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <div className="space-y-8">
+            <Reveal>
+              <p className="text-lg text-cream/80 leading-relaxed">
+                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder, CEO, and Board Chairwoman. A former Fortune 500 Group CIO at Royal Philips and Reliance Group, an alumna Operating Partner at Thoma Bravo, and a former board director at Mimecast, Alpna brings proven enterprise scale, board-level governance, and transaction execution experience to every Stralynn engagement.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-cream/70 leading-relaxed">
+                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. Having shared main keynote stages at Google Cloud Next alongside Google CEO Sundar Pichai and Google Cloud CEO Thomas Kurian, her execution frameworks bridge the gap between complex core architectures and high-velocity AI automation.
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <blockquote className="rounded-2xl border border-cream/10 bg-cream/[0.04] backdrop-blur p-8 md:p-10">
+                <p className="font-editorial italic text-2xl md:text-3xl leading-snug text-cream">
+                  “In high-stakes enterprise transformation, speed without governance creates unacceptable risk. We engineer resilient technical architectures that allow boardrooms, private equity partners, and government leadership to execute complex modernizations with total confidence.”
+                </p>
+                <footer className="mt-6 text-sm text-cyan-glow">
+                  Alpna J. Doshi, NACD.DC — Founder, CEO & Board Chairwoman
+                </footer>
+              </blockquote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-24 md:py-32">
         <div className="container-x">
