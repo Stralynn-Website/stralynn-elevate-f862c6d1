@@ -19,24 +19,80 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Brain, title: "AI Transformation", desc: "Deploying enterprise AI agents, automated workflows, and language model layers.", to: "/services/ai-digital-transformation" },
-  { icon: Handshake, title: "M&A Technical Integration", desc: "Simultaneous operational due diligence and post-acquisition technology consolidation.", to: "/services/ma-advisory" },
-  { icon: Workflow, title: "BPO Transformation", desc: "Modernizing business process outsourcing stacks through integrated intelligence layers.", to: "/services/bpo-transformation" },
-  { icon: Building2, title: "Enterprise Implementations", desc: "Structural deployment and alignment of Salesforce, ERP systems, and Certinia architectures.", to: "/services/enterprise-implementations" },
+  {
+    icon: Brain,
+    title: "AI Transformation",
+    desc: "Architecting enterprise AI agent frameworks, custom LLM integrations, and intelligent process automation layers.",
+    outcome: "Reclaims executive and operational bandwidth, accelerates decision speed, and drives high-margin operational efficiency.",
+    to: "/services/ai-digital-transformation",
+  },
+  {
+    icon: Handshake,
+    title: "M&A Technical Integration",
+    desc: "Conducting technical due diligence, carve-out data separations, and post-acquisition tech stack consolidations.",
+    outcome: "Protects deal timelines, eliminates post-close transition risk, and captures portfolio synergies within 60–90 day windows.",
+    to: "/services/ma-advisory",
+  },
+  {
+    icon: Workflow,
+    title: "BPO Transformation",
+    desc: "Re-engineering legacy outsourcing stacks through autonomous workflow automation and straight-through processing.",
+    outcome: "Shrinks operational overhead, reduces manual error rates, and elevates delivery speed across enterprise workflows.",
+    to: "/services/bpo-transformation",
+  },
+  {
+    icon: Building2,
+    title: "Enterprise Implementations",
+    desc: "Executing complex architectures across Salesforce, ERP platforms, and Certinia enterprise environments.",
+    outcome: "Guarantees zero-downtime platform cutovers, complete data integrity, and unified real-time visibility across global operations.",
+    to: "/services/enterprise-implementations",
+  },
 ];
 
 const industries = [
-  { icon: Banknote, name: "Private Equity", to: "/industries/private-equity" },
-  { icon: ShieldCheck, name: "Financial Services", to: "/industries/financial-services" },
-  { icon: Stethoscope, name: "Healthcare", to: "/industries/healthcare" },
-  { icon: Cpu, name: "Technology", to: "/industries/technology" },
-  { icon: Landmark, name: "Public Sector", to: "/industries/public-sector" },
+  {
+    icon: Banknote,
+    name: "Private Equity",
+    to: "/industries/private-equity",
+    desc: "Accelerating 100-day execution plans, complex carve-out data separations, and system consolidations to drive measurable EBITDA growth and portfolio visibility.",
+  },
+  {
+    icon: Stethoscope,
+    name: "Healthcare",
+    to: "/industries/healthcare",
+    desc: "Engineering resilient, zero-downtime cloud infrastructure that guarantees absolute data integrity and secure compliance for scaling healthcare organizations.",
+  },
+  {
+    icon: ShieldCheck,
+    name: "Financial Services",
+    to: "/industries/financial-services",
+    desc: "Modernizing legacy platform stacks through automated workflows and secure database transitions to reduce operational overhead.",
+  },
+  {
+    icon: Cpu,
+    name: "Technology",
+    to: "/industries/technology",
+    desc: "Building scalable cloud architectures, AI agent layers, and unified Salesforce and ERP implementations to increase enterprise speed-to-market.",
+  },
+  {
+    icon: Landmark,
+    name: "Public Sector",
+    to: "/industries/public-sector",
+    desc: "Delivering Next-Gen Portal Development and legacy mainframe migrations fully compliant with NIST 800-53, FISMA standards, and ADA accessibility requirements.",
+  },
 ];
 
 const stats = [
-  { kpi: "42TB", label: "Data migrated and validated within a 90-day window" },
-  { kpi: "800GB", label: "Cloud database cutover with sub-10% error rates" },
-  { kpi: "90 Days", label: "Post-close ERP cutover with zero operational data loss" },
+  { kpi: "42TB", label: "Core data assets successfully migrated and validated within a compressed 90-day window" },
+  { kpi: "800GB", label: "Multi-cloud database transition executed with total schema integrity and zero business disruption" },
+  { kpi: "90 Days", label: "Complete enterprise content platform cutover finalized post-close with zero operational data loss" },
+];
+
+const leadershipSignals = [
+  "Former Fortune 500 CIO (Royal Philips & Reliance)",
+  "Thoma Bravo Operating Partner Alumna",
+  "NACD.DC Certified Director",
+  "Former Board Director (Mimecast)",
 ];
 
 function Home() {
@@ -72,17 +128,17 @@ function Home() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg md:text-xl text-cream/75 leading-relaxed">
-              Stralynn executes specialized IT consulting services, driving complex ERP modernizations, Salesforce implementations, and data migrations for Private Equity-backed enterprises and public sector agencies.
+              Stralynn executes specialized IT consulting services, driving complex Enterprise modernizations, Salesforce implementations, and data migrations for Private Equity backed enterprises and public sector agencies.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-wrap gap-4">
               <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
-                Book a scoping call
+                Schedule a Conversation
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream hover:bg-cream/10 transition-colors">
-                Fill out the contact form
+                Contact us
               </Link>
             </div>
           </Reveal>
@@ -105,10 +161,10 @@ function Home() {
       <section className="border-y border-border bg-background py-10">
         <div className="container-x">
           <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground text-center mb-6">
-            Trusted across private equity, healthcare, financial services & the public sector
+            Trusted across Private Equity, Healthcare, Financial Services & the Public Sector
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-foreground/40 font-display text-xl md:text-2xl font-semibold">
-            {["Salesforce", "Certinia", "NetSuite", "SAP", "Oracle", "AWS", "Azure"].map((b) => (
+            {["Salesforce", "Certinia", "NetSuite", "SAP", "Oracle", "Google Cloud", "AWS", "Azure"].map((b) => (
               <span key={b} className="hover:text-foreground transition-colors">{b}</span>
             ))}
           </div>
@@ -164,6 +220,53 @@ function Home() {
         </div>
       </section>
 
+      {/* LEADERSHIP */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-navy-deep text-cream">
+        <div aria-hidden className="absolute inset-0 [background:radial-gradient(800px_450px_at_20%_20%,oklch(0.72_0.14_220/.22),transparent_60%)]" />
+        <div className="relative container-x grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16">
+          <Reveal>
+            <div className="lg:sticky lg:top-32">
+              <div className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 backdrop-blur px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-cream/85 mb-5">
+                <ShieldCheck className="h-3.5 w-3.5 text-cyan-glow" /> Leadership
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
+                Executive leadership & <span className="font-editorial italic gradient-accent-text">methodological governance.</span>
+              </h2>
+              <ul className="mt-8 space-y-3">
+                {leadershipSignals.map((s) => (
+                  <li key={s} className="flex items-start gap-3 text-sm text-cream/75">
+                    <ClipboardCheck className="h-4 w-4 mt-0.5 shrink-0 text-cyan-glow" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <div className="space-y-8">
+            <Reveal>
+              <p className="text-lg text-cream/80 leading-relaxed">
+                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder, CEO, and Board Chairwoman. A former Fortune 500 Group CIO at Royal Philips and Reliance Group, an alumna Operating Partner at Thoma Bravo, and a former board director at Mimecast, Alpna brings proven enterprise scale, board-level governance, and transaction execution experience to every Stralynn engagement.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-cream/70 leading-relaxed">
+                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. Having shared main keynote stages at Google Cloud Next alongside Google CEO Sundar Pichai and Google Cloud CEO Thomas Kurian, her execution frameworks bridge the gap between complex core architectures and high-velocity AI automation.
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <blockquote className="rounded-2xl border border-cream/10 bg-cream/[0.04] backdrop-blur p-8 md:p-10">
+                <p className="font-editorial italic text-2xl md:text-3xl leading-snug text-cream">
+                  “In high-stakes enterprise transformation, speed without governance creates unacceptable risk. We engineer resilient technical architectures that allow boardrooms, private equity partners, and government leadership to execute complex modernizations with total confidence.”
+                </p>
+                <footer className="mt-6 text-sm text-cyan-glow">
+                  Alpna J. Doshi, NACD.DC — Founder, CEO & Board Chairwoman
+                </footer>
+              </blockquote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="py-24 md:py-32">
         <div className="container-x">
@@ -172,10 +275,10 @@ function Home() {
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-                  Structured IT consulting services and clear service boundaries.
+                  Enterprise technical consulting services & <span className="font-editorial italic text-azure">value delivery.</span>
                 </h2>
                 <p className="mt-5 text-muted-foreground max-w-2xl leading-relaxed">
-                  A defined portfolio of IT services designed to modernize legacy environments, integrate enterprise platforms, and deploy scalable AI agents.
+                  Stralynn delivers specialized IT consulting services engineered to modernize core enterprise systems, eliminate integration risk, and deploy high-margin AI automation workflows.
                 </p>
               </div>
             </Reveal>
@@ -188,16 +291,20 @@ function Home() {
 
           <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {services.map((s) => (
-              <StaggerItem key={s.title}>
+              <StaggerItem key={s.title} className="h-full">
                 <Link
                   to={s.to}
-                  className="block h-full p-7 rounded-2xl bg-card border border-border hover-lift group"
+                  className="flex flex-col h-full p-7 rounded-2xl bg-card border border-border hover-lift group"
                 >
                   <div className="h-12 w-12 rounded-xl gradient-hero grid place-items-center mb-6">
                     <s.icon className="h-5 w-5 text-cream" />
                   </div>
                   <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <div className="mt-5 pt-5 border-t border-border">
+                    <div className="text-[10px] uppercase tracking-[0.22em] text-azure mb-2">Business outcome</div>
+                    <p className="text-sm text-foreground/80 leading-relaxed">{s.outcome}</p>
+                  </div>
                   <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-navy group-hover:text-azure transition-colors">
                     Learn more <ArrowUpRight className="h-4 w-4" />
                   </div>
@@ -215,52 +322,29 @@ function Home() {
             <div className="lg:sticky lg:top-32">
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Industries</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Industry-specific systems architecture & <span className="font-editorial italic">compliance frameworks</span>.
+                Vertical IT consulting capabilities & <span className="font-editorial italic">sector boundaries</span>.
               </h2>
               <p className="mt-5 text-muted-foreground leading-relaxed">
-                Vertical technical solutions tailored to the regulatory compliance and transactional speeds required by commercial, financial, and government markets.
+                Stralynn aligns enterprise technology implementations with industry-specific regulatory standards and operational business models across five distinct sectors.
               </p>
             </div>
           </Reveal>
-          <div className="space-y-10">
-            <Reveal>
-              <div className="p-8 rounded-2xl bg-card border border-border">
-                <h3 className="font-display text-2xl font-semibold mb-3">Private Equity & Financial Services Integration</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Stralynn accelerates portfolio operations, fund-level visibility, and 100-day execution plans to drive rapid EBITDA optimization. Technical teams isolate carve-out data separations and execute vendor rationalization under tight transaction constraints.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="p-8 rounded-2xl bg-card border border-border">
-                <h3 className="font-display text-2xl font-semibold mb-3">Healthcare & Technology Platform Optimization</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Engineering teams build scalable cloud environments that prioritize zero-downtime delivery while maintaining the absolute integrity of sensitive operational and clinical data assets.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="p-8 rounded-2xl bg-card border border-border">
-                <h3 className="font-display text-2xl font-semibold mb-3">Public Sector Legacy Modernization</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Government procurement officers utilize Stralynn to execute legacy portal modernizations and complex mainframe system migrations safely. Next-gen portal development aligns with strict public data sovereignty, FISMA requirements, and NIST 800-53 controls.
-                </p>
-              </div>
-            </Reveal>
-
-            <Stagger className="grid grid-cols-2 md:grid-cols-5 gap-3 pt-4">
-              {industries.map((i) => (
-                <StaggerItem key={i.name}>
-                  <Link to={i.to} className="group flex flex-col items-center gap-3 p-5 rounded-xl bg-card border border-border hover-lift text-center">
-                    <div className="h-10 w-10 rounded-lg bg-secondary grid place-items-center group-hover:gradient-hero transition-all">
-                      <i.icon className="h-5 w-5 text-navy group-hover:text-cream transition-colors" />
-                    </div>
-                    <div className="text-sm font-semibold">{i.name}</div>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
+          <Stagger className="grid sm:grid-cols-2 gap-5">
+            {industries.map((i) => (
+              <StaggerItem key={i.name} className="h-full">
+                <Link to={i.to} className="group flex flex-col h-full p-8 rounded-2xl bg-card border border-border hover-lift">
+                  <div className="h-11 w-11 rounded-xl bg-secondary grid place-items-center mb-5 group-hover:gradient-hero transition-all">
+                    <i.icon className="h-5 w-5 text-navy group-hover:text-cream transition-colors" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold mb-3">{i.name}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{i.desc}</p>
+                  <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-navy group-hover:text-azure transition-colors">
+                    Explore sector <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
@@ -276,12 +360,12 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Scoping engagement pathways <span className="font-editorial italic">& intake procedures.</span>
+                Initiate a strategic engagement <span className="font-editorial italic">or consultation.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                Targeted intake pathways tailored to specific commercial transaction timelines or government agency procurement structures.
+                Stralynn provides direct engagement pathways tailored to your active deal timelines, enterprise rollouts, or public agency procurement requirements.
               </p>
             </Reveal>
           </div>
@@ -295,10 +379,10 @@ function Home() {
                     <CalendarCheck className="h-3.5 w-3.5" /> Commercial & Private Equity
                   </div>
                   <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                    Book a 30-minute scoping call.
+                    Schedule a 30-minute strategic consultation.
                   </h3>
                   <p className="mt-4 text-cream/75 max-w-md">
-                    Evaluate active M&A timelines, Salesforce rollouts, or ERP cutover schedules with a senior partner.
+                    Review active M&A integration deadlines, Salesforce deployments, or ERP cutover schedules with a senior partner.
                   </p>
                   <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold">
                     Schedule scoping call
@@ -313,10 +397,10 @@ function Home() {
                   <ClipboardCheck className="h-3.5 w-3.5" /> Public Sector Procurement
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                  Formal agency intake & RFI/RFP response.
+                  Public sector procurement pathway.
                 </h3>
                 <p className="mt-4 text-muted-foreground max-w-md">
-                  Download our Capability Statement, request a security architecture brief, or submit an official agency RFI/RFP.
+                  Access Stralynn's official Capability Statement, request a technical security briefing, or submit an agency RFI/RFP requirement.
                 </p>
                 <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full border border-navy/20 text-navy px-6 py-3.5 text-sm font-semibold hover:bg-navy hover:text-cream transition-colors">
                   Contact public sector team
