@@ -360,12 +360,12 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Scoping engagement pathways <span className="font-editorial italic">& intake procedures.</span>
+                Initiate a strategic engagement <span className="font-editorial italic">or consultation.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                Targeted intake pathways tailored to specific commercial transaction timelines or government agency procurement structures.
+                Stralynn provides direct engagement pathways tailored to your active deal timelines, enterprise rollouts, or public agency procurement requirements.
               </p>
             </Reveal>
           </div>
