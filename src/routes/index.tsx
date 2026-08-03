@@ -386,7 +386,7 @@ function Home() {
                     Review active M&A integration deadlines, Salesforce deployments, or ERP cutover schedules with a senior partner.
                   </p>
                   <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold">
-                    Schedule scoping call
+                    Schedule conversation
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                 </div>
