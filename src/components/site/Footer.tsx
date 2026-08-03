@@ -47,14 +47,15 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_repeat(3,1fr)]">
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <div className="h-14 w-14 rounded-full bg-cream/95 grid place-items-center">
+              <div className="h-14 w-14 rounded-full bg-cream grid place-items-center ring-2 ring-cream/30">
                 <img src={stralynnLogo} alt="Stralynn" className="h-12 w-12 object-contain" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold tracking-[0.18em] text-cream">STRALYNN</span>
-                <span className="mt-1 text-[10px] font-semibold tracking-[0.22em] text-cyan-glow">REIMAGINE.DIGITALIZE.TRANSCEND</span>
+                <span className="font-display text-2xl font-extrabold tracking-[0.2em] text-cream">STRALYNN</span>
+                <span className="mt-1.5 text-[10px] font-bold tracking-[0.2em] text-cyan-glow">REIMAGINE.DIGITALIZE.TRANSCEND</span>
               </div>
             </Link>
+
             <p className="text-cream/60 max-w-sm text-sm leading-relaxed">
               We are an experienced IT consulting organization & leading Digital Strategy and Transformation across industries. Our expertise in Digital, Technical & Creative competencies unite together in successfully driving the digital transformation journey for our customers.
             </p>

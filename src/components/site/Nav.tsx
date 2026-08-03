@@ -59,18 +59,19 @@ export function Nav() {
     >
       <div className="container-x flex h-[72px] items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className={`h-11 w-11 rounded-full grid place-items-center transition-colors ${scrolled ? "bg-cream" : "bg-cream/95 backdrop-blur border border-cream/20"}`}>
-            <img src={stralynnLogo} alt="Stralynn" className="h-9 w-9 object-contain" />
+          <div className={`h-12 w-12 rounded-full grid place-items-center transition-colors ${scrolled ? "bg-cream ring-1 ring-border" : "bg-cream ring-2 ring-cream/40 shadow-soft"}`}>
+            <img src={stralynnLogo} alt="Stralynn" className="h-10 w-10 object-contain" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className={`font-display font-bold tracking-[0.18em] text-lg transition-colors ${scrolled ? "text-navy-deep" : "text-cream"}`}>
+            <span className={`font-display font-extrabold tracking-[0.2em] text-xl md:text-[1.4rem] transition-colors ${scrolled ? "text-navy-deep" : "text-cream drop-shadow-[0_2px_10px_oklch(0.18_0.02_260/0.7)]"}`}>
               STRALYNN
             </span>
-            <span className={`mt-1 text-[9px] font-semibold tracking-[0.22em] transition-colors ${scrolled ? "text-azure" : "text-cyan-glow"}`}>
+            <span className={`mt-1.5 text-[9px] md:text-[10px] font-bold tracking-[0.2em] transition-colors ${scrolled ? "text-azure" : "text-cyan-glow drop-shadow-[0_1px_8px_oklch(0.18_0.02_260/0.8)]"}`}>
               REIMAGINE.DIGITALIZE.TRANSCEND
             </span>
           </div>
         </Link>
+
 
         <nav className="hidden lg:flex items-center gap-1">
           {NAV.map((item) => (
