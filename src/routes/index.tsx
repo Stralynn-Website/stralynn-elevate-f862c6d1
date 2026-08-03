@@ -171,31 +171,6 @@ function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-24 md:py-32">
-        <div className="container-x">
-          <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-end mb-16">
-            <Reveal>
-              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Documented scale metrics <span className="font-editorial italic text-azure">& operational outcomes.</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Stralynn tracks precise operational milestones across data integrity, migration velocity, and post-acquisition system integration — to eliminate delivery risk.
-              </p>
-            </Reveal>
-          </div>
-          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden shadow-soft">
-            {stats.map((s) => (
-              <StaggerItem key={s.label} className="bg-background p-8 md:p-10">
-                <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-navy-deep">{s.kpi}</div>
-                <div className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.label}</div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
 
       {/* ABOUT */}
       <section className="py-24 md:py-32 bg-secondary/50">
@@ -264,6 +239,32 @@ function Home() {
               </blockquote>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="py-24 md:py-32">
+        <div className="container-x">
+          <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-end mb-16">
+            <Reveal>
+              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
+                Documented scale metrics <span className="font-editorial italic text-azure">& operational outcomes.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Stralynn tracks precise operational milestones across data integrity, migration velocity, and post-acquisition system integration — to eliminate delivery risk.
+              </p>
+            </Reveal>
+          </div>
+          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden shadow-soft">
+            {stats.map((s) => (
+              <StaggerItem key={s.label} className="bg-background p-8 md:p-10">
+                <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-navy-deep">{s.kpi}</div>
+                <div className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.label}</div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
