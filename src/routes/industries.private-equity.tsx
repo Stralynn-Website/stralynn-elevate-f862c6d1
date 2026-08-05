@@ -31,7 +31,7 @@ export const Route = createFileRoute("/industries/private-equity")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Page;
+  component: Page,
 });
 
 const platforms = [
