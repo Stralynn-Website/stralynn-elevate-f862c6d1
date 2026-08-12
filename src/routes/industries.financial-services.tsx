@@ -332,8 +332,7 @@ function Page() {
               </p>
               <ul className="mt-8 space-y-3">
                 {[
-                  "Former Fortune 500 Group CIO",
-                  "Thoma Bravo Operating Partner alumna",
+                  "Former - Group CIO Royal Philips, Thoma Bravo Operating Partner",
                   "Former board director, Mimecast",
                   "NACD.DC certified director",
                 ].map((l) => (

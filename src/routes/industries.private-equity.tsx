@@ -328,8 +328,7 @@ function Page() {
               </p>
               <ul className="mt-8 space-y-3">
                 {[
-                  "Former Operating Partner, Thoma Bravo",
-                  "Fortune 500 CIO governance experience",
+                  "Former - Group CIO Royal Philips, Thoma Bravo Operating Partner",
                   "NACD.DC certified director",
                 ].map((l) => (
                   <li key={l} className="flex items-start gap-3 text-sm">

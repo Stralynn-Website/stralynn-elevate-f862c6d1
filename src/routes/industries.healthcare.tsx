@@ -326,7 +326,7 @@ function Healthcare() {
               </p>
               <ul className="mt-8 space-y-3">
                 {[
-                  "Former Fortune 500 Group CIO, Royal Philips",
+                  "Former - Group CIO Royal Philips, Thoma Bravo Operating Partner",
                   "NACD.DC certified director",
                   "Keynote speaker, Google Cloud Next",
                 ].map((l) => (

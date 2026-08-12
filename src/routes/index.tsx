@@ -89,8 +89,7 @@ const stats = [
 ];
 
 const leadershipSignals = [
-  "Former Fortune 500 CIO (Royal Philips & Reliance)",
-  "Thoma Bravo Operating Partner Alumna",
+  "Former - Group CIO Royal Philips, Thoma Bravo Operating Partner",
   "NACD.DC Certified Director",
   "Former Board Director (Mimecast)",
 ];
