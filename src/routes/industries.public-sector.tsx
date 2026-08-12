@@ -326,9 +326,9 @@ function Page() {
               </p>
               <ul className="mt-8 space-y-3">
                 {[
+                  "Former - Group CIO Royal Philips, Thoma Bravo Operating Partner",
                   "Risk-mitigation frameworks enforced at engagement level",
                   "Security governance and audit-ready delivery",
-                  "Fortune 500 enterprise technology leadership experience",
                   "NACD.DC certified director",
                 ].map((l) => (
                   <li key={l} className="flex items-start gap-3 text-sm">
