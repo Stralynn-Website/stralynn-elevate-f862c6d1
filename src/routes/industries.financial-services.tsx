@@ -93,14 +93,14 @@ const capabilities = [
 
 const metrics = [
   {
-    kpi: "800GB",
+    kpi: "800 GB",
     t: "Cloud Database Cutover",
     l: "High-velocity multi-cloud database transition executed with verified 100% record accuracy and zero business disruption.",
   },
   {
-    kpi: "42TB",
+    kpi: "42 TB",
     t: "Enterprise Data Migration",
-    l: "Complex financial data assets successfully migrated and validated within a compressed 90-day execution window.",
+    l: "Complex financial data assets successfully migrated and validated within a compressed 90 day execution window.",
   },
   {
     kpi: "90 Days",
@@ -111,12 +111,12 @@ const metrics = [
 
 const caseStudies = [
   {
-    t: "800GB Multi-Cloud Database Cutover Brief",
+    t: "800 GB Multi-Cloud Database Cutover Brief",
     d: "Read how Stralynn executed a high-velocity cloud database cutover with total schema integrity and zero operational downtime.",
   },
   {
-    t: "42TB Financial Infrastructure Migration Case Study",
-    d: "Discover the technical validation methodologies and timeline parameters used to migrate 42TB of core enterprise assets in 90 days.",
+    t: "42 TB Financial Infrastructure Migration Case Study",
+    d: "Discover the technical validation methodologies and timeline parameters used to migrate 42 TB of core enterprise assets in 90 days.",
   },
   {
     t: "Automated Workflow & Financial Compliance Brief",
@@ -128,7 +128,7 @@ const pathways = [
   {
     icon: CalendarClock,
     t: "Financial Enterprise Consultation",
-    d: "Schedule a 30-minute strategic consultation with our financial services practice lead to review active platform modernizations, core system cutovers, or Salesforce deployments.",
+    d: "Schedule a 30 minute strategic consultation with our financial services practice lead to review active platform modernizations, core system cutovers, or Salesforce deployments.",
     cta: "Schedule consultation",
   },
   {
@@ -146,8 +146,8 @@ function Page() {
         eyebrow="Industries — Financial Services"
         title={
           <>
-            High-velocity financial services infrastructure and{" "}
-            <span className="font-editorial italic">automated compliance operations.</span>
+            High velocity financial services infrastructure and{" "}
+            <span className="font-editorial italic">automated compliance operations</span>
           </>
         }
         description="Stralynn engineers resilient financial IT architectures, secure multi-cloud database cutovers, and enterprise AI workflow automation to protect sensitive financial assets and accelerate transaction processing without operational downtime."
@@ -184,7 +184,7 @@ function Page() {
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Financial services IT modernization and{" "}
-                <span className="font-editorial italic">core architecture.</span>
+                <span className="font-editorial italic">core architecture</span>
               </h2>
             </div>
           </Reveal>
@@ -218,7 +218,7 @@ function Page() {
                   In focus
                 </div>
                 <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight">
-                  Modernize the core without pausing transaction flow.
+                  Modernize the core without pausing transaction flow
                 </h2>
               </div>
             </div>
@@ -237,7 +237,7 @@ function Page() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
               Specialized financial services technical capabilities and{" "}
-              <span className="font-editorial italic">service tracks.</span>
+              <span className="font-editorial italic">service tracks</span>
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -270,7 +270,7 @@ function Page() {
               Industry insights
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold max-w-3xl leading-tight">
-              Documented scale metrics and proven financial system performance.
+              Documented scale metrics and proven financial system performance
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-3 gap-px bg-cream/10 rounded-2xl overflow-hidden">
@@ -320,7 +320,7 @@ function Page() {
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Methodological governance and{" "}
-                <span className="font-editorial italic">financial services leadership.</span>
+                <span className="font-editorial italic">financial services leadership</span>
               </h2>
               <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
                 Stralynn's financial services technology practice operates under the strategic
@@ -354,7 +354,7 @@ function Page() {
               </blockquote>
               <figcaption className="mt-8 text-sm text-muted-foreground">
                 <span className="block font-semibold text-foreground">Alpna J. Doshi, NACD.DC</span>
-                Founder, CEO &amp; Board Chairwoman (Former Thoma Bravo Operating Partner Alumna)
+                Founder CEO &amp; Board Chairwoman (Former Thoma Bravo Operating Partner Alumna)
               </figcaption>
             </figure>
           </Reveal>
@@ -366,7 +366,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-              Initiate a financial services strategic consultation.
+              Initiate a financial services strategic consultation
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Stralynn provides direct engagement pathways tailored to active financial modernization

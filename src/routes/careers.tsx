@@ -38,8 +38,8 @@ function Careers() {
     <>
       <PageHeader
         eyebrow="Careers"
-        title={<>Build the firm you'd want to <span className="font-editorial italic">hire.</span></>}
-        description="We hire people who could be doing this work anywhere — and choose to do it here, with the team, on the problems that matter."
+        title={<>Build the firm you'd want to <span className="font-editorial italic">hire</span></>}
+        description="We hire people who could be doing this work anywhere and choose to do it here, with the team, on the problems that matter."
         image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
       />
 
@@ -47,7 +47,7 @@ function Careers() {
         <div className="container-x">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
-              { k: "Senior-only teams", v: "Every engagement is staffed with partners and principals." },
+              { k: "Senior only teams", v: "Every engagement is staffed with partners and principals." },
               { k: "Equity for everyone", v: "All full-time hires share in the firm's upside." },
               { k: "Time for craft", v: "Six weeks a year for research, writing and open source." },
             ].map((c) => (
@@ -62,7 +62,7 @@ function Careers() {
 
           <Reveal>
             <h2 className="font-display text-3xl md:text-4xl font-semibold mb-2">Open roles</h2>
-            <p className="text-muted-foreground">{filtered.length} positions across {teams.length - 1} teams.</p>
+            <p className="text-muted-foreground">{filtered.length} positions across {teams.length - 1} teams</p>
           </Reveal>
 
           <div className="mt-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">

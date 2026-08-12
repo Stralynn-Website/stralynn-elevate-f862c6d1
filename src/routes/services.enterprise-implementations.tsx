@@ -76,7 +76,7 @@ const tabContent: Record<TabId, {
     stages: [
       { n: "01", t: "Process & Data Discovery", d: "Mapping of financial, inventory, and order processes; inventory of data sources, volumes, and quality issues." },
       { n: "02", t: "Solution Design", d: "Chart of accounts, entity structure, workflows, and reporting design matched to the client's operating model." },
-      { n: "03", t: "Data Migration", d: "Staged migration with validation checkpoints at every stage — the discipline behind Stralynn's documented 42TB/90-day migration and 800GB cloud cutover with sub-10% error rates." },
+      { n: "03", t: "Data Migration", d: "Staged migration with validation checkpoints at every stage — the discipline behind Stralynn's documented 42 TB/90 day migration and 800 GB cloud cutover with sub-10% error rates." },
       { n: "04", t: "Integration & Cutover", d: "Connections to CRM, e-commerce, and banking systems; rehearsed cutover plan with rollback criteria." },
       { n: "05", t: "Optimize", d: "Post-go-live monitoring, close-cycle tuning, and report refinement against baseline metrics." },
     ],
@@ -112,7 +112,7 @@ const faqs = [
   },
   {
     q: "How long does an enterprise implementation take?",
-    a: "Timelines depend on scope, but defined-scope deployments can be structured as 90-day Digital Capsules, and documented cutovers have completed within 90-day windows.",
+    a: "Timelines depend on scope, but defined-scope deployments can be structured as 90 day Digital Capsules, and documented cutovers have completed within 90 day windows.",
   },
   {
     q: "Does Stralynn provide training?",
@@ -129,8 +129,8 @@ function Page() {
     <>
       <PageHeader
         eyebrow="Professional Services"
-        title={<>Enterprise Platform <span className="font-editorial italic">Implementation Services.</span></>}
-        description="Stralynn Consulting Services implements and optimizes Salesforce, ERP (including NetSuite), and Certinia platforms for enterprises and government agencies — from current-state assessment through data migration, cutover, and post-go-live optimization."
+        title={<>Enterprise Platform <span className="font-editorial italic">Implementation Services</span></>}
+        description="Stralynn Consulting Services implements and optimizes Salesforce, ERP (including NetSuite), and Certinia platforms for enterprises and government agencies from current state assessment through data migration, cutover, and post go live optimization."
         video="https://videos.pexels.com/video-files/7773543/7773543-hd_1920_1080_30fps.mp4"
         poster="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=80"
       >
@@ -266,7 +266,7 @@ function Page() {
             <div>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Common FAQ</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Questions before <span className="font-editorial italic">kickoff.</span>
+                Questions before <span className="font-editorial italic">kickoff</span>
               </h2>
             </div>
           </Reveal>

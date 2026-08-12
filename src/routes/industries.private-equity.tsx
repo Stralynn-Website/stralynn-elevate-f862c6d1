@@ -95,9 +95,9 @@ const metrics = [
     l: "Complete enterprise platform cutover and system consolidation finalized with zero operational data loss.",
   },
   {
-    kpi: "42TB",
+    kpi: "42 TB",
     t: "Carve-Out Data Separation",
-    l: "Core data assets successfully isolated, migrated, and validated within a compressed 90-day integration window.",
+    l: "Core data assets successfully isolated, migrated, and validated within a compressed 90 day integration window.",
   },
   {
     kpi: "100%",
@@ -113,10 +113,10 @@ const caseStudies = [
   },
   {
     t: "Carve-Out Infrastructure Isolation Brief",
-    d: "Discover how our engineering team separated legacy IT infrastructure and migrated 42TB of mission-critical data for an enterprise carve-out with zero operational downtime.",
+    d: "Discover how our engineering team separated legacy IT infrastructure and migrated 42 TB of mission-critical data for an enterprise carve-out with zero operational downtime.",
   },
   {
-    t: "Post-Acquisition Technical Due Diligence Framework",
+    t: "Post Acquisition Technical Due Diligence Framework",
     d: "Examine the exact risk evaluation criteria used by PE Operating Partners to identify tech debt and lock in EBITDA synergies pre-close.",
   },
 ];
@@ -143,11 +143,11 @@ function Page() {
         eyebrow="Industries — Private Equity"
         title={
           <>
-            Post-acquisition EBITDA expansion and{" "}
-            <span className="font-editorial italic">100-day IT integration.</span>
+            Post acquisition EBITDA expansion and{" "}
+            <span className="font-editorial italic">100 day IT integration</span>
           </>
         }
-        description="Stralynn executes rapid M&A technical due diligence, carve-out data isolation, and enterprise platform consolidations across portfolio companies to accelerate value creation without operational downtime."
+        description="Stralynn executes rapid M&A technical due diligence, carve out data isolation, and enterprise platform consolidations across portfolio companies to accelerate value creation without operational downtime."
         image="https://images.unsplash.com/photo-1554260570-9140fd3b7614?auto=format&fit=crop&w=1800&q=80"
       >
         <div className="flex flex-wrap items-center gap-4">
@@ -181,7 +181,7 @@ function Page() {
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Private equity IT modernization and{" "}
-                <span className="font-editorial italic">portfolio value creation.</span>
+                <span className="font-editorial italic">portfolio value creation</span>
               </h2>
             </div>
           </Reveal>
@@ -215,7 +215,7 @@ function Page() {
                   In focus
                 </div>
                 <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight">
-                  Protect deal velocity while eliminating post-acquisition risk.
+                  Protect deal velocity while eliminating post-acquisition risk
                 </h2>
               </div>
             </div>
@@ -234,7 +234,7 @@ function Page() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
               Specialized private equity technical capabilities and{" "}
-              <span className="font-editorial italic">service tracks.</span>
+              <span className="font-editorial italic">service tracks</span>
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -317,7 +317,7 @@ function Page() {
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Methodological governance and{" "}
-                <span className="font-editorial italic">private equity board oversight.</span>
+                <span className="font-editorial italic">private equity board oversight</span>
               </h2>
               <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
                 Stralynn's private equity practice operates under the strategic leadership of Alpna
@@ -348,7 +348,7 @@ function Page() {
               </blockquote>
               <figcaption className="mt-8 text-sm text-muted-foreground">
                 <span className="block font-semibold text-foreground">Alpna J. Doshi, NACD.DC</span>
-                Founder, CEO &amp; Board Chairwoman (Former Thoma Bravo Operating Partner Alumna)
+                Founder CEO &amp; Board Chairwoman (Former Thoma Bravo Operating Partner Alumna)
               </figcaption>
             </figure>
           </Reveal>
@@ -360,7 +360,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-              Initiate a private equity strategic consultation.
+              Initiate a private equity strategic consultation
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Stralynn provides direct engagement pathways tailored to active deal timelines, due

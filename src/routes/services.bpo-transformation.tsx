@@ -45,8 +45,8 @@ function Page() {
     <>
       <PageHeader
         eyebrow="Professional Services"
-        title={<>BPO Transformation <span className="font-editorial italic">Services.</span></>}
-        description="Stralynn Consulting Services modernizes business process outsourcing operations by embedding AI agents, intelligent document processing, and workflow automation into outsourced processes — reducing manual effort while raising accuracy and auditability."
+        title={<>BPO Transformation <span className="font-editorial italic">Services</span></>}
+        description="Stralynn Consulting Services modernizes business process outsourcing operations by embedding AI agents, intelligent document processing, and workflow automation into outsourced processes reducing manual effort while raising accuracy and auditability."
         video="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4"
       >
         <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
@@ -76,7 +76,7 @@ function Page() {
             <Reveal>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Service scope</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                What Stralynn's BPO transformation <span className="font-editorial italic">includes.</span>
+                What Stralynn's BPO transformation <span className="font-editorial italic">includes</span>
               </h2>
             </Reveal>
           </div>
@@ -103,7 +103,7 @@ function Page() {
             <div>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Outcomes</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                What changes after a <span className="font-editorial italic">BPO transformation.</span>
+                What changes after a <span className="font-editorial italic">BPO transformation</span>
               </h2>
             </div>
           </Reveal>
@@ -130,7 +130,7 @@ function Page() {
             <Reveal>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Why Stralynn</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Why choose Stralynn for <span className="font-editorial italic">BPO transformation.</span>
+                Why choose Stralynn for <span className="font-editorial italic">BPO transformation</span>
               </h2>
             </Reveal>
           </div>
@@ -153,7 +153,7 @@ function Page() {
           <Reveal>
             <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">FAQ</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight mb-12">
-              Common <span className="font-editorial italic">questions.</span>
+              Common <span className="font-editorial italic">questions</span>
             </h2>
           </Reveal>
           <Stagger className="space-y-4">
@@ -174,7 +174,7 @@ function Page() {
         <div className="container-x max-w-4xl text-center">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-              Assess your BPO <span className="font-editorial italic">automation potential.</span>
+              Assess your BPO <span className="font-editorial italic">automation potential</span>
             </h2>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" className="group inline-flex items-center justify-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">

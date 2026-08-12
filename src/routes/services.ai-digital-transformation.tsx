@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/ai-digital-transformation")({
       { title: "AI Transformation Services for the Enterprise — Stralynn" },
       { name: "description", content: "Stralynn designs and deploys enterprise AI transformations — StraAI agents, workflow automation, and LLM integration — for Fortune 500s, mid-market, PE portfolios, and government." },
       { property: "og:title", content: "AI Transformation Services for the Enterprise — Stralynn" },
-      { property: "og:description", content: "StraAI agents, StraL2C, and StraBoard delivered through the STRABASE methodology and 90-day Digital Capsules." },
+      { property: "og:description", content: "StraAI agents, StraL2C, and StraBoard delivered through the STRABASE methodology and 90 day Digital Capsules." },
     ],
   }),
   component: Page,
@@ -58,7 +58,7 @@ const proof = [
 
 const faqs = [
   { q: "What is a StraAI agent?", a: "A StraAI agent is an autonomous, AI-driven software entity designed to perceive, learn, and act within a business environment — orchestrating complex processes and adapting in real time, unlike static rule-based automation." },
-  { q: "How long does an AI transformation take?", a: "Defined-scope deployments can be structured as 90-day Digital Capsules; broader multi-process transformations are phased across the five workstreams with documented milestones." },
+  { q: "How long does an AI transformation take?", a: "Defined-scope deployments can be structured as 90 day Digital Capsules; broader multi-process transformations are phased across the five workstreams with documented milestones." },
   { q: "Does Stralynn's AI work with our existing systems?", a: "Yes. StraAI agents and LLM layers integrate with existing Salesforce, NetSuite, Certinia, and ERP environments rather than requiring platform replacement." },
 ];
 
@@ -67,8 +67,8 @@ function Page() {
     <>
       <PageHeader
         eyebrow="Professional Services"
-        title={<>AI Transformation Services <span className="font-editorial italic">for the enterprise.</span></>}
-        description="Stralynn Consulting Services designs and deploys enterprise AI transformations — including StraAI agents, workflow automation, and language model integration — for Fortune 500 companies, mid-market enterprises, private equity portfolio companies, and government agencies."
+        title={<>AI Transformation Services <span className="font-editorial italic">for the enterprise</span></>}
+        description="Stralynn Consulting Services designs and deploys enterprise AI transformations including StraAI agents, workflow automation, and language model integration for Fortune 500 companies, mid-market enterprises, private equity portfolio companies, and government agencies."
         video="https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4"
       >
         <div className="flex flex-wrap gap-4">
@@ -102,11 +102,11 @@ function Page() {
           <div className="max-w-3xl mb-14">
             <Reveal>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Service scope & delivery</div>
-              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">Five workstreams, delivered in sequence.</h2>
+              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">Five workstreams, delivered in sequence</h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                Engagements run on the STRABASE methodology — Stralynn's benefits-driven delivery framework that builds toward self-sufficient automation rather than open-ended consulting dependency. Defined-scope initiatives can be structured as 90-day Digital Capsules for rapid solution turn-up.
+                Engagements run on the STRABASE methodology — Stralynn's benefits-driven delivery framework that builds toward self-sufficient automation rather than open-ended consulting dependency. Defined-scope initiatives can be structured as 90 day Digital Capsules for rapid solution turn-up.
               </p>
             </Reveal>
           </div>
@@ -132,7 +132,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Use cases</div>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">Where enterprises apply Stralynn's AI agents.</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">Where enterprises apply Stralynn's AI agents</h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 gap-5">
             {useCases.map((u) => (
@@ -177,7 +177,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">FAQ</div>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Common questions.</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Common questions</h2>
           </Reveal>
           <div className="mt-14 max-w-3xl space-y-6">
             {faqs.map((f) => (
@@ -197,8 +197,8 @@ function Page() {
         <div className="container-x">
           <div className="relative overflow-hidden rounded-3xl gradient-hero p-10 md:p-14 text-cream">
             <div className="max-w-2xl">
-              <h3 className="font-display text-3xl md:text-4xl font-semibold">Scope your AI transformation.</h3>
-              <p className="mt-4 text-cream/80 leading-relaxed">Two intake paths depending on how you buy.</p>
+              <h3 className="font-display text-3xl md:text-4xl font-semibold">Scope your AI transformation</h3>
+              <p className="mt-4 text-cream/80 leading-relaxed">Two intake paths depending on how you buy</p>
             </div>
             <div className="mt-8 grid md:grid-cols-2 gap-4">
               <Link to="/contact" className="group inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold">

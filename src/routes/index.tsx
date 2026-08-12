@@ -83,8 +83,8 @@ const industries = [
 ];
 
 const stats = [
-  { kpi: "42TB", label: "Core data assets successfully migrated and validated within a compressed 90-day window" },
-  { kpi: "800GB", label: "Multi-cloud database transition executed with total schema integrity and zero business disruption" },
+  { kpi: "42 TB", label: "Core data assets successfully migrated and validated within a compressed 90 day window" },
+  { kpi: "800 GB", label: "Multi-cloud database transition executed with total schema integrity and zero business disruption" },
   { kpi: "90 Days", label: "Complete enterprise content platform cutover finalized post-close with zero operational data loss" },
 ];
 
@@ -122,7 +122,7 @@ function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="mt-8 font-display text-5xl md:text-7xl lg:text-[88px] font-semibold leading-[0.98] tracking-tight max-w-5xl">
-              Enterprise <span className="font-editorial italic gradient-accent-text">AI Transformation.</span>
+              Enterprise <span className="font-editorial italic gradient-accent-text">AI Transformation</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
@@ -181,12 +181,12 @@ function Home() {
             <div>
               <Reveal>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15]">
-                  Stralynn Consulting Services is an enterprise technology consultancy that delivers <span className="font-editorial italic text-azure">AI transformation, M&A technical due diligence, and ERP and Salesforce implementations</span> for private equity, healthcare, financial services, and public sector organizations.
+                  Stralynn Consulting Services is an enterprise technology consultancy that delivers <span className="font-editorial italic text-azure">AI transformation, M&A technical due diligence, and ERP and Salesforce implementations</span> for private equity, healthcare, financial services, and public sector organizations
                 </h2>
               </Reveal>
               <Reveal delay={0.15}>
                 <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                  We move fast, protect data integrity, and deliver at scale — without the risk of a slow, generic transformation partner.
+                  We move fast, protect data integrity, and deliver at scale without the risk of a slow, generic transformation partner.
                 </p>
               </Reveal>
             </div>
@@ -204,7 +204,7 @@ function Home() {
                 <ShieldCheck className="h-3.5 w-3.5 text-cyan-glow" /> Leadership
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Executive leadership & <span className="font-editorial italic gradient-accent-text">methodological governance.</span>
+                Executive leadership & <span className="font-editorial italic gradient-accent-text">methodological governance</span>
               </h2>
               <ul className="mt-8 space-y-3">
                 {leadershipSignals.map((s) => (
@@ -219,7 +219,7 @@ function Home() {
           <div className="space-y-8">
             <Reveal>
               <p className="text-lg text-cream/80 leading-relaxed">
-                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder, CEO, and Board Chairwoman. A former Fortune 500 Group CIO at Royal Philips and Reliance Group, an alumna Operating Partner at Thoma Bravo, and a former board director at Mimecast, Alpna brings proven enterprise scale, board-level governance, and transaction execution experience to every Stralynn engagement.
+                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder CEO, and Board Chairwoman. A former Fortune 500 Group CIO at Royal Philips and Reliance Group, an alumna Operating Partner at Thoma Bravo, and a former board director at Mimecast, Alpna brings proven enterprise scale, board-level governance, and transaction execution experience to every Stralynn engagement.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -233,7 +233,7 @@ function Home() {
                   “In high-stakes enterprise transformation, speed without governance creates unacceptable risk. We engineer resilient technical architectures that allow boardrooms, private equity partners, and government leadership to execute complex modernizations with total confidence.”
                 </p>
                 <footer className="mt-6 text-sm text-cyan-glow">
-                  Alpna J. Doshi, NACD.DC — Founder, CEO & Board Chairwoman
+                  Alpna J. Doshi, NACD.DC — Founder CEO & Board Chairwoman
                 </footer>
               </blockquote>
             </Reveal>
@@ -247,12 +247,12 @@ function Home() {
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-end mb-16">
             <Reveal>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Documented scale metrics <span className="font-editorial italic text-azure">& operational outcomes.</span>
+                Documented scale metrics <span className="font-editorial italic text-azure">& operational outcomes</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Stralynn tracks precise operational milestones across data integrity, migration velocity, and post-acquisition system integration — to eliminate delivery risk.
+                Stralynn tracks precise operational milestones across data integrity, migration velocity, and post-acquisition system integration to eliminate delivery risk.
               </p>
             </Reveal>
           </div>
@@ -275,10 +275,10 @@ function Home() {
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-                  Enterprise technical consulting services & <span className="font-editorial italic text-azure">value delivery.</span>
+                  Enterprise technical consulting services & <span className="font-editorial italic text-azure">value delivery</span>
                 </h2>
                 <p className="mt-5 text-muted-foreground max-w-2xl leading-relaxed">
-                  Stralynn delivers specialized IT consulting services engineered to modernize core enterprise systems, eliminate integration risk, and deploy high-margin AI automation workflows.
+                  Stralynn delivers specialized IT consulting services engineered to modernize core enterprise systems, eliminate integration risk, and deploy high margin AI automation workflows.
                 </p>
               </div>
             </Reveal>
@@ -322,10 +322,10 @@ function Home() {
             <div className="lg:sticky lg:top-32">
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Industries</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Vertical IT consulting capabilities & <span className="font-editorial italic">sector boundaries</span>.
+                Vertical IT consulting capabilities & <span className="font-editorial italic">sector boundaries</span>
               </h2>
               <p className="mt-5 text-muted-foreground leading-relaxed">
-                Stralynn aligns enterprise technology implementations with industry-specific regulatory standards and operational business models across five distinct sectors.
+                Stralynn aligns enterprise technology implementations with industry specific regulatory standards and operational business models across five distinct sectors.
               </p>
             </div>
           </Reveal>
@@ -360,7 +360,7 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Initiate a strategic engagement <span className="font-editorial italic">or consultation.</span>
+                Initiate a strategic engagement <span className="font-editorial italic">or consultation</span>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
@@ -379,7 +379,7 @@ function Home() {
                     <CalendarCheck className="h-3.5 w-3.5" /> Commercial & Private Equity
                   </div>
                   <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                    Schedule a 30-minute strategic consultation.
+                    Schedule a 30 minute strategic consultation
                   </h3>
                   <p className="mt-4 text-cream/75 max-w-md">
                     Review active M&A integration deadlines, Salesforce deployments, or ERP cutover schedules with a senior partner.
@@ -397,7 +397,7 @@ function Home() {
                   <ClipboardCheck className="h-3.5 w-3.5" /> Public Sector Procurement
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                  Public sector procurement pathway.
+                  Public sector procurement pathway
                 </h3>
                 <p className="mt-4 text-muted-foreground max-w-md">
                   Access Stralynn's official Capability Statement, request a technical security briefing, or submit an agency RFI/RFP requirement.
@@ -425,7 +425,7 @@ const insights = [
   {
     icon: Database,
     tag: "Technical Brief",
-    title: "42TB Infrastructure Migration",
+    title: "42 TB Infrastructure Migration",
     desc: "Technical timeline data, scale metrics, and validation methodologies used to move core enterprise assets in 90 days.",
   },
   {
@@ -437,7 +437,7 @@ const insights = [
   {
     icon: Server,
     tag: "Cutover Playbook",
-    title: "800GB Cloud Database Cutover",
+    title: "800 GB Cloud Database Cutover",
     desc: "Structural cloud deployment completed with documented sub-10% error rates and validated rollback checkpoints.",
   },
 ];
@@ -457,13 +457,13 @@ function InsightsSection() {
                 Insights
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Verified case studies & <span className="font-editorial italic gradient-accent-text">evidence-rich technical material.</span>
+                Verified case studies & <span className="font-editorial italic gradient-accent-text">evidence-rich technical material</span>
               </h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-lg text-cream/75 leading-relaxed">
-              Documented case studies, structured technical briefs, and source material demonstrating past engineering performance across regulated and high-stakes environments.
+              Documented case studies, structured technical briefs, and source material demonstrating past engineering performance across regulated and high stakes environments.
             </p>
           </Reveal>
         </div>

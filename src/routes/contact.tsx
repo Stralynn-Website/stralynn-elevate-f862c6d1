@@ -61,8 +61,8 @@ function Contact() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title={<>Tell us what you're <span className="font-editorial italic">building.</span></>}
-        description="One of our partners will reply within one business day. No SDR funnels — just the people who'd do the work."
+        title={<>Tell us what you're <span className="font-editorial italic">building</span></>}
+        description="One of our partners will reply within one business day. No SDR funnels just the people who'd do the work."
         image="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
       />
 
@@ -72,11 +72,11 @@ function Contact() {
             <div className="space-y-10">
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Reach us</div>
-                <h2 className="font-display text-3xl font-semibold leading-tight">Two ways to start a conversation.</h2>
+                <h2 className="font-display text-3xl font-semibold leading-tight">Two ways to start a conversation</h2>
               </div>
               {[
                 { icon: Mail, t: "Email", d: "connect@stralynn.com" },
-                { icon: MapPin, t: "LOCATIONS", d: "USA · Canada· India" },
+                { icon: MapPin, t: "LOCATIONS", d: "USA · Canada · India" },
               ].map((c) => (
                 <div key={c.t} className="flex items-start gap-4">
                   <div className="h-11 w-11 rounded-xl bg-secondary grid place-items-center shrink-0">

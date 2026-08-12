@@ -27,7 +27,7 @@ type Leader = { name: string; role: string; img: string; desc: string };
 const leaders: Leader[] = [
   {
     name: "Alpna J. Doshi, NACD.DC",
-    role: "Founder, CEO & Board Chairwoman",
+    role: "Founder CEO & Board Chairwoman",
     img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
     desc: "Alpna is an Independent Board Director for Public, Private, and Non-Profit organizations.",
   },
@@ -57,8 +57,8 @@ function AboutPage() {
     <>
       <PageHeader
         eyebrow="About Stralynn"
-        title={<>A firm built for the <span className="font-editorial italic">AI era.</span></>}
-        description="We started Stralynn because the consulting model is overdue for a rewrite. Strategy and engineering belong on the same team — and we wanted to work that way."
+        title={<>A firm built for the <span className="font-editorial italic">AI era</span></>}
+        description="We started Stralynn because the consulting model is overdue for a rewrite. Strategy and engineering belong on the same team and we wanted to work that way."
         video="https://videos.pexels.com/video-files/4763824/4763824-hd_1920_1080_24fps.mp4"
         poster="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80"
       />
@@ -68,16 +68,16 @@ function AboutPage() {
           <Reveal>
             <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Our story</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-              Founded by operators who have <span className="font-editorial italic">been on the other side</span>.
+              Founded by operators who have <span className="font-editorial italic">been on the other side</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                Our team comes from the boardrooms of global enterprises and the engineering benches of category-defining startups. We've sold companies, scaled platforms, rebuilt operating models — and we've hired consultants who couldn't keep up with any of it.
+                Our team comes from the boardrooms of global enterprises and the engineering benches of category-defining startups. We've sold companies, scaled platforms, rebuilt operating models and we've hired consultants who couldn't keep up with any of it.
               </p>
               <p>
-                Stralynn exists to be the firm we wished we could call. Senior, technical, opinionated. In the room when the bets are made — and in the build when they get shipped.
+                Stralynn exists to be the firm we wished we could call. Senior, technical, opinionated. In the room when the bets are made and in the build when they get shipped.
               </p>
             </div>
           </Reveal>
@@ -88,7 +88,7 @@ function AboutPage() {
         <div className="container-x">
           <Reveal><div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Our values</div></Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Four convictions we don't compromise on.</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Four convictions we don't compromise on</h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v) => (
@@ -110,7 +110,7 @@ function AboutPage() {
         <div className="container-x">
           <Reveal><div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Leadership</div></Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl mb-14">The partners you'll meet.</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl mb-14">The partners you'll meet</h2>
           </Reveal>
           <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {leaders.map((l) => (

@@ -89,7 +89,7 @@ function InsightsPage() {
     <>
       <PageHeader
         eyebrow="Insights"
-        title={<>Field notes from the <span className="font-editorial italic">front lines.</span></>}
+        title={<>Field notes from the <span className="font-editorial italic">front lines</span></>}
         description="Research, frameworks and points of view from the partners and practitioners building inside our clients."
         image="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1800&q=80"
       />
@@ -187,7 +187,7 @@ function InsightsPage() {
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-cream/70 mb-4">The Stralynn Brief</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.05] max-w-2xl">
-                  Monthly notes from the field. <span className="font-editorial italic">No fluff.</span>
+                  Monthly notes from the field - <span className="font-editorial italic">No fluff.</span>
                 </h2>
               </div>
               <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3">

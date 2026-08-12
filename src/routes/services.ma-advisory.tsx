@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/ma-advisory")({
       { title: "M&A Technology Due Diligence and Integration — Stralynn" },
       { name: "description", content: "Technology due diligence, carve-out data separation, and post-acquisition system integration for private equity firms and corporate acquirers — executing 100-day plans." },
       { property: "og:title", content: "M&A Technology Due Diligence and Integration — Stralynn" },
-      { property: "og:description", content: "Diligence and integration as one continuous engagement — 42TB migrated, 90-day ERP cutover, zero operational data loss." },
+      { property: "og:description", content: "Diligence and integration as one continuous engagement — 42 TB migrated, 90 day ERP cutover, zero operational data loss." },
     ],
   }),
   component: Page,
@@ -30,7 +30,7 @@ const buyers = [
 
 const proof = [
   { t: "Diligence-to-delivery continuity", d: "The team that assesses the target executes the integration — no advisory/delivery handoff risk." },
-  { t: "Scale record", d: "Documented large-scale migration and cutover benchmarks — 42TB migrated and validated in a compressed 90-day window." },
+  { t: "Scale record", d: "Documented large-scale migration and cutover benchmarks — 42 TB migrated and validated in a compressed 90 day window." },
   { t: "Cross-platform depth", d: "Certified implementation capability across Salesforce, NetSuite, and Certinia — the platforms most frequently consolidated post-close." },
 ];
 
@@ -45,8 +45,8 @@ function Page() {
     <>
       <PageHeader
         eyebrow="Professional Services"
-        title={<>M&A technology due diligence <span className="font-editorial italic">and integration.</span></>}
-        description="Stralynn Consulting Services provides technology due diligence, carve-out data separation, and post-acquisition system integration for private equity firms and corporate acquirers — executing 100-day plans that protect data integrity through close and beyond."
+        title={<>M&A technology due diligence <span className="font-editorial italic">and integration</span></>}
+        description="Stralynn Consulting Services provides technology due diligence, carve-out data separation, and post-acquisition system integration for private equity firms and corporate acquirers executing 100 day plans that protect data integrity through close and beyond."
         video="https://videos.pexels.com/video-files/6774633/6774633-hd_1920_1080_30fps.mp4"
       >
         <div className="flex flex-wrap gap-4">
@@ -81,7 +81,7 @@ function Page() {
             <Reveal>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Service scope</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Four deal stages, one <span className="font-editorial italic">continuous team.</span>
+                Four deal stages, one <span className="font-editorial italic">continuous team</span>
               </h2>
             </Reveal>
           </div>
@@ -107,7 +107,7 @@ function Page() {
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12">
             <Reveal>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Delivery model</div>
-              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">How Stralynn executes post-acquisition integration.</h2>
+              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">How Stralynn executes post-acquisition integration</h2>
             </Reveal>
             <Reveal delay={0.1}>
               <div>
@@ -120,8 +120,8 @@ function Page() {
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Complete ERP platform cutover finalized post-close with zero operational data loss.</p>
                   </div>
                   <div className="p-7 rounded-2xl border border-border bg-card">
-                    <div className="font-display text-4xl font-semibold gradient-accent-text">42TB</div>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Core data assets migrated and validated within a compressed 90-day window.</p>
+                    <div className="font-display text-4xl font-semibold gradient-accent-text">42 TB</div>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">Core data assets migrated and validated within a compressed 90 day window.</p>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Who we serve</div>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Who uses Stralynn for M&A work.</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Who uses Stralynn for M&A work</h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-3 gap-5">
             {buyers.map((b) => (
@@ -157,7 +157,7 @@ function Page() {
             <div>
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Why Stralynn</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Operators, not <span className="font-editorial italic">spectators.</span>
+                Operators, not <span className="font-editorial italic">spectators</span>
               </h2>
             </div>
           </Reveal>
@@ -182,7 +182,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">FAQ</div>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Common questions.</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Common questions</h2>
           </Reveal>
           <div className="mt-14 max-w-3xl space-y-6">
             {faqs.map((f) => (
@@ -202,7 +202,7 @@ function Page() {
         <div className="container-x">
           <div className="relative overflow-hidden rounded-3xl gradient-hero p-10 md:p-14 text-cream">
             <div className="max-w-2xl">
-              <h3 className="font-display text-3xl md:text-4xl font-semibold">Align Stralynn to your deal timeline.</h3>
+              <h3 className="font-display text-3xl md:text-4xl font-semibold">Align Stralynn to your deal timeline</h3>
             </div>
             <div className="mt-8 grid md:grid-cols-2 gap-4">
               <Link to="/contact" className="inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold">

@@ -93,12 +93,12 @@ const capabilities = [
 
 const metrics = [
   {
-    kpi: "42TB",
+    kpi: "42 TB",
     t: "Enterprise Data Migration",
     l: "Core infrastructure assets and complex databases successfully migrated and validated within 90 days.",
   },
   {
-    kpi: "800GB",
+    kpi: "800 GB",
     t: "Cloud Database Cutover",
     l: "Multi-cloud database transition executed with verified 100% record accuracy and zero business disruption.",
   },
@@ -111,8 +111,8 @@ const metrics = [
 
 const caseStudies = [
   {
-    t: "42TB Infrastructure Migration Brief",
-    d: "Discover the technical validation methodologies and scale metrics used to execute a 42TB multi-cloud infrastructure migration in 90 days.",
+    t: "42 TB Infrastructure Migration Brief",
+    d: "Discover the technical validation methodologies and scale metrics used to execute a 42 TB multi-cloud infrastructure migration in 90 days.",
   },
   {
     t: "Enterprise Platform Consolidation Brief",
@@ -148,11 +148,11 @@ function Page() {
           <>
             Scalable cloud architecture and{" "}
             <span className="font-editorial italic">
-              AI-driven enterprise platform optimization.
+              AI driven enterprise platform optimization
             </span>
           </>
         }
-        description="Stralynn engineers high-velocity cloud infrastructures, custom enterprise AI workflows, and unified Salesforce and ERP implementations to eliminate architecture bottlenecks and increase enterprise speed-to-market."
+        description="Stralynn engineers high velocity cloud infrastructures, custom enterprise AI workflows, and unified Salesforce and ERP implementations to eliminate architecture bottlenecks and increase enterprise speed to market."
         video="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4"
         poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
       >
@@ -187,7 +187,7 @@ function Page() {
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Technology sector IT modernization and{" "}
-                <span className="font-editorial italic">cloud architecture.</span>
+                <span className="font-editorial italic">cloud architecture</span>
               </h2>
             </div>
           </Reveal>
@@ -221,7 +221,7 @@ function Page() {
                   In focus
                 </div>
                 <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight">
-                  Ship faster without trading away architectural resilience.
+                  Ship faster without trading away architectural resilience
                 </h2>
               </div>
             </div>
@@ -240,7 +240,7 @@ function Page() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
               Specialized technology capabilities and{" "}
-              <span className="font-editorial italic">service tracks.</span>
+              <span className="font-editorial italic">service tracks</span>
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -273,7 +273,7 @@ function Page() {
               Industry insights
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold max-w-3xl leading-tight">
-              Documented scale metrics and proven technology performance.
+              Documented scale metrics and proven technology performance
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-3 gap-px bg-cream/10 rounded-2xl overflow-hidden">
@@ -323,7 +323,7 @@ function Page() {
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Methodological governance and{" "}
-                <span className="font-editorial italic">technology industry leadership.</span>
+                <span className="font-editorial italic">technology industry leadership</span>
               </h2>
               <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
                 Stralynn's technology sector practice operates under the strategic leadership of
@@ -356,7 +356,7 @@ function Page() {
               </blockquote>
               <figcaption className="mt-8 text-sm text-muted-foreground">
                 <span className="block font-semibold text-foreground">Alpna J. Doshi, NACD.DC</span>
-                Founder, CEO &amp; Board Chairwoman
+                Founder CEO &amp; Board Chairwoman
               </figcaption>
             </figure>
           </Reveal>
@@ -368,7 +368,7 @@ function Page() {
         <div className="container-x">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-              Initiate a technology sector strategic consultation.
+              Initiate a technology sector strategic consultation
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Stralynn provides direct engagement pathways tailored to technology modernization

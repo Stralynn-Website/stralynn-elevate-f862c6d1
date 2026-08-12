@@ -100,7 +100,7 @@ const metrics = [
     l: "Documented track record across government system modernizations.",
   },
   {
-    kpi: "42TB",
+    kpi: "42 TB",
     t: "Legacy Migration",
     l: "Mission-critical public records migrated and validated within legislative mandate timelines.",
   },
@@ -108,7 +108,7 @@ const metrics = [
 
 const caseStudies = [
   {
-    t: "42TB Government Infrastructure Migration Brief",
+    t: "42 TB Government Infrastructure Migration Brief",
     d: "Review the compliance controls, technical validation methodologies, and scale metrics used to move legacy public records safely.",
   },
   {
@@ -139,8 +139,8 @@ function Page() {
         eyebrow="Industries — Public Sector"
         title={
           <>
-            Next-gen public sector portal development and{" "}
-            <span className="font-editorial italic">risk-mitigated legacy modernization.</span>
+            Next gen public sector portal development and{" "}
+            <span className="font-editorial italic">risk mitigated legacy modernization</span>
           </>
         }
         description="Stralynn executes compliant government portal modernizations, legacy mainframe migrations, and secure cloud architectures fully aligned with FISMA, FedRAMP, and NIST 800-53 security controls."
@@ -178,7 +178,7 @@ function Page() {
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Public sector IT modernization and{" "}
-                <span className="font-editorial italic">digital portal development.</span>
+                <span className="font-editorial italic">digital portal development</span>
               </h2>
             </div>
           </Reveal>
@@ -212,7 +212,7 @@ function Page() {
                   In focus
                 </div>
                 <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight">
-                  Modernize public infrastructure without introducing procurement risk.
+                  Modernize public infrastructure without introducing procurement risk
                 </h2>
               </div>
             </div>
@@ -231,7 +231,7 @@ function Page() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
               Specialized public sector technical capabilities and{" "}
-              <span className="font-editorial italic">compliance frameworks.</span>
+              <span className="font-editorial italic">compliance frameworks</span>
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -264,7 +264,7 @@ function Page() {
               Industry insights
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold max-w-3xl leading-tight">
-              Documented scale metrics and proven public sector performance.
+              Documented scale metrics and proven public sector performance
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-3 gap-px bg-cream/10 rounded-2xl overflow-hidden">
@@ -314,7 +314,7 @@ function Page() {
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Methodological governance and{" "}
-                <span className="font-editorial italic">public sector oversight.</span>
+                <span className="font-editorial italic">public sector oversight</span>
               </h2>
               <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
                 Stralynn's public sector technology practice operates under the strategic leadership
@@ -349,7 +349,7 @@ function Page() {
               </blockquote>
               <figcaption className="mt-8 text-sm text-muted-foreground">
                 <span className="block font-semibold text-foreground">Alpna J. Doshi, NACD.DC</span>
-                Founder, CEO &amp; Board Chairwoman
+                Founder CEO &amp; Board Chairwoman
               </figcaption>
             </figure>
           </Reveal>

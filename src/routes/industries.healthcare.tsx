@@ -49,7 +49,7 @@ const platforms = [
 const capabilities = [
   {
     icon: ShieldCheck,
-    track: "HIPAA-Compliant Cloud Infrastructure & Migration",
+    track: "HIPAA Compliant Cloud Infrastructure & Migration",
     scope:
       "Executing zero-downtime multi-cloud migrations, secure data lake construction, and HIPAA/HITRUST-aligned cloud architectures.",
     impact:
@@ -91,9 +91,9 @@ const capabilities = [
 
 const metrics = [
   {
-    kpi: "42TB",
+    kpi: "42 TB",
     t: "Enterprise Data Migration",
-    l: "Mission-critical health data assets successfully migrated and validated within a compressed 90-day execution window.",
+    l: "Mission-critical health data assets successfully migrated and validated within a compressed 90 day execution window.",
   },
   {
     kpi: "100%",
@@ -113,8 +113,8 @@ const caseStudies = [
     d: "Read how Stralynn's leadership spearheaded the digital modernization of a global health leader, harnessing cloud, AI, and machine learning to advance care outcomes at sustainable cost.",
   },
   {
-    t: "42TB Health Infrastructure Migration Brief",
-    d: "Discover the exact technical validation methodologies and timeline parameters used to migrate 42TB of core data assets in 90 days.",
+    t: "42 TB Health Infrastructure Migration Brief",
+    d: "Discover the exact technical validation methodologies and timeline parameters used to migrate 42 TB of core data assets in 90 days.",
   },
   {
     t: "EHR Interoperability & Data Integrity Case Study",
@@ -144,8 +144,8 @@ function Healthcare() {
         eyebrow="Industries — Healthcare"
         title={
           <>
-            Zero-downtime healthcare infrastructure and{" "}
-            <span className="font-editorial italic">HIPAA-compliant AI automation.</span>
+            Zero downtime healthcare infrastructure and{" "}
+            <span className="font-editorial italic">HIPAA compliant AI automation</span>
           </>
         }
         description="Stralynn engineers resilient healthcare IT architectures, secure data integrations, and enterprise AI workflow automation to protect patient data integrity and scale clinical operations without service disruption."
@@ -182,7 +182,7 @@ function Healthcare() {
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Healthcare IT modernization and{" "}
-                <span className="font-editorial italic">clinical data infrastructure.</span>
+                <span className="font-editorial italic">clinical data infrastructure</span>
               </h2>
             </div>
           </Reveal>
@@ -190,7 +190,7 @@ function Healthcare() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Stralynn Consulting Services delivers specialized IT consulting for healthcare provider
               networks, health technology platforms, and enterprise health organizations, executing
-              resilient cloud migrations, EHR/EMR system integrations, HIPAA-compliant data pipeline
+              resilient cloud migrations, EHR/EMR system integrations, HIPAA compliant data pipeline
               development, and agentic AI workflow automation. By modernizing legacy health
               architectures while maintaining 100% record accuracy and uninterrupted care delivery,
               Stralynn accelerates digital transformation, reduces operational overhead, and supports
@@ -215,7 +215,7 @@ function Healthcare() {
               <div className="absolute bottom-0 left-0 p-8 md:p-12 text-cream max-w-2xl">
                 <div className="text-xs uppercase tracking-[0.25em] text-cyan-glow mb-3">In focus</div>
                 <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight">
-                  Modernize the architecture without interrupting care delivery.
+                  Modernize the architecture without interrupting care delivery
                 </h2>
               </div>
             </div>
@@ -232,7 +232,7 @@ function Healthcare() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
               Specialized healthcare technical capabilities and{" "}
-              <span className="font-editorial italic">service tracks.</span>
+              <span className="font-editorial italic">service tracks</span>
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -265,7 +265,7 @@ function Healthcare() {
               Industry insights
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold max-w-3xl leading-tight">
-              Documented scale metrics and proven healthcare system performance.
+              Documented scale metrics and proven healthcare system performance
             </h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-3 gap-px bg-cream/10 rounded-2xl overflow-hidden">
@@ -313,7 +313,7 @@ function Healthcare() {
               <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Our leadership</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Methodological governance and{" "}
-                <span className="font-editorial italic">global healthcare leadership.</span>
+                <span className="font-editorial italic">global healthcare leadership</span>
               </h2>
               <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
                 Stralynn's healthcare technology practice operates under the strategic leadership of
@@ -321,7 +321,7 @@ function Healthcare() {
                 CIO at Royal Philips. Having led the digital transformation of a 127-year-old global
                 health technology organization and keynoted Google Cloud Next alongside Google CEO
                 Sundar Pichai and Google Cloud CEO Thomas Kurian, Alpna brings proven enterprise
-                governance, clinical risk mitigation, and large-scale execution experience to every
+                governance, clinical risk mitigation, and large scale execution experience to every
                 healthcare engagement.
               </p>
               <ul className="mt-8 space-y-3">
@@ -350,7 +350,7 @@ function Healthcare() {
                 <span className="block font-semibold text-foreground">
                   Alpna J. Doshi, NACD.DC
                 </span>
-                Founder, CEO &amp; Board Chairwoman (Former Group CIO, Royal Philips)
+                Founder CEO &amp; Board Chairwoman (Former Group CIO, Royal Philips)
               </figcaption>
             </figure>
           </Reveal>
@@ -362,7 +362,7 @@ function Healthcare() {
         <div className="container-x">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-              Initiate a healthcare strategic consultation.
+              Initiate a healthcare strategic consultation
             </h2>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Stralynn provides direct engagement pathways tailored to healthcare enterprise
