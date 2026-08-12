@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { Compass, Heart, Sparkles, Users } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
