@@ -48,6 +48,7 @@ function Contact() {
   const [sent, setSent] = useState(false);
   const [attempted, setAttempted] = useState(false);
   const [privacyOk, setPrivacyOk] = useState(false);
+  const [dialCode, setDialCode] = useState("US|+1");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
