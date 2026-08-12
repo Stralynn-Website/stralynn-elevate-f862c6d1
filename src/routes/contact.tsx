@@ -127,7 +127,33 @@ function Contact() {
                       <LabeledInput label="Last Name" name="lastName" required />
                     </div>
                     <LabeledInput label="Email Address" name="email" type="email" required />
-                    <LabeledInput label="Phone Number:" name="phone" type="tel" />
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="block text-sm text-foreground">Phone Number:</label>
+                      <div className="grid grid-cols-[minmax(0,11rem)_1fr] gap-3">
+                        <select
+                          id="countryCode"
+                          name="countryCode"
+                          value={dialCode}
+                          onChange={(e) => setDialCode(e.target.value)}
+                          className="w-full bg-transparent border border-border focus:border-azure outline-none rounded-md px-3 py-3 text-foreground transition-colors"
+                          aria-label="Country code"
+                        >
+                          {COUNTRY_CODES.map((c) => (
+                            <option key={c.iso} value={`${c.iso}|${c.dial}`}>
+                              {c.iso} {c.dial} — {c.name}
+                            </option>
+                          ))}
+                        </select>
+                        <input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          inputMode="tel"
+                          placeholder="Phone number"
+                          className="w-full bg-transparent border border-border focus:border-azure outline-none rounded-md px-4 py-3 text-foreground transition-colors"
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   <div className="space-y-6">
