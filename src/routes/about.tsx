@@ -22,14 +22,37 @@ const values = [
   { icon: Users, t: "Senior at the table", d: "The partners you meet are the partners who build with you." },
 ];
 
-const leaders = [
-  { name: "Aravind Menon", role: "Founder & CEO", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" },
-  { name: "Priya Shankar", role: "Partner, AI Practice", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80" },
-  { name: "Jordan Reyes", role: "Partner, M&A", img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80" },
-  { name: "Naomi Okafor", role: "Partner, Healthcare", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" },
+type Leader = { name: string; role: string; img: string; desc: string };
+
+const leaders: Leader[] = [
+  {
+    name: "Alpna J. Doshi, NACD.DC",
+    role: "Founder, CEO & Board Chairwoman",
+    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+    desc: "Alpna is an Independent Board Director for Public, Private, and Non-Profit organizations.",
+  },
+  {
+    name: "Aravind Menon",
+    role: "Partner, AI Practice",
+    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+    desc: "Aravind leads enterprise AI delivery — from data platform architecture to production model governance.",
+  },
+  {
+    name: "Jordan Reyes",
+    role: "Partner, M&A",
+    img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80",
+    desc: "Jordan runs technical due diligence and 100-day post-close integration for private equity sponsors.",
+  },
+  {
+    name: "Naomi Okafor",
+    role: "Partner, Healthcare",
+    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+    desc: "Naomi advises payers, providers and health-tech platforms on HIPAA-compliant cloud and AI workflow automation.",
+  },
 ];
 
 function AboutPage() {
+  const [active, setActive] = useState<Leader | null>(null);
   return (
     <>
       <PageHeader
