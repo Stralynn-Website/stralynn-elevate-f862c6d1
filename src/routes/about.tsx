@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { Compass, Heart, Sparkles, Users } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -20,14 +22,37 @@ const values = [
   { icon: Users, t: "Senior at the table", d: "The partners you meet are the partners who build with you." },
 ];
 
-const leaders = [
-  { name: "Aravind Menon", role: "Founder & CEO", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" },
-  { name: "Priya Shankar", role: "Partner, AI Practice", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80" },
-  { name: "Jordan Reyes", role: "Partner, M&A", img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80" },
-  { name: "Naomi Okafor", role: "Partner, Healthcare", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" },
+type Leader = { name: string; role: string; img: string; desc: string };
+
+const leaders: Leader[] = [
+  {
+    name: "Alpna J. Doshi, NACD.DC",
+    role: "Founder, CEO & Board Chairwoman",
+    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+    desc: "Alpna is an Independent Board Director for Public, Private, and Non-Profit organizations.",
+  },
+  {
+    name: "Aravind Menon",
+    role: "Partner, AI Practice",
+    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+    desc: "Aravind leads enterprise AI delivery — from data platform architecture to production model governance.",
+  },
+  {
+    name: "Jordan Reyes",
+    role: "Partner, M&A",
+    img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80",
+    desc: "Jordan runs technical due diligence and 100-day post-close integration for private equity sponsors.",
+  },
+  {
+    name: "Naomi Okafor",
+    role: "Partner, Healthcare",
+    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+    desc: "Naomi advises payers, providers and health-tech platforms on HIPAA-compliant cloud and AI workflow automation.",
+  },
 ];
 
 function AboutPage() {
+  const [active, setActive] = useState<Leader | null>(null);
   return (
     <>
       <PageHeader
@@ -90,20 +115,45 @@ function AboutPage() {
           <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {leaders.map((l) => (
               <StaggerItem key={l.name}>
-                <div className="group rounded-2xl bg-background border border-border overflow-hidden shadow-soft transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-elegant cursor-pointer">
-                  <div className="overflow-hidden aspect-[4/5] bg-secondary">
+                <button
+                  type="button"
+                  onClick={() => setActive(l)}
+                  className="group relative block w-full text-left rounded-2xl bg-background border border-border overflow-hidden shadow-soft transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-elegant"
+                >
+                  <div className="relative overflow-hidden aspect-[4/5] bg-secondary">
                     <img src={l.img} alt={l.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-navy-deep/95 via-navy-deep/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <p className="p-5 text-sm leading-relaxed text-cream">{l.desc}</p>
+                    </div>
                   </div>
                   <div className="p-5">
                     <div className="font-display text-lg font-semibold">{l.name}</div>
                     <div className="text-sm text-muted-foreground">{l.role}</div>
                   </div>
-                </div>
+                </button>
               </StaggerItem>
             ))}
           </Stagger>
         </div>
+
+        <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
+          <DialogContent className="sm:max-w-lg">
+            {active && (
+              <>
+                <div className="overflow-hidden rounded-xl aspect-[4/3] bg-secondary">
+                  <img src={active.img} alt={active.name} className="h-full w-full object-cover" />
+                </div>
+                <DialogHeader>
+                  <DialogTitle className="font-display text-2xl">{active.name}</DialogTitle>
+                  <DialogDescription className="text-azure font-medium">{active.role}</DialogDescription>
+                </DialogHeader>
+                <p className="text-sm leading-relaxed text-muted-foreground">{active.desc}</p>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </section>
+
     </>
   );
 }
