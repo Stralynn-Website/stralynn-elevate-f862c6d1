@@ -107,7 +107,7 @@ function InsightsPage() {
                 </div>
               </div>
               <div>
-                <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-azure mb-5">
+                <div className="flex items-center gap-3 eyebrow mb-5">
                   <span className="inline-flex items-center gap-1"><Tag className="h-3 w-3" />{featured.cat}</span>
                   <span className="text-muted-foreground/60">•</span>
                   <span className="inline-flex items-center gap-1 text-muted-foreground"><Clock className="h-3 w-3" />{featured.read}</span>
@@ -159,7 +159,7 @@ function InsightsPage() {
                   <div className="overflow-hidden rounded-2xl aspect-[5/3] bg-secondary mb-5">
                     <img src={a.img} alt={a.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
-                  <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-azure mb-3">
+                  <div className="flex items-center gap-3 eyebrow mb-3">
                     <span>{a.cat}</span>
                     <span className="text-muted-foreground/60">•</span>
                     <span className="text-muted-foreground">{a.date}</span>
@@ -185,7 +185,7 @@ function InsightsPage() {
             <div aria-hidden className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-cyan-glow/20 blur-3xl" />
             <div className="relative grid lg:grid-cols-[1.4fr_1fr] gap-10 items-end">
               <div>
-                <div className="text-xs uppercase tracking-[0.25em] text-cream/70 mb-4">The Stralynn Brief</div>
+                <div className="eyebrow-light mb-4">The Stralynn Brief</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.05] max-w-2xl">
                   Monthly notes from the field - <span className="font-editorial italic">No fluff.</span>
                 </h2>

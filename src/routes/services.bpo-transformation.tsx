@@ -58,7 +58,7 @@ function Page() {
       <section className="py-24 md:py-32">
         <div className="container-x max-w-4xl">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Definition</div>
+            <div className="eyebrow mb-3">Definition</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
               What is <span className="font-editorial italic">BPO transformation?</span>
             </h2>
@@ -74,7 +74,7 @@ function Page() {
         <div className="container-x">
           <div className="max-w-3xl mb-16">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Service scope</div>
+              <div className="eyebrow mb-3">Service scope</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 What Stralynn's BPO transformation <span className="font-editorial italic">includes</span>
               </h2>
@@ -101,7 +101,7 @@ function Page() {
         <div className="container-x grid lg:grid-cols-[1fr_1.4fr] gap-16">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Outcomes</div>
+              <div className="eyebrow mb-3">Outcomes</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 What changes after a <span className="font-editorial italic">BPO transformation</span>
               </h2>
@@ -128,7 +128,7 @@ function Page() {
         <div className="container-x">
           <div className="max-w-3xl mb-16">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Why Stralynn</div>
+              <div className="eyebrow mb-3">Why Stralynn</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Why choose Stralynn for <span className="font-editorial italic">BPO transformation</span>
               </h2>
@@ -151,7 +151,7 @@ function Page() {
       <section className="py-24 md:py-32">
         <div className="container-x max-w-4xl">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">FAQ</div>
+            <div className="eyebrow mb-3">FAQ</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight mb-12">
               Common <span className="font-editorial italic">questions</span>
             </h2>

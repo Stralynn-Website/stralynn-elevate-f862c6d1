@@ -159,7 +159,7 @@ function Home() {
       {/* MARQUEE / TRUST */}
       <section className="border-y border-border bg-background py-10">
         <div className="container-x">
-          <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground text-center mb-6">
+          <div className="eyebrow text-center mb-6">
             Trusted across Private Equity, Healthcare, Financial Services & the Public Sector
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-foreground/40 font-display text-xl md:text-2xl font-semibold">
@@ -176,7 +176,7 @@ function Home() {
         <div className="container-x">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">About Stralynn</div>
+              <div className="eyebrow mb-3">About Stralynn</div>
             </Reveal>
             <div>
               <Reveal>
@@ -273,7 +273,7 @@ function Home() {
           <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
             <Reveal>
               <div>
-                <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
+                <div className="eyebrow mb-3">What we do</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
                   Enterprise technical consulting services & <span className="font-editorial italic text-azure">value delivery</span>
                 </h2>
@@ -302,7 +302,7 @@ function Home() {
                   <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                   <div className="mt-5 pt-5 border-t border-border">
-                    <div className="text-[10px] uppercase tracking-[0.22em] text-azure mb-2">Business outcome</div>
+                    <div className="eyebrow mb-2">Business outcome</div>
                     <p className="text-sm text-foreground/80 leading-relaxed">{s.outcome}</p>
                   </div>
                   <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-navy group-hover:text-azure transition-colors">
@@ -320,7 +320,7 @@ function Home() {
         <div className="container-x grid lg:grid-cols-[1fr_1.4fr] gap-16">
           <Reveal>
             <div className="lg:sticky lg:top-32">
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Industries</div>
+              <div className="eyebrow mb-3">Industries</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Vertical IT consulting capabilities & <span className="font-editorial italic">sector boundaries</span>
               </h2>
@@ -356,7 +356,7 @@ function Home() {
         <div className="container-x">
           <div className="max-w-3xl mb-14">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Get started</div>
+              <div className="eyebrow mb-3">Get started</div>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
@@ -375,7 +375,7 @@ function Home() {
               <div className="relative overflow-hidden rounded-3xl gradient-hero p-10 md:p-12 text-cream h-full">
                 <div aria-hidden className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-glow/20 blur-3xl" />
                 <div className="relative">
-                  <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-cyan-glow mb-5">
+                  <div className="inline-flex items-center gap-2 eyebrow-light mb-5">
                     <CalendarCheck className="h-3.5 w-3.5" /> Commercial & Private Equity
                   </div>
                   <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
@@ -393,7 +393,7 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <div className="relative overflow-hidden rounded-3xl bg-card border border-border p-10 md:p-12 h-full">
-                <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-azure mb-5">
+                <div className="inline-flex items-center gap-2 eyebrow mb-5">
                   <ClipboardCheck className="h-3.5 w-3.5" /> Public Sector Procurement
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
@@ -477,7 +477,7 @@ function InsightsSection() {
                     <item.icon className="h-5 w-5 text-cyan-glow" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[10px] uppercase tracking-[0.22em] text-cyan-glow mb-2">{item.tag}</div>
+                    <div className="eyebrow-light mb-2">{item.tag}</div>
                     <h3 className="font-display text-xl md:text-2xl font-semibold leading-snug text-cream">{item.title}</h3>
                     <p className="mt-3 text-sm text-cream/70 leading-relaxed">{item.desc}</p>
                   </div>

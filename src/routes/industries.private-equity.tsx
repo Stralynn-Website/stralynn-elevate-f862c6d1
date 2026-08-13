@@ -160,7 +160,7 @@ function Page() {
           </Link>
         </div>
         <div className="mt-10">
-          <div className="text-[11px] uppercase tracking-[0.25em] text-cream/60 mb-4">
+          <div className="eyebrow-light mb-4">
             Portfolio platform compatibility
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
@@ -178,7 +178,7 @@ function Page() {
         <div className="container-x grid lg:grid-cols-[1fr_1.2fr] gap-14 items-start">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">What we do</div>
+              <div className="eyebrow mb-3">What we do</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Private equity IT modernization and{" "}
                 <span className="font-editorial italic">portfolio value creation</span>
@@ -211,7 +211,7 @@ function Page() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-navy-deep/30 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12 text-cream max-w-2xl">
-                <div className="text-xs uppercase tracking-[0.25em] text-cyan-glow mb-3">
+                <div className="eyebrow-light mb-3">
                   In focus
                 </div>
                 <h2 className="font-display text-2xl md:text-4xl font-semibold leading-tight">
@@ -227,7 +227,7 @@ function Page() {
       <section className="py-24 md:py-32">
         <div className="container-x">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">
+            <div className="eyebrow mb-3">
               Our capabilities
             </div>
           </Reveal>
@@ -247,7 +247,7 @@ function Page() {
                   <h3 className="font-display text-xl font-semibold mb-3">{c.track}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{c.scope}</p>
                   <div className="mt-5 pt-5 border-t border-border">
-                    <div className="text-[11px] uppercase tracking-[0.2em] text-azure mb-2">
+                    <div className="eyebrow mb-2">
                       EBITDA &amp; portfolio impact
                     </div>
                     <p className="text-sm leading-relaxed">{c.impact}</p>
@@ -263,7 +263,7 @@ function Page() {
       <section className="py-24 md:py-32 bg-ink text-cream">
         <div className="container-x">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-cyan-glow mb-3">
+            <div className="eyebrow-light mb-3">
               Industry insights
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold max-w-3xl leading-tight">
@@ -312,7 +312,7 @@ function Page() {
         <div className="container-x grid lg:grid-cols-2 gap-14 items-start">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">
+              <div className="eyebrow mb-3">
                 Our leadership
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">

@@ -74,7 +74,7 @@ function Contact() {
           <Reveal>
             <div className="space-y-10">
               <div>
-                <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Reach us</div>
+                <div className="eyebrow mb-3">Reach us</div>
                 <h2 className="font-display text-3xl font-semibold leading-tight">Two ways to start a conversation</h2>
               </div>
               {[
