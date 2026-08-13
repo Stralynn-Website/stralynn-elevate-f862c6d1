@@ -49,7 +49,9 @@ function Contact() {
   const [sent, setSent] = useState(false);
   const [attempted, setAttempted] = useState(false);
   const [privacyOk, setPrivacyOk] = useState(false);
-  const [dialCode, setDialCode] = useState("US|+1");
+  const [country, setCountry] = useState<CountryCode>(
+    COUNTRY_CODES.find((c) => c.iso === "US") ?? COUNTRY_CODES[0],
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
