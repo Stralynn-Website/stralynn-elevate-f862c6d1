@@ -146,7 +146,7 @@ function Page() {
         <div className="container-x grid lg:grid-cols-[1fr_1.4fr] gap-16">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Definition</div>
+              <div className="eyebrow mb-3">Definition</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 What are enterprise <span className="font-editorial italic">implementations?</span>
               </h2>
@@ -165,7 +165,7 @@ function Page() {
         <div className="container-x">
           <div className="max-w-3xl mb-14">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Platform Portfolio</div>
+              <div className="eyebrow mb-3">Platform Portfolio</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Which platforms does Stralynn <span className="font-editorial italic">implement?</span>
               </h2>
@@ -212,7 +212,7 @@ function Page() {
 
           {/* Active tab content */}
           <div className="rounded-3xl bg-background border border-border p-8 md:p-12">
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">{activeTab.short}</div>
+            <div className="eyebrow mb-3">{activeTab.short}</div>
             <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight mb-6 max-w-3xl">
               What is Stralynn's {activeTab.short} <span className="font-editorial italic">transformation service?</span>
             </h3>
@@ -221,7 +221,7 @@ function Page() {
             </p>
 
             <div className="mb-14">
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-6">How the implementation runs</div>
+              <div className="eyebrow mb-6">How the implementation runs</div>
               <Stagger className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
                 {content.stages.map((s) => (
                   <StaggerItem key={s.n}>
@@ -236,7 +236,7 @@ function Page() {
             </div>
 
             <div className="mb-10">
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-6">Why Stralynn for {activeTab.short}</div>
+              <div className="eyebrow mb-6">Why Stralynn for {activeTab.short}</div>
               <div className="grid md:grid-cols-3 gap-5">
                 {content.why.map((w) => (
                   <div key={w.t} className="p-6 rounded-2xl border border-border bg-secondary/40">
@@ -264,7 +264,7 @@ function Page() {
         <div className="container-x grid lg:grid-cols-[1fr_1.4fr] gap-16">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Common FAQ</div>
+              <div className="eyebrow mb-3">Common FAQ</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Questions before <span className="font-editorial italic">kickoff</span>
               </h2>

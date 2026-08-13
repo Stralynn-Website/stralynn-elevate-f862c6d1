@@ -67,7 +67,7 @@ export function PageHeader({
         <div className="max-w-4xl">
           <Reveal>
             {eyebrow && (
-              <div className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 backdrop-blur px-3 py-1 text-xs uppercase tracking-[0.2em] text-cream/85 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 backdrop-blur px-4 py-1.5 eyebrow-light mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-glow" />
                 {eyebrow}
               </div>

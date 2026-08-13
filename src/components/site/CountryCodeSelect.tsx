@@ -1,0 +1,103 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronDown, Search } from "lucide-react";
+import { COUNTRY_CODES, type CountryCode } from "../../lib/country-codes";
+
+function Flag({ iso, className = "" }: { iso: string; className?: string }) {
+  return (
+    <img
+      src={`https://flagcdn.com/w40/${iso.toLowerCase()}.png`}
+      srcSet={`https://flagcdn.com/w80/${iso.toLowerCase()}.png 2x`}
+      alt=""
+      loading="lazy"
+      className={"h-4 w-6 shrink-0 rounded-[2px] object-cover ring-1 ring-border " + className}
+    />
+  );
+}
+
+export function CountryCodeSelect({
+  value,
+  onChange,
+}: {
+  value: CountryCode;
+  onChange: (c: CountryCode) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [open]);
+
+  const list = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return COUNTRY_CODES;
+    return COUNTRY_CODES.filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.iso.toLowerCase().includes(q) ||
+        c.dial.includes(q),
+    );
+  }, [query]);
+
+  return (
+    <div ref={wrapRef} className="relative">
+      <button
+        type="button"
+        aria-label="Country code"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center gap-2 rounded-md border border-border bg-transparent px-3 py-3 text-foreground transition-colors hover:border-azure focus:border-azure outline-none"
+      >
+        <Flag iso={value.iso} />
+        <span className="font-medium">{value.dial}</span>
+        <ChevronDown className={"ml-auto h-4 w-4 text-muted-foreground transition-transform " + (open ? "rotate-180" : "")} />
+      </button>
+
+      {open && (
+        <div className="absolute z-50 mt-2 w-[min(20rem,80vw)] overflow-hidden rounded-xl border border-border bg-card shadow-elegant">
+          <div className="flex items-center gap-2 border-b border-border px-3 py-2">
+            <Search className="h-4 w-4 text-muted-foreground" />
+            <input
+              autoFocus
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search country"
+              className="w-full bg-transparent py-1 text-sm outline-none"
+            />
+          </div>
+          <ul className="max-h-64 overflow-y-auto py-1">
+            {list.map((c) => (
+              <li key={c.iso}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onChange(c);
+                    setOpen(false);
+                    setQuery("");
+                  }}
+                  className={
+                    "flex w-full items-center gap-3 px-3 py-2 text-left text-sm transition-colors hover:bg-secondary " +
+                    (c.iso === value.iso ? "bg-secondary" : "")
+                  }
+                >
+                  <Flag iso={c.iso} />
+                  <span className="truncate">{c.name}</span>
+                  <span className="ml-auto text-muted-foreground">({c.dial})</span>
+                </button>
+              </li>
+            ))}
+            {list.length === 0 && (
+              <li className="px-3 py-3 text-sm text-muted-foreground">No matches</li>
+            )}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}

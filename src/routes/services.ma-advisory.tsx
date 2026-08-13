@@ -61,7 +61,7 @@ function Page() {
         <div className="container-x">
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Definition</div>
+              <div className="eyebrow mb-3">Definition</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">What is technology due diligence in M&A?</h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -79,7 +79,7 @@ function Page() {
         <div className="container-x">
           <div className="max-w-3xl mb-14">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Service scope</div>
+              <div className="eyebrow mb-3">Service scope</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Four deal stages, one <span className="font-editorial italic">continuous team</span>
               </h2>
@@ -106,7 +106,7 @@ function Page() {
         <div className="container-x">
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12">
             <Reveal>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Delivery model</div>
+              <div className="eyebrow mb-3">Delivery model</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">How Stralynn executes post-acquisition integration</h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -134,7 +134,7 @@ function Page() {
       <section className="py-24 md:py-32 bg-secondary/50">
         <div className="container-x">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Who we serve</div>
+            <div className="eyebrow mb-3">Who we serve</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Who uses Stralynn for M&A work</h2>
           </Reveal>
           <Stagger className="mt-14 grid md:grid-cols-3 gap-5">
@@ -155,7 +155,7 @@ function Page() {
         <div className="container-x grid lg:grid-cols-[1fr_1.4fr] gap-16">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Why Stralynn</div>
+              <div className="eyebrow mb-3">Why Stralynn</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Operators, not <span className="font-editorial italic">spectators</span>
               </h2>
@@ -181,7 +181,7 @@ function Page() {
       <section className="py-24 md:py-32 bg-secondary/50">
         <div className="container-x">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">FAQ</div>
+            <div className="eyebrow mb-3">FAQ</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Common questions</h2>
           </Reveal>
           <div className="mt-14 max-w-3xl space-y-6">

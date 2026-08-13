@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, MapPin, Check } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal } from "../components/site/Reveal";
-import { COUNTRY_CODES } from "../lib/country-codes";
+import { COUNTRY_CODES, type CountryCode } from "../lib/country-codes";
+import { CountryCodeSelect } from "../components/site/CountryCodeSelect";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -48,7 +49,9 @@ function Contact() {
   const [sent, setSent] = useState(false);
   const [attempted, setAttempted] = useState(false);
   const [privacyOk, setPrivacyOk] = useState(false);
-  const [dialCode, setDialCode] = useState("US|+1");
+  const [country, setCountry] = useState<CountryCode>(
+    COUNTRY_CODES.find((c) => c.iso === "US") ?? COUNTRY_CODES[0],
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,7 +74,7 @@ function Contact() {
           <Reveal>
             <div className="space-y-10">
               <div>
-                <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Reach us</div>
+                <div className="eyebrow mb-3">Reach us</div>
                 <h2 className="font-display text-3xl font-semibold leading-tight">Two ways to start a conversation</h2>
               </div>
               {[
@@ -131,21 +134,9 @@ function Contact() {
                     <LabeledInput label="Email Address" name="email" type="email" required />
                     <div className="space-y-2">
                       <label htmlFor="phone" className="block text-sm text-foreground">Phone Number:</label>
-                      <div className="grid grid-cols-[minmax(0,11rem)_1fr] gap-3">
-                        <select
-                          id="countryCode"
-                          name="countryCode"
-                          value={dialCode}
-                          onChange={(e) => setDialCode(e.target.value)}
-                          className="w-full bg-transparent border border-border focus:border-azure outline-none rounded-md px-3 py-3 text-foreground transition-colors"
-                          aria-label="Country code"
-                        >
-                          {COUNTRY_CODES.map((c) => (
-                            <option key={c.iso} value={`${c.iso}|${c.dial}`}>
-                              {c.iso} {c.dial} — {c.name}
-                            </option>
-                          ))}
-                        </select>
+                      <div className="grid grid-cols-[minmax(0,8rem)_1fr] gap-3">
+                        <input type="hidden" name="countryCode" value={country.dial} />
+                        <CountryCodeSelect value={country} onChange={setCountry} />
                         <input
                           id="phone"
                           name="phone"

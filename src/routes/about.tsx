@@ -66,7 +66,7 @@ function AboutPage() {
       <section className="py-24 md:py-32">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-start">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Our story</div>
+            <div className="eyebrow mb-3">Our story</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
               Founded by operators who have <span className="font-editorial italic">been on the other side</span>
             </h2>
@@ -86,7 +86,7 @@ function AboutPage() {
 
       <section className="py-24 md:py-32 bg-secondary/50">
         <div className="container-x">
-          <Reveal><div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Our values</div></Reveal>
+          <Reveal><div className="eyebrow mb-3">Our values</div></Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Four convictions we don't compromise on</h2>
           </Reveal>
@@ -108,7 +108,7 @@ function AboutPage() {
 
       <section className="py-24 md:py-32">
         <div className="container-x">
-          <Reveal><div className="text-xs uppercase tracking-[0.25em] text-azure mb-3">Leadership</div></Reveal>
+          <Reveal><div className="eyebrow mb-3">Leadership</div></Reveal>
           <Reveal delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl mb-14">The partners you'll meet</h2>
           </Reveal>

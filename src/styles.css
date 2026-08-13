@@ -135,6 +135,26 @@
   background-clip: text;
   color: transparent;
 }
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--azure);
+  text-shadow: 0 0 18px color-mix(in oklab, var(--azure) 30%, transparent);
+}
+@utility eyebrow-light {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--cyan-glow);
+  text-shadow: 0 0 20px color-mix(in oklab, var(--cyan-glow) 45%, transparent);
+}
 @utility shadow-elegant { box-shadow: var(--shadow-elegant); }
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
 
