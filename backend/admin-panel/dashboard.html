@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Stralynn Admin — Submissions</title>
+<link rel="stylesheet" href="/admin/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">Stralynn — Contact Submissions</div>
+    <button id="logoutBtn">Log out</button>
+  </div>
+  <div class="container">
+    <div class="toolbar">
+      <div class="left">
+        <input id="searchInput" type="text" placeholder="Search name, email, company..." />
+        <select id="statusFilter">
+          <option value="">All statuses</option>
+          <option value="new">New</option>
+          <option value="in_progress">In progress</option>
+          <option value="resolved">Resolved</option>
+        </select>
+      </div>
+      <button class="btn-export" id="exportBtn">⬇ Download Excel</button>
+    </div>
+
+    <div id="tableWrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Reason</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState" style="display:none;">No submissions yet.</div>
+    </div>
+
+    <div class="pagination">
+      <button id="prevBtn">← Prev</button>
+      <span id="pageInfo"></span>
+      <button id="nextBtn">Next →</button>
+    </div>
+  </div>
+  <script src="/admin/js/dashboard.js"></script>
+</body>
+</html>

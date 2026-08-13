@@ -45,19 +45,56 @@ function LabeledInput({
   );
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 function Contact() {
   const [sent, setSent] = useState(false);
   const [attempted, setAttempted] = useState(false);
   const [privacyOk, setPrivacyOk] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [country, setCountry] = useState<CountryCode>(
     COUNTRY_CODES.find((c) => c.iso === "US") ?? COUNTRY_CODES[0],
   );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAttempted(true);
+    setSubmitError(null);
     if (!privacyOk) return;
-    setSent(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      reason: formData.get("reason") || "",
+      firstName: formData.get("firstName") || "",
+      lastName: formData.get("lastName") || "",
+      email: formData.get("email") || "",
+      countryCode: formData.get("countryCode") || "",
+      phone: formData.get("phone") || "",
+      company: formData.get("company") || "",
+      message: formData.get("message") || "",
+      privacyAccepted: privacyOk,
+    };
+
+    setSubmitting(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSubmitError(data.message || "Something went wrong. Please try again.");
+        return;
+      }
+      setSent(true);
+    } catch (err) {
+      setSubmitError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -184,11 +221,16 @@ function Contact() {
                     )}
                   </div>
 
+                  {submitError && (
+                    <p className="text-sm text-red-600">{submitError}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="group mt-2 inline-flex items-center gap-2 rounded-full gradient-hero text-cream px-6 py-3.5 text-sm font-semibold hover:opacity-95 transition-all"
+                    disabled={submitting}
+                    className="group mt-2 inline-flex items-center gap-2 rounded-full gradient-hero text-cream px-6 py-3.5 text-sm font-semibold hover:opacity-95 transition-all disabled:opacity-60"
                   >
-                    Submit <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    {submitting ? "Sending..." : "Submit"} <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
                 </div>
               )}

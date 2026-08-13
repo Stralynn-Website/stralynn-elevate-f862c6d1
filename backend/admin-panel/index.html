@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Stralynn Admin — Login</title>
+<link rel="stylesheet" href="/admin/css/style.css" />
+</head>
+<body>
+  <div class="center-screen">
+    <div class="card login-card">
+      <h1>Stralynn Admin</h1>
+      <p class="sub">Sign in to view contact form submissions</p>
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input id="email" type="email" required autocomplete="username" />
+        <label for="password">Password</label>
+        <input id="password" type="password" required autocomplete="current-password" />
+        <div class="error-msg" id="errorMsg"></div>
+        <button class="btn-primary" type="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+  <script src="/admin/js/login.js"></script>
+</body>
+</html>
