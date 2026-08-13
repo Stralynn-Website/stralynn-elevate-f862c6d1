@@ -2,13 +2,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { COUNTRY_CODES, type CountryCode } from "../../lib/country-codes";
 
-function flagEmoji(iso: string) {
-  return iso
-    .toUpperCase()
-    .replace(/[^A-Z]/g, "")
-    .split("")
-    .map((c) => String.fromCodePoint(0x1f1e6 + c.charCodeAt(0) - 65))
-    .join("");
+function Flag({ iso, className = "" }: { iso: string; className?: string }) {
+  return (
+    <img
+      src={`https://flagcdn.com/w40/${iso.toLowerCase()}.png`}
+      srcSet={`https://flagcdn.com/w80/${iso.toLowerCase()}.png 2x`}
+      alt=""
+      loading="lazy"
+      className={"h-4 w-6 shrink-0 rounded-[2px] object-cover ring-1 ring-border " + className}
+    />
+  );
 }
 
 export function CountryCodeSelect({
@@ -51,7 +54,7 @@ export function CountryCodeSelect({
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center gap-2 rounded-md border border-border bg-transparent px-3 py-3 text-foreground transition-colors hover:border-azure focus:border-azure outline-none"
       >
-        <span className="text-lg leading-none">{flagEmoji(value.iso)}</span>
+        <Flag iso={value.iso} />
         <span className="font-medium">{value.dial}</span>
         <ChevronDown className={"ml-auto h-4 w-4 text-muted-foreground transition-transform " + (open ? "rotate-180" : "")} />
       </button>
@@ -83,7 +86,7 @@ export function CountryCodeSelect({
                     (c.iso === value.iso ? "bg-secondary" : "")
                   }
                 >
-                  <span className="text-lg leading-none">{flagEmoji(c.iso)}</span>
+                  <Flag iso={c.iso} />
                   <span className="truncate">{c.name}</span>
                   <span className="ml-auto text-muted-foreground">({c.dial})</span>
                 </button>
