@@ -134,21 +134,9 @@ function Contact() {
                     <LabeledInput label="Email Address" name="email" type="email" required />
                     <div className="space-y-2">
                       <label htmlFor="phone" className="block text-sm text-foreground">Phone Number:</label>
-                      <div className="grid grid-cols-[minmax(0,11rem)_1fr] gap-3">
-                        <select
-                          id="countryCode"
-                          name="countryCode"
-                          value={dialCode}
-                          onChange={(e) => setDialCode(e.target.value)}
-                          className="w-full bg-transparent border border-border focus:border-azure outline-none rounded-md px-3 py-3 text-foreground transition-colors"
-                          aria-label="Country code"
-                        >
-                          {COUNTRY_CODES.map((c) => (
-                            <option key={c.iso} value={`${c.iso}|${c.dial}`}>
-                              {c.iso} {c.dial} — {c.name}
-                            </option>
-                          ))}
-                        </select>
+                      <div className="grid grid-cols-[minmax(0,8rem)_1fr] gap-3">
+                        <input type="hidden" name="countryCode" value={country.dial} />
+                        <CountryCodeSelect value={country} onChange={setCountry} />
                         <input
                           id="phone"
                           name="phone"
