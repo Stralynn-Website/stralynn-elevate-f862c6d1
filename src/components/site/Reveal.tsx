@@ -6,6 +6,13 @@ const variants: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] } },
 };
 
+const motionCache = new Map<string, any>();
+function getMotionComp(tag: keyof React.JSX.IntrinsicElements) {
+  const key = String(tag);
+  if (!motionCache.has(key)) motionCache.set(key, motion(key as any));
+  return motionCache.get(key);
+}
+
 export function Reveal({
   children,
   delay = 0,
@@ -17,7 +24,8 @@ export function Reveal({
   className?: string;
   as?: keyof React.JSX.IntrinsicElements;
 }) {
-  const Comp = motion(As as any);
+  const Comp = getMotionComp(As);
+
   return (
     <Comp
       initial="hidden"
