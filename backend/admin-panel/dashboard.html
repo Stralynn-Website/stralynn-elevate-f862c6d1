@@ -4,54 +4,87 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Stralynn Admin — Submissions</title>
+<title>Stralynn Admin</title>
 <link rel="stylesheet" href="/admin/css/style.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div class="brand">Stralynn — Contact Submissions</div>
-    <button id="logoutBtn">Log out</button>
-  </div>
-  <div class="container">
-    <div class="toolbar">
-      <div class="left">
-        <input id="searchInput" type="text" placeholder="Search name, email, company..." />
-        <select id="statusFilter">
-          <option value="">All statuses</option>
-          <option value="new">New</option>
-          <option value="in_progress">In progress</option>
-          <option value="resolved">Resolved</option>
-        </select>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">Stralynn Admin</div>
+      <nav>
+        <button id="navSubmissions" class="nav-btn active" data-view="submissions">Contact Submissions</button>
+        <button id="navContent" class="nav-btn" data-view="content">Page Content</button>
+      </nav>
+      <div class="logout-wrap">
+        <button id="logoutBtn">Log out</button>
       </div>
-      <button class="btn-export" id="exportBtn">⬇ Download Excel</button>
-    </div>
+    </aside>
 
-    <div id="tableWrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Company</th>
-            <th>Reason</th>
-            <th>Message</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-      <div class="empty-state" id="emptyState" style="display:none;">No submissions yet.</div>
-    </div>
+    <div class="main-area">
+      <!-- ===== SUBMISSIONS VIEW ===== -->
+      <div id="view-submissions" class="view active">
+        <div class="main-topbar">
+          <h1>Contact Submissions</h1>
+          <p>Everything sent through the website's contact form.</p>
+        </div>
+        <div style="padding:24px 28px;">
+          <div class="toolbar">
+            <div class="left">
+              <input id="searchInput" type="text" placeholder="Search name, email, company..." />
+              <select id="statusFilter">
+                <option value="">All statuses</option>
+                <option value="new">New</option>
+                <option value="in_progress">In progress</option>
+                <option value="resolved">Resolved</option>
+              </select>
+            </div>
+            <button class="btn-export" id="exportBtn">⬇ Download Excel</button>
+          </div>
 
-    <div class="pagination">
-      <button id="prevBtn">← Prev</button>
-      <span id="pageInfo"></span>
-      <button id="nextBtn">Next →</button>
+          <div id="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Company</th>
+                  <th>Reason</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+            <div class="empty-state" id="emptyState" style="display:none;">No submissions yet.</div>
+          </div>
+
+          <div class="pagination">
+            <button id="prevBtn">← Prev</button>
+            <span id="pageInfo"></span>
+            <button id="nextBtn">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PAGE CONTENT VIEW ===== -->
+      <div id="view-content" class="view">
+        <div class="main-topbar">
+          <h1>Page Content</h1>
+          <p>Edit the Insights / Case Study cards shown on each page. Changes go live immediately after saving.</p>
+        </div>
+        <div style="padding:24px 28px;">
+          <div class="page-picker" id="pagePicker"></div>
+          <div id="contentEditor"></div>
+        </div>
+      </div>
     </div>
   </div>
+
   <script src="/admin/js/dashboard.js"></script>
+  <script src="/admin/js/content.js"></script>
+  <script src="/admin/js/shell.js"></script>
 </body>
 </html>

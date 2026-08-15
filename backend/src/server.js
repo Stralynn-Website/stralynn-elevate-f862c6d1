@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const connectDB = require("./config/db");
 const contactRoutes = require("./routes/contact.routes");
 const adminRoutes = require("./routes/admin.routes");
+const contentRoutes = require("./routes/content.routes");
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(
 // --- API routes ---
 app.use("/api/contact", contactRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/content", contentRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", time: new Date().toISOString() });

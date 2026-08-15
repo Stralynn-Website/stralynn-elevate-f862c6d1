@@ -8,6 +8,11 @@ const {
   deleteSubmission,
   exportExcel,
 } = require("../controllers/admin.controller");
+const {
+  listPages,
+  getAdminContent,
+  updateAdminContent,
+} = require("../controllers/content.controller");
 
 const router = express.Router();
 
@@ -22,5 +27,10 @@ router.get("/submissions", requireAdminAuth, listSubmissions);
 router.patch("/submissions/:id/status", requireAdminAuth, updateStatus);
 router.delete("/submissions/:id", requireAdminAuth, deleteSubmission);
 router.get("/submissions/export/excel", requireAdminAuth, exportExcel);
+
+// --- Page content (insights / case studies) management ---
+router.get("/content/pages", requireAdminAuth, listPages);
+router.get("/content/:pageKey", requireAdminAuth, getAdminContent);
+router.put("/content/:pageKey", requireAdminAuth, updateAdminContent);
 
 module.exports = router;

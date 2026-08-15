@@ -94,7 +94,50 @@ VITE_API_BASE_URL=https://stralynn-backend.onrender.com
 Redeploy the frontend. The contact form will now POST to the live backend,
 and submissions will show up at `https://stralynn-backend.onrender.com/admin`.
 
-## 4. Security notes
+## 4. Page Content (Insights / Case Studies) editor
+
+The admin panel now has a second sidebar tab, **Page Content**, alongside
+**Contact Submissions**. It lets you pick any of the six pages (Home,
+Healthcare, Financial Services, Private Equity, Public Sector, Technology)
+and add, edit, delete, and reorder the Insights / Case Study cards shown on
+that page — changes go live on the actual site immediately after you click
+Save, no redeploy needed.
+
+**One-time setup — seed it with today's existing copy:**
+
+```bash
+cd backend
+npm run seed-content
+```
+
+This copies the case-study/insight text that's currently hardcoded in the
+frontend into MongoDB, so the admin panel and the live site start populated
+instead of empty. Safe to run more than once (it overwrites, doesn't
+duplicate).
+
+**How it works technically:**
+- New model: `backend/src/models/PageContent.js` — one document per
+  `(pageKey, sectionKey)` pair, holding an array of `{ tag, icon, title, description }` items.
+- Public read endpoint: `GET /api/content/:pageKey` — no auth, used by the live site.
+- Admin endpoints (JWT protected): `GET /api/admin/content/pages` (list of
+  editable pages), `GET /api/admin/content/:pageKey` (current items),
+  `PUT /api/admin/content/:pageKey` (replace items array).
+- Frontend: `src/hooks/use-page-content.ts` fetches from
+  `/api/content/:pageKey` and falls back to the original hardcoded array if
+  the backend is unreachable or nothing's been saved yet — so the site never
+  shows a broken or empty section, even before you've touched the admin panel.
+- Every page component (`src/routes/index.tsx`,
+  `src/routes/industries.*.tsx`) was updated to call this hook instead of
+  rendering a hardcoded array directly. That's the only frontend change this
+  feature required beyond the earlier contact-form wiring.
+
+**Adding a new editable page later:** add an entry to `PAGE_REGISTRY` in
+`backend/src/controllers/content.controller.js` (pageKey, label, sectionKey,
+sectionLabel) and add `"your-page-key"` to `PAGE_KEYS` in
+`backend/src/models/PageContent.js`. It'll show up in the admin sidebar's
+page picker automatically — no other backend changes needed.
+
+## 5. Security notes
 
 - Admin panel and API are protected by JWT (7-day expiry by default).
 - Passwords are hashed with bcrypt; there is no default/seeded password —
