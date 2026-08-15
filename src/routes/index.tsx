@@ -7,6 +7,7 @@ import {
   Database, Server, CalendarCheck, FileText, GaugeCircle, ClipboardCheck,
 } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import { usePageContent } from "../hooks/use-page-content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -417,32 +418,37 @@ function Home() {
 
 const insights = [
   {
-    icon: FileText,
+    icon: "FileText",
     tag: "Case Study",
     title: "UVP Portal Modernization",
-    desc: "Operational record tracking 100% record fidelity and zero reportable data incidents during a complete government portal overhaul.",
+    description: "Operational record tracking 100% record fidelity and zero reportable data incidents during a complete government portal overhaul.",
   },
   {
-    icon: Database,
+    icon: "Database",
     tag: "Technical Brief",
     title: "42 TB Infrastructure Migration",
-    desc: "Technical timeline data, scale metrics, and validation methodologies used to move core enterprise assets in 90 days.",
+    description: "Technical timeline data, scale metrics, and validation methodologies used to move core enterprise assets in 90 days.",
   },
   {
-    icon: GaugeCircle,
+    icon: "GaugeCircle",
     tag: "Diligence Insight",
     title: "Technical Due Diligence",
-    desc: "Risk evaluation parameters used to identify post-close transition risks and secure operational continuity for PE-backed acquisitions.",
+    description: "Risk evaluation parameters used to identify post-close transition risks and secure operational continuity for PE-backed acquisitions.",
   },
   {
-    icon: Server,
+    icon: "Server",
     tag: "Cutover Playbook",
     title: "800 GB Cloud Database Cutover",
-    desc: "Structural cloud deployment completed with documented sub-10% error rates and validated rollback checkpoints.",
+    description: "Structural cloud deployment completed with documented sub-10% error rates and validated rollback checkpoints.",
   },
 ];
 
+const INSIGHT_ICON_MAP: Record<string, typeof FileText> = {
+  FileText, Database, GaugeCircle, Server,
+};
+
 function InsightsSection() {
+  const { items } = usePageContent("home", insights);
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-navy-deep text-cream">
       <div aria-hidden className="absolute inset-0 [background:radial-gradient(700px_400px_at_85%_15%,oklch(0.72_0.14_220/.25),transparent_60%)]" />
@@ -469,22 +475,25 @@ function InsightsSection() {
         </div>
 
         <Stagger className="grid md:grid-cols-2 gap-5">
-          {insights.map((item) => (
-            <StaggerItem key={item.title}>
-              <Link to="/insights" className="group block h-full p-7 md:p-8 rounded-2xl border border-cream/10 bg-cream/[0.03] backdrop-blur hover:bg-cream/[0.06] hover:border-cream/20 transition-all">
-                <div className="flex items-start gap-5">
-                  <div className="h-12 w-12 rounded-xl bg-cream/10 grid place-items-center shrink-0 group-hover:bg-cyan-glow/20 transition-colors">
-                    <item.icon className="h-5 w-5 text-cyan-glow" />
+          {items.map((item, idx) => {
+            const IconComp = INSIGHT_ICON_MAP[item.icon || ""] || FileText;
+            return (
+              <StaggerItem key={item._id || item.title || idx}>
+                <Link to="/insights" className="group block h-full p-7 md:p-8 rounded-2xl border border-cream/10 bg-cream/[0.03] backdrop-blur hover:bg-cream/[0.06] hover:border-cream/20 transition-all">
+                  <div className="flex items-start gap-5">
+                    <div className="h-12 w-12 rounded-xl bg-cream/10 grid place-items-center shrink-0 group-hover:bg-cyan-glow/20 transition-colors">
+                      <IconComp className="h-5 w-5 text-cyan-glow" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      {item.tag && <div className="eyebrow-light mb-2">{item.tag}</div>}
+                      <h3 className="font-display text-xl md:text-2xl font-semibold leading-snug text-cream">{item.title}</h3>
+                      <p className="mt-3 text-sm text-cream/70 leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="eyebrow-light mb-2">{item.tag}</div>
-                    <h3 className="font-display text-xl md:text-2xl font-semibold leading-snug text-cream">{item.title}</h3>
-                    <p className="mt-3 text-sm text-cream/70 leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </Link>
-            </StaggerItem>
-          ))}
+                </Link>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
       </div>
     </section>

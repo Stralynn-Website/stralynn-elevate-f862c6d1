@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import { usePageContent } from "../hooks/use-page-content";
 
 export const Route = createFileRoute("/industries/financial-services")({
   head: () => ({
@@ -109,18 +110,18 @@ const metrics = [
   },
 ];
 
-const caseStudies = [
+const caseStudiesDefault = [
   {
-    t: "800 GB Multi-Cloud Database Cutover Brief",
-    d: "Read how Stralynn executed a high-velocity cloud database cutover with total schema integrity and zero operational downtime.",
+    title: "800 GB Multi-Cloud Database Cutover Brief",
+    description: "Read how Stralynn executed a high-velocity cloud database cutover with total schema integrity and zero operational downtime.",
   },
   {
-    t: "42 TB Financial Infrastructure Migration Case Study",
-    d: "Discover the technical validation methodologies and timeline parameters used to migrate 42 TB of core enterprise assets in 90 days.",
+    title: "42 TB Financial Infrastructure Migration Case Study",
+    description: "Discover the technical validation methodologies and timeline parameters used to migrate 42 TB of core enterprise assets in 90 days.",
   },
   {
-    t: "Automated Workflow & Financial Compliance Brief",
-    d: "Examine how our engineering teams deployed intelligent process automation layers to eliminate manual processing errors and elevate delivery speed.",
+    title: "Automated Workflow & Financial Compliance Brief",
+    description: "Examine how our engineering teams deployed intelligent process automation layers to eliminate manual processing errors and elevate delivery speed.",
   },
 ];
 
@@ -140,6 +141,7 @@ const pathways = [
 ];
 
 function Page() {
+  const { items: caseStudies } = usePageContent("financial-services", caseStudiesDefault);
   return (
     <>
       <PageHeader
@@ -292,13 +294,13 @@ function Page() {
           </Reveal>
           <Stagger className="mt-8 grid md:grid-cols-3 gap-5">
             {caseStudies.map((c) => (
-              <StaggerItem key={c.t}>
+              <StaggerItem key={c._id || c.title}>
                 <Link
                   to="/insights"
                   className="group block h-full p-7 rounded-2xl border border-cream/15 bg-cream/[0.04] hover:bg-cream/[0.08] transition-colors"
                 >
-                  <h4 className="font-display text-lg font-semibold leading-snug">{c.t}</h4>
-                  <p className="mt-3 text-sm text-cream/70 leading-relaxed">{c.d}</p>
+                  <h4 className="font-display text-lg font-semibold leading-snug">{c.title}</h4>
+                  <p className="mt-3 text-sm text-cream/70 leading-relaxed">{c.description}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-glow">
                     Read the brief
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

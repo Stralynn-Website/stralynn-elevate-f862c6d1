@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import { usePageContent } from "../hooks/use-page-content";
 
 export const Route = createFileRoute("/industries/healthcare")({
   head: () => ({
@@ -107,18 +108,18 @@ const metrics = [
   },
 ];
 
-const caseStudies = [
+const caseStudiesDefault = [
   {
-    t: "Global Health Technology Digital Transformation Brief",
-    d: "Read how Stralynn's leadership spearheaded the digital modernization of a global health leader, harnessing cloud, AI, and machine learning to advance care outcomes at sustainable cost.",
+    title: "Global Health Technology Digital Transformation Brief",
+    description: "Read how Stralynn's leadership spearheaded the digital modernization of a global health leader, harnessing cloud, AI, and machine learning to advance care outcomes at sustainable cost.",
   },
   {
-    t: "42 TB Health Infrastructure Migration Brief",
-    d: "Discover the exact technical validation methodologies and timeline parameters used to migrate 42 TB of core data assets in 90 days.",
+    title: "42 TB Health Infrastructure Migration Brief",
+    description: "Discover the exact technical validation methodologies and timeline parameters used to migrate 42 TB of core data assets in 90 days.",
   },
   {
-    t: "EHR Interoperability & Data Integrity Case Study",
-    d: "Examine how our technical teams executed a multi-system database cutover with zero downtime and absolute data accuracy.",
+    title: "EHR Interoperability & Data Integrity Case Study",
+    description: "Examine how our technical teams executed a multi-system database cutover with zero downtime and absolute data accuracy.",
   },
 ];
 
@@ -138,6 +139,7 @@ const pathways = [
 ];
 
 function Healthcare() {
+  const { items: caseStudies } = usePageContent("healthcare", caseStudiesDefault);
   return (
     <>
       <PageHeader
@@ -287,13 +289,13 @@ function Healthcare() {
           </Reveal>
           <Stagger className="mt-8 grid md:grid-cols-3 gap-5">
             {caseStudies.map((c) => (
-              <StaggerItem key={c.t}>
+              <StaggerItem key={c._id || c.title}>
                 <Link
                   to="/insights"
                   className="group block h-full p-7 rounded-2xl border border-cream/15 bg-cream/[0.04] hover:bg-cream/[0.08] transition-colors"
                 >
-                  <h4 className="font-display text-lg font-semibold leading-snug">{c.t}</h4>
-                  <p className="mt-3 text-sm text-cream/70 leading-relaxed">{c.d}</p>
+                  <h4 className="font-display text-lg font-semibold leading-snug">{c.title}</h4>
+                  <p className="mt-3 text-sm text-cream/70 leading-relaxed">{c.description}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-glow">
                     Read the brief
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

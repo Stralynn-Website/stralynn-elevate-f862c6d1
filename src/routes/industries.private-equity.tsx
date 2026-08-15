@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import { usePageContent } from "../hooks/use-page-content";
 
 export const Route = createFileRoute("/industries/private-equity")({
   head: () => ({
@@ -106,18 +107,18 @@ const metrics = [
   },
 ];
 
-const caseStudies = [
+const caseStudiesDefault = [
   {
-    t: "Multi-Portco ERP Cutover Brief",
-    d: "Review how Stralynn executed a parallel-track ERP cutover for a private equity-backed buy-and-build platform, completing full go-live within 90 days post-close.",
+    title: "Multi-Portco ERP Cutover Brief",
+    description: "Review how Stralynn executed a parallel-track ERP cutover for a private equity-backed buy-and-build platform, completing full go-live within 90 days post-close.",
   },
   {
-    t: "Carve-Out Infrastructure Isolation Brief",
-    d: "Discover how our engineering team separated legacy IT infrastructure and migrated 42 TB of mission-critical data for an enterprise carve-out with zero operational downtime.",
+    title: "Carve-Out Infrastructure Isolation Brief",
+    description: "Discover how our engineering team separated legacy IT infrastructure and migrated 42 TB of mission-critical data for an enterprise carve-out with zero operational downtime.",
   },
   {
-    t: "Post Acquisition Technical Due Diligence Framework",
-    d: "Examine the exact risk evaluation criteria used by PE Operating Partners to identify tech debt and lock in EBITDA synergies pre-close.",
+    title: "Post Acquisition Technical Due Diligence Framework",
+    description: "Examine the exact risk evaluation criteria used by PE Operating Partners to identify tech debt and lock in EBITDA synergies pre-close.",
   },
 ];
 
@@ -137,6 +138,7 @@ const pathways = [
 ];
 
 function Page() {
+  const { items: caseStudies } = usePageContent("private-equity", caseStudiesDefault);
   return (
     <>
       <PageHeader
@@ -289,13 +291,13 @@ function Page() {
           </Reveal>
           <Stagger className="mt-8 grid md:grid-cols-3 gap-5">
             {caseStudies.map((c) => (
-              <StaggerItem key={c.t}>
+              <StaggerItem key={c._id || c.title}>
                 <Link
                   to="/insights"
                   className="group block h-full p-7 rounded-2xl border border-cream/15 bg-cream/[0.04] hover:bg-cream/[0.08] transition-colors"
                 >
-                  <h4 className="font-display text-lg font-semibold leading-snug">{c.t}</h4>
-                  <p className="mt-3 text-sm text-cream/70 leading-relaxed">{c.d}</p>
+                  <h4 className="font-display text-lg font-semibold leading-snug">{c.title}</h4>
+                  <p className="mt-3 text-sm text-cream/70 leading-relaxed">{c.description}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-glow">
                     Read the brief
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
