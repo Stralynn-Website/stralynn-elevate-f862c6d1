@@ -13,6 +13,12 @@ const {
   getAdminContent,
   updateAdminContent,
 } = require("../controllers/content.controller");
+const {
+  listJobsAdmin,
+  createJob,
+  updateJob,
+  deleteJob,
+} = require("../controllers/jobs.controller");
 
 const router = express.Router();
 
@@ -32,5 +38,11 @@ router.get("/submissions/export/excel", requireAdminAuth, exportExcel);
 router.get("/content/pages", requireAdminAuth, listPages);
 router.get("/content/:pageKey", requireAdminAuth, getAdminContent);
 router.put("/content/:pageKey", requireAdminAuth, updateAdminContent);
+
+// --- Careers / open roles management ---
+router.get("/jobs", requireAdminAuth, listJobsAdmin);
+router.post("/jobs", requireAdminAuth, createJob);
+router.put("/jobs/:id", requireAdminAuth, updateJob);
+router.delete("/jobs/:id", requireAdminAuth, deleteJob);
 
 module.exports = router;

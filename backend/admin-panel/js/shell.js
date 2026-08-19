@@ -6,8 +6,13 @@
   }
 
   const navBtns = document.querySelectorAll(".nav-btn");
-  const views = { submissions: document.getElementById("view-submissions"), content: document.getElementById("view-content") };
+  const views = {
+    submissions: document.getElementById("view-submissions"),
+    content: document.getElementById("view-content"),
+    careers: document.getElementById("view-careers"),
+  };
   let contentLoaded = false;
+  let careersLoaded = false;
 
   navBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -19,6 +24,10 @@
       if (btn.dataset.view === "content" && !contentLoaded && window.StralynnContent) {
         contentLoaded = true;
         window.StralynnContent.init();
+      }
+      if (btn.dataset.view === "careers" && !careersLoaded && window.StralynnCareers) {
+        careersLoaded = true;
+        window.StralynnCareers.init();
       }
     });
   });

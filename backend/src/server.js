@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 const contactRoutes = require("./routes/contact.routes");
 const adminRoutes = require("./routes/admin.routes");
 const contentRoutes = require("./routes/content.routes");
+const jobsRoutes = require("./routes/jobs.routes");
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use(
 app.use("/api/contact", contactRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/content", contentRoutes);
+app.use("/api/jobs", jobsRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", time: new Date().toISOString() });

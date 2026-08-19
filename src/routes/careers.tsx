@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, MapPin, Briefcase, Search } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import { useJobs } from "../hooks/use-jobs";
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/careers")({
   component: Careers,
 });
 
-const jobs = [
+const jobsDefault = [
   { team: "AI", role: "Principal AI Engineer", location: "Remote · Americas", type: "Full-time" },
   { team: "AI", role: "Applied Scientist, Generative Systems", location: "New York", type: "Full-time" },
   { team: "Strategy", role: "Engagement Manager, Private Equity", location: "London", type: "Full-time" },
@@ -24,14 +25,14 @@ const jobs = [
   { team: "Operations", role: "Chief of Staff", location: "Bangalore", type: "Full-time" },
 ];
 
-const teams = ["All", "AI", "Strategy", "Design", "Operations"];
-
 function Careers() {
+  const { jobs } = useJobs(jobsDefault);
   const [team, setTeam] = useState("All");
   const [q, setQ] = useState("");
+  const teams = useMemo(() => ["All", ...Array.from(new Set(jobs.map((j) => j.team)))], [jobs]);
   const filtered = useMemo(
     () => jobs.filter((j) => (team === "All" || j.team === team) && j.role.toLowerCase().includes(q.toLowerCase())),
-    [team, q]
+    [jobs, team, q]
   );
 
   return (
@@ -96,12 +97,12 @@ function Careers() {
             <AnimatePresence mode="popLayout">
               {filtered.map((j) => (
                 <motion.a
-                  key={j.role}
+                  key={j._id || j.role}
                   layout
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  href="#"
+                  href={j.applyUrl || "#"}
                   className="group flex flex-col md:flex-row md:items-center md:justify-between gap-3 py-6 hover:px-3 transition-all"
                 >
                   <div className="flex-1 min-w-0">
