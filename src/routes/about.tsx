@@ -1,96 +1,137 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
-import { Compass, Heart, Sparkles, Users } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog";
+import {
+  ArrowUpRight, Heart, MessageCircle, Target, Lightbulb, BookOpen, ScanSearch,
+  Zap, Boxes, Gauge, Handshake, Rocket, Database, Cloud, Server, LayoutDashboard,
+} from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Stralynn" },
-      { name: "description", content: "Stralynn is a consulting firm built for the AI era — senior operators, engineers and strategists, shoulder-to-shoulder with our clients." },
+      { title: "About Stralynn | Enterprise AI & Digital Transformation Consultancy" },
+      { name: "description", content: "Discover Stralynn Consulting Services. Learn about our mission, core values, 4 Is transformation methodology, leadership governance, and global enterprise platform expertise." },
     ],
   }),
   component: AboutPage,
 });
 
 const values = [
-  { icon: Compass, t: "Outcomes over optics", d: "We measure ourselves in shipped systems and moved metrics — not decks." },
-  { icon: Heart, t: "Long-horizon partners", d: "We choose fewer clients, stay longer and bet our reputation on theirs." },
-  { icon: Sparkles, t: "Craft is non-negotiable", d: "From a discovery plan to a production model, the work is built to last." },
-  { icon: Users, t: "Senior at the table", d: "The partners you meet are the partners who build with you." },
+  { icon: Heart, t: "Passion & Commitment", d: "A dedicated drive to see each client relationship succeed, delivering beyond mere transactional service boundaries." },
+  { icon: MessageCircle, t: "Honesty & Openness", d: "Maintaining direct, transparent communications in advising partners on systems, capabilities, and expectations." },
+  { icon: Target, t: "Value Driven", d: "Ensuring every consultation, program integration, and software deployment yields measurable operational advantages." },
 ];
 
-type Leader = { name: string; role: string; img: string; desc: string };
+const fourIs = [
+  { icon: Lightbulb, t: "Domain Expertise", d: "Leveraging a deep, living knowledge base of best practices, business cases, and customized solutions extracted from multiple global projects across diverse industry verticals." },
+  { icon: ScanSearch, t: "Business Alignment System Evaluation", d: "An industry-first proprietary framework that blends business consulting with digital transformation to assess value creation early in the engagement." },
+  { icon: Zap, t: "Flexibility", d: "Utilizing customized Program Management and Agile Delivery models superimposed with Organizational Change Management (OCM) impact touchpoints to ensure seamless system adoption." },
+  { icon: Boxes, t: "Proprietary Software Offerings", d: "Accelerating enterprise transformation with tailored software products including StraL2C.ai, StraBoard, and intelligent AI Agents." },
+];
 
-const leaders: Leader[] = [
+const methodology = [
   {
-    name: "Alpna J. Doshi, NACD.DC",
-    role: "Founder CEO & Board Chairwoman",
-    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
-    desc: "Alpna is an Independent Board Director for Public, Private, and Non-Profit organizations.",
+    icon: Gauge,
+    t: "Operational Excellence",
+    items: [
+      "TCO Optimization & OPEX reduction",
+      "Eliminating disparate systems & manual touchpoints",
+      "Automating processes from Opportunity-to-Cash (O2C)",
+    ],
   },
   {
-    name: "Aravind Menon",
-    role: "Partner, AI Practice",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
-    desc: "Aravind leads enterprise AI delivery — from data platform architecture to production model governance.",
+    icon: Handshake,
+    t: "Trusted Partner",
+    items: [
+      "Collaborative Engagement Model with Integrated Governance",
+      "Insightful dashboard reporting at all operational levels",
+      "Strong, structured Organizational Change Management (OCM)",
+    ],
   },
   {
-    name: "Jordan Reyes",
-    role: "Partner, M&A",
-    img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80",
-    desc: "Jordan runs technical due diligence and 100-day post-close integration for private equity sponsors.",
+    icon: Rocket,
+    t: "Accelerated Roadmap",
+    items: [
+      "Timely execution & accelerated program delivery models",
+      "Agile-based approach with multiple continuous-delivery milestones",
+      "Robust, cross-functional Knowledge Management",
+    ],
   },
   {
-    name: "Naomi Okafor",
-    role: "Partner, Healthcare",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
-    desc: "Naomi advises payers, providers and health-tech platforms on HIPAA-compliant cloud and AI workflow automation.",
+    icon: Database,
+    t: "Value of Data",
+    items: [
+      "Multi-engagement integrated architectures supporting Salesforce, SAP, Oracle Apps, and NetSuite",
+      "Deep domain expertise in enterprise system security",
+      "Highly flexible delivery models to rapidly adopt changes",
+    ],
   },
+];
+
+const ecosystem = [
+  { icon: Cloud, t: "Salesforce Enterprise Consulting", d: "Architecting CRM, CPQ, Order-to-Cash, and Agentforce AI workflows." },
+  { icon: LayoutDashboard, t: "SAP Platform Modernization", d: "Streamlining core ERP operations and enterprise data integrations." },
+  { icon: Server, t: "Dell Technology Architecture", d: "Designing resilient cloud infrastructure and enterprise hardware networks." },
+  { icon: BookOpen, t: "Oracle NetSuite Business Systems", d: "Delivering end-to-end cloud ERP implementation, optimization, and data migration." },
 ];
 
 function AboutPage() {
-  const [active, setActive] = useState<Leader | null>(null);
   return (
     <>
       <PageHeader
         eyebrow="About Stralynn"
-        title={<>A firm built for the <span className="font-editorial italic">AI era</span></>}
-        description="We started Stralynn because the consulting model is overdue for a rewrite. Strategy and engineering belong on the same team and we wanted to work that way."
+        title={<>About Stralynn <span className="font-editorial italic">Consulting Services</span></>}
+        description="REIMAGINE. DIGITALIZE. TRANSCEND."
         video="https://videos.pexels.com/video-files/4763824/4763824-hd_1920_1080_24fps.mp4"
         poster="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80"
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+            Schedule a Strategic Consultation <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/5 text-cream px-6 py-3.5 text-sm font-semibold backdrop-blur hover:bg-cream/10 transition-all">
+            Contact Us
+          </Link>
+        </div>
+      </PageHeader>
 
+      {/* INTRO */}
       <section className="py-24 md:py-32">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-start">
           <Reveal>
-            <div className="eyebrow mb-3">Our story</div>
+            <div className="eyebrow mb-3">Speed & Certainty</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-              Founded by operators who have <span className="font-editorial italic">been on the other side</span>
+              Built for <span className="font-editorial italic">complex digital transformations</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                Our team comes from the boardrooms of global enterprises and the engineering benches of category-defining startups. We've sold companies, scaled platforms, rebuilt operating models and we've hired consultants who couldn't keep up with any of it.
+                At Stralynn, speed and certainty are the core pillars of developing and implementing complex digital transformations. In modern, fast-moving markets, organizations face the dual pressure of deploying cutting-edge technologies while fully optimizing their existing workforce skills.
               </p>
               <p>
-                Stralynn exists to be the firm we wished we could call. Senior, technical, opinionated. In the room when the bets are made and in the build when they get shipped.
+                Stralynn understands that because global markets evolve rapidly, a digital transformation must move even faster to maximize ROI on technology investments.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
+      {/* MISSION & VALUES */}
       <section className="py-24 md:py-32 bg-secondary/50">
         <div className="container-x">
-          <Reveal><div className="eyebrow mb-3">Our values</div></Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">Four convictions we don't compromise on</h2>
+          <Reveal>
+            <div className="eyebrow mb-3">Mission & Core Values</div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl mb-8">Our Mission</h2>
           </Reveal>
-          <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <Reveal delay={0.1}>
+            <blockquote className="text-2xl md:text-3xl font-editorial italic leading-snug max-w-3xl mb-16 border-l-4 border-azure pl-6">
+              "To deliver business-focused technology solutions to our partners by collaborating with them as their Trusted Technology Advisors."
+            </blockquote>
+          </Reveal>
+
+          <Reveal><div className="eyebrow mb-3">Foundational Corporate Values</div></Reveal>
+          <Stagger className="mt-8 grid md:grid-cols-3 gap-5">
             {values.map((v) => (
               <StaggerItem key={v.t}>
                 <div className="h-full p-7 rounded-2xl bg-background border border-border">
@@ -106,54 +147,128 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* VALUE PROPOSITION — THE 4 IS */}
       <section className="py-24 md:py-32">
         <div className="container-x">
-          <Reveal><div className="eyebrow mb-3">Leadership</div></Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-2xl mb-14">The partners you'll meet</h2>
+          <Reveal>
+            <div className="eyebrow mb-3">The Stralynn Value Proposition</div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
+              Insights, Interactions, Integrations & <span className="font-editorial italic">Innovations</span>
+            </h2>
           </Reveal>
-          <Stagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {leaders.map((l) => (
-              <StaggerItem key={l.name}>
-                <button
-                  type="button"
-                  onClick={() => setActive(l)}
-                  className="group relative block w-full text-left rounded-2xl bg-background border border-border overflow-hidden shadow-soft transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-elegant"
-                >
-                  <div className="relative overflow-hidden aspect-[4/5] bg-secondary">
-                    <img src={l.img} alt={l.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-navy-deep/95 via-navy-deep/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <p className="p-5 text-sm leading-relaxed text-cream">{l.desc}</p>
-                    </div>
+          <Reveal delay={0.1}>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              Stralynn focuses specifically on the factors that matter most in digital transformation — the "4 Is." Through this framework, Stralynn enables extraordinary outcomes for enterprise businesses and their customers.
+            </p>
+          </Reveal>
+          <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {fourIs.map((f) => (
+              <StaggerItem key={f.t}>
+                <div className="h-full p-6 rounded-2xl border border-border bg-card">
+                  <div className="h-11 w-11 rounded-xl gradient-hero grid place-items-center mb-4">
+                    <f.icon className="h-5 w-5 text-cream" />
                   </div>
-                  <div className="p-5">
-                    <div className="font-display text-lg font-semibold">{l.name}</div>
-                    <div className="text-sm text-muted-foreground">{l.role}</div>
-                  </div>
-                </button>
+                  <h3 className="font-display text-base font-semibold mb-2">{f.t}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{f.d}</p>
+                </div>
               </StaggerItem>
             ))}
           </Stagger>
         </div>
-
-        <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-          <DialogContent className="sm:max-w-lg">
-            {active && (
-              <>
-                <div className="overflow-hidden rounded-xl aspect-[4/3] bg-secondary">
-                  <img src={active.img} alt={active.name} className="h-full w-full object-cover" />
-                </div>
-                <DialogHeader>
-                  <DialogTitle className="font-display text-2xl">{active.name}</DialogTitle>
-                  <DialogDescription className="text-azure font-medium">{active.role}</DialogDescription>
-                </DialogHeader>
-                <p className="text-sm leading-relaxed text-muted-foreground">{active.desc}</p>
-              </>
-            )}
-          </DialogContent>
-        </Dialog>
       </section>
 
+      {/* CORE METHODOLOGY */}
+      <section className="py-24 md:py-32 bg-secondary/50">
+        <div className="container-x">
+          <Reveal>
+            <div className="eyebrow mb-3">Core Methodology</div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">What we do</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              Stralynn delivers high-impact digital solutions organized across four distinct functional dimensions to execute organizational change.
+            </p>
+          </Reveal>
+          <Stagger className="mt-14 grid md:grid-cols-2 gap-5">
+            {methodology.map((m) => (
+              <StaggerItem key={m.t}>
+                <div className="h-full p-7 rounded-2xl bg-background border border-border">
+                  <div className="h-12 w-12 rounded-xl gradient-hero grid place-items-center mb-5">
+                    <m.icon className="h-5 w-5 text-cream" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold mb-4">{m.t}</h3>
+                  <ul className="space-y-2.5">
+                    {m.items.map((item) => (
+                      <li key={item} className="text-sm text-muted-foreground leading-relaxed flex gap-2.5">
+                        <span className="text-azure mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* TECHNOLOGY ECOSYSTEM */}
+      <section className="py-24 md:py-32">
+        <div className="container-x">
+          <Reveal>
+            <div className="eyebrow mb-3">Technology Ecosystem Expertise</div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
+              Elite expertise across <span className="font-editorial italic">world-class systems</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              To support clients who want to proactively define their future rather than react to it, Stralynn maintains elite engineering and consulting expertise across world-class technology systems.
+            </p>
+          </Reveal>
+          <Stagger className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {ecosystem.map((e) => (
+              <StaggerItem key={e.t}>
+                <div className="h-full p-6 rounded-2xl border border-border bg-card">
+                  <div className="h-11 w-11 rounded-xl gradient-hero grid place-items-center mb-4">
+                    <e.icon className="h-5 w-5 text-cream" />
+                  </div>
+                  <h3 className="font-display text-base font-semibold mb-2">{e.t}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{e.d}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* EXECUTIVE LEADERSHIP */}
+      <section className="py-24 md:py-32 bg-secondary/50">
+        <div className="container-x">
+          <Reveal>
+            <div className="eyebrow mb-3">Methodological Governance & Leadership Vision</div>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl mb-10">
+              Leading digital strategies <span className="font-editorial italic">globally</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-14">
+              Stralynn leads digital strategies globally by uniting digital, technical, and creative competencies under a mission-critical approach. Driven by humility, humanity, and a passion for technology, Stralynn helps organizations transform customer experiences and improve lives globally.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="rounded-3xl bg-navy-deep text-cream p-10 md:p-14 max-w-3xl">
+              <blockquote className="text-xl md:text-2xl font-editorial italic leading-relaxed">
+                "Our people are our most valuable assets and I've learned that, given the right opportunities, attention and resources, they have the ability and drive to progress from success to significance."
+              </blockquote>
+              <div className="mt-6">
+                <div className="font-display text-lg font-semibold">Alpna J. Doshi</div>
+                <div className="text-sm text-cream/70">Chairman & CEO</div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

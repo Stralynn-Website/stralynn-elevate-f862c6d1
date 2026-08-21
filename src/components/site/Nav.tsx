@@ -7,7 +7,7 @@ import stralynnLogo from "../../assets/stralynn-logo.avif";
 type NavItem = {
   label: string;
   to?: string;
-  children?: { label: string; to: string; desc?: string }[];
+  children?: { label: string; to: string; desc?: string; children?: { label: string; to: string; desc?: string }[] }[];
 };
 
 const NAV: NavItem[] = [
@@ -17,7 +17,16 @@ const NAV: NavItem[] = [
       { label: "AI Digital Transformation", to: "/services/ai-digital-transformation", desc: "Enterprise AI, automation & data platforms" },
       { label: "M&A Advisory", to: "/services/ma-advisory", desc: "Diligence, integration & value capture" },
       { label: "BPO Transformation", to: "/services/bpo-transformation", desc: "Reinvent operations with intelligent ops" },
-      { label: "Enterprise Implementations", to: "/services/enterprise-implementations", desc: "Salesforce, ERP & Certinia transformations" },
+      {
+        label: "Enterprise Implementations",
+        to: "/services/enterprise-implementations",
+        desc: "Salesforce, ERP & Certinia transformations",
+        children: [
+          { label: "Salesforce Transformation", to: "/services/salesforce-transformation", desc: "Sales, service & Agentforce AI" },
+          { label: "NetSuite Consulting", to: "/services/netsuite-consulting", desc: "ERP implementation & migration" },
+          { label: "Certinia Consulting", to: "/services/certinia-consulting", desc: "PSA & financial management" },
+        ],
+      },
     ],
   },
   {
@@ -38,6 +47,8 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -109,20 +120,56 @@ export function Nav() {
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.2 }}
                     className="absolute left-0 top-full pt-3 w-[420px]"
+                    onMouseLeave={() => setOpenSubMenu(null)}
                   >
                     <div className="rounded-2xl border border-border bg-popover/95 backdrop-blur-xl shadow-elegant p-3">
                       {item.children.map((c) => (
-                        <Link
+                        <div
                           key={c.label}
-                          to={c.to}
-                          className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted transition-colors group"
+                          className="relative"
+                          onMouseEnter={() => c.children && setOpenSubMenu(c.label)}
                         >
-                          <div className="flex-1 min-w-0">
-                            <div className="text-sm font-semibold text-foreground">{c.label}</div>
-                            {c.desc && <div className="text-xs text-muted-foreground mt-0.5">{c.desc}</div>}
-                          </div>
-                          <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </Link>
+                          <Link
+                            to={c.to}
+                            onClick={() => { setOpenMenu(null); setOpenSubMenu(null); }}
+                            className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted transition-colors group"
+                          >
+                            <div className="flex-1 min-w-0">
+                              <div className="text-sm font-semibold text-foreground">{c.label}</div>
+                              {c.desc && <div className="text-xs text-muted-foreground mt-0.5">{c.desc}</div>}
+                            </div>
+                            <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </Link>
+
+                          <AnimatePresence>
+                            {c.children && openSubMenu === c.label && (
+                              <motion.div
+                                initial={{ opacity: 0, x: 8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 8 }}
+                                transition={{ duration: 0.2 }}
+                                className="absolute left-full top-0 pl-3 w-[320px]"
+                              >
+                                <div className="rounded-2xl border border-border bg-popover/95 backdrop-blur-xl shadow-elegant p-3">
+                                  {c.children.map((sub) => (
+                                    <Link
+                                      key={sub.label}
+                                      to={sub.to}
+                                      onClick={() => { setOpenMenu(null); setOpenSubMenu(null); }}
+                                      className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted transition-colors group"
+                                    >
+                                      <div className="flex-1 min-w-0">
+                                        <div className="text-sm font-semibold text-foreground">{sub.label}</div>
+                                        {sub.desc && <div className="text-xs text-muted-foreground mt-0.5">{sub.desc}</div>}
+                                      </div>
+                                      <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
                       ))}
                     </div>
                   </motion.div>
@@ -174,16 +221,57 @@ export function Nav() {
                 item.children ? (
                   <div key={item.label} className="py-2">
                     <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">{item.label}</div>
-                    {item.children.map((c) => (
-                      <Link
-                        key={c.label}
-                        to={c.to}
-                        onClick={() => setOpen(false)}
-                        className="block py-2 text-foreground font-medium"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
+                    {item.children.map((c) =>
+                      c.children ? (
+                        <div key={c.label} className="mb-1">
+                          <button
+                            type="button"
+                            onClick={() => setMobileSubOpen((v) => (v === c.label ? null : c.label))}
+                            className="w-full flex items-center justify-between py-2 text-foreground font-medium"
+                          >
+                            {c.label}
+                            <ChevronDown className={`h-4 w-4 opacity-60 transition-transform ${mobileSubOpen === c.label ? "rotate-180" : ""}`} />
+                          </button>
+                          <AnimatePresence>
+                            {mobileSubOpen === c.label && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden pl-4 border-l border-border ml-1"
+                              >
+                                <Link
+                                  to={c.to}
+                                  onClick={() => setOpen(false)}
+                                  className="block py-2 text-sm text-muted-foreground font-medium"
+                                >
+                                  {c.label} overview
+                                </Link>
+                                {c.children.map((sub) => (
+                                  <Link
+                                    key={sub.label}
+                                    to={sub.to}
+                                    onClick={() => setOpen(false)}
+                                    className="block py-2 text-sm text-foreground font-medium"
+                                  >
+                                    {sub.label}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <Link
+                          key={c.label}
+                          to={c.to}
+                          onClick={() => setOpen(false)}
+                          className="block py-2 text-foreground font-medium"
+                        >
+                          {c.label}
+                        </Link>
+                      )
+                    )}
                   </div>
                 ) : (
                   <Link

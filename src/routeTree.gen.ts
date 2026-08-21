@@ -14,8 +14,11 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesSalesforceTransformationRouteImport } from './routes/services.salesforce-transformation'
+import { Route as ServicesNetsuiteConsultingRouteImport } from './routes/services.netsuite-consulting'
 import { Route as ServicesMaAdvisoryRouteImport } from './routes/services.ma-advisory'
 import { Route as ServicesEnterpriseImplementationsRouteImport } from './routes/services.enterprise-implementations'
+import { Route as ServicesCertiniaConsultingRouteImport } from './routes/services.certinia-consulting'
 import { Route as ServicesBpoTransformationRouteImport } from './routes/services.bpo-transformation'
 import { Route as ServicesAiDigitalTransformationRouteImport } from './routes/services.ai-digital-transformation'
 import { Route as IndustriesTechnologyRouteImport } from './routes/industries.technology'
@@ -49,6 +52,18 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesSalesforceTransformationRoute =
+  ServicesSalesforceTransformationRouteImport.update({
+    id: '/services/salesforce-transformation',
+    path: '/services/salesforce-transformation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesNetsuiteConsultingRoute =
+  ServicesNetsuiteConsultingRouteImport.update({
+    id: '/services/netsuite-consulting',
+    path: '/services/netsuite-consulting',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesMaAdvisoryRoute = ServicesMaAdvisoryRouteImport.update({
   id: '/services/ma-advisory',
   path: '/services/ma-advisory',
@@ -58,6 +73,12 @@ const ServicesEnterpriseImplementationsRoute =
   ServicesEnterpriseImplementationsRouteImport.update({
     id: '/services/enterprise-implementations',
     path: '/services/enterprise-implementations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesCertiniaConsultingRoute =
+  ServicesCertiniaConsultingRouteImport.update({
+    id: '/services/certinia-consulting',
+    path: '/services/certinia-consulting',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesBpoTransformationRoute =
@@ -112,8 +133,11 @@ export interface FileRoutesByFullPath {
   '/industries/technology': typeof IndustriesTechnologyRoute
   '/services/ai-digital-transformation': typeof ServicesAiDigitalTransformationRoute
   '/services/bpo-transformation': typeof ServicesBpoTransformationRoute
+  '/services/certinia-consulting': typeof ServicesCertiniaConsultingRoute
   '/services/enterprise-implementations': typeof ServicesEnterpriseImplementationsRoute
   '/services/ma-advisory': typeof ServicesMaAdvisoryRoute
+  '/services/netsuite-consulting': typeof ServicesNetsuiteConsultingRoute
+  '/services/salesforce-transformation': typeof ServicesSalesforceTransformationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -128,8 +152,11 @@ export interface FileRoutesByTo {
   '/industries/technology': typeof IndustriesTechnologyRoute
   '/services/ai-digital-transformation': typeof ServicesAiDigitalTransformationRoute
   '/services/bpo-transformation': typeof ServicesBpoTransformationRoute
+  '/services/certinia-consulting': typeof ServicesCertiniaConsultingRoute
   '/services/enterprise-implementations': typeof ServicesEnterpriseImplementationsRoute
   '/services/ma-advisory': typeof ServicesMaAdvisoryRoute
+  '/services/netsuite-consulting': typeof ServicesNetsuiteConsultingRoute
+  '/services/salesforce-transformation': typeof ServicesSalesforceTransformationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -145,8 +172,11 @@ export interface FileRoutesById {
   '/industries/technology': typeof IndustriesTechnologyRoute
   '/services/ai-digital-transformation': typeof ServicesAiDigitalTransformationRoute
   '/services/bpo-transformation': typeof ServicesBpoTransformationRoute
+  '/services/certinia-consulting': typeof ServicesCertiniaConsultingRoute
   '/services/enterprise-implementations': typeof ServicesEnterpriseImplementationsRoute
   '/services/ma-advisory': typeof ServicesMaAdvisoryRoute
+  '/services/netsuite-consulting': typeof ServicesNetsuiteConsultingRoute
+  '/services/salesforce-transformation': typeof ServicesSalesforceTransformationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -163,8 +193,11 @@ export interface FileRouteTypes {
     | '/industries/technology'
     | '/services/ai-digital-transformation'
     | '/services/bpo-transformation'
+    | '/services/certinia-consulting'
     | '/services/enterprise-implementations'
     | '/services/ma-advisory'
+    | '/services/netsuite-consulting'
+    | '/services/salesforce-transformation'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -179,8 +212,11 @@ export interface FileRouteTypes {
     | '/industries/technology'
     | '/services/ai-digital-transformation'
     | '/services/bpo-transformation'
+    | '/services/certinia-consulting'
     | '/services/enterprise-implementations'
     | '/services/ma-advisory'
+    | '/services/netsuite-consulting'
+    | '/services/salesforce-transformation'
   id:
     | '__root__'
     | '/'
@@ -195,8 +231,11 @@ export interface FileRouteTypes {
     | '/industries/technology'
     | '/services/ai-digital-transformation'
     | '/services/bpo-transformation'
+    | '/services/certinia-consulting'
     | '/services/enterprise-implementations'
     | '/services/ma-advisory'
+    | '/services/netsuite-consulting'
+    | '/services/salesforce-transformation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -212,8 +251,11 @@ export interface RootRouteChildren {
   IndustriesTechnologyRoute: typeof IndustriesTechnologyRoute
   ServicesAiDigitalTransformationRoute: typeof ServicesAiDigitalTransformationRoute
   ServicesBpoTransformationRoute: typeof ServicesBpoTransformationRoute
+  ServicesCertiniaConsultingRoute: typeof ServicesCertiniaConsultingRoute
   ServicesEnterpriseImplementationsRoute: typeof ServicesEnterpriseImplementationsRoute
   ServicesMaAdvisoryRoute: typeof ServicesMaAdvisoryRoute
+  ServicesNetsuiteConsultingRoute: typeof ServicesNetsuiteConsultingRoute
+  ServicesSalesforceTransformationRoute: typeof ServicesSalesforceTransformationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -253,6 +295,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/salesforce-transformation': {
+      id: '/services/salesforce-transformation'
+      path: '/services/salesforce-transformation'
+      fullPath: '/services/salesforce-transformation'
+      preLoaderRoute: typeof ServicesSalesforceTransformationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/netsuite-consulting': {
+      id: '/services/netsuite-consulting'
+      path: '/services/netsuite-consulting'
+      fullPath: '/services/netsuite-consulting'
+      preLoaderRoute: typeof ServicesNetsuiteConsultingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/ma-advisory': {
       id: '/services/ma-advisory'
       path: '/services/ma-advisory'
@@ -265,6 +321,13 @@ declare module '@tanstack/react-router' {
       path: '/services/enterprise-implementations'
       fullPath: '/services/enterprise-implementations'
       preLoaderRoute: typeof ServicesEnterpriseImplementationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/certinia-consulting': {
+      id: '/services/certinia-consulting'
+      path: '/services/certinia-consulting'
+      fullPath: '/services/certinia-consulting'
+      preLoaderRoute: typeof ServicesCertiniaConsultingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/bpo-transformation': {
@@ -332,9 +395,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesTechnologyRoute: IndustriesTechnologyRoute,
   ServicesAiDigitalTransformationRoute: ServicesAiDigitalTransformationRoute,
   ServicesBpoTransformationRoute: ServicesBpoTransformationRoute,
+  ServicesCertiniaConsultingRoute: ServicesCertiniaConsultingRoute,
   ServicesEnterpriseImplementationsRoute:
     ServicesEnterpriseImplementationsRoute,
   ServicesMaAdvisoryRoute: ServicesMaAdvisoryRoute,
+  ServicesNetsuiteConsultingRoute: ServicesNetsuiteConsultingRoute,
+  ServicesSalesforceTransformationRoute: ServicesSalesforceTransformationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
