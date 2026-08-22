@@ -8,7 +8,7 @@ import { useJobs } from "../hooks/use-jobs";
 
 const MotionLink = motion(Link);
 
-export const Route = createFileRoute("/careers")({
+export const Route = createFileRoute("/careers/")({
   head: () => ({
     meta: [
       { title: "Careers — Stralynn" },
