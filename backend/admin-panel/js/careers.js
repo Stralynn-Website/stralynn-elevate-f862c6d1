@@ -33,7 +33,7 @@
   let editingId = null; // null = add mode, otherwise editing this job's _id
 
   function emptyForm() {
-    return { team: "", role: "", location: "", type: "Full-time", description: "", applyUrl: "", applicants: 0, isActive: true };
+    return { team: "", role: "", location: "", type: "Full-time", description: "", applyUrl: "", isActive: true };
   }
   let formData = emptyForm();
 
@@ -76,18 +76,12 @@
             <input type="text" id="f_type" value="${escapeHtml(formData.type)}" placeholder="e.g. Full-time" />
           </div>
         </div>
-        <div class="grid2">
-          <div>
-            <label>Applicants so far</label>
-            <input type="number" min="0" id="f_applicants" value="${formData.applicants || 0}" />
-          </div>
-          <div>
-            <label>Apply link (optional)</label>
-            <input type="text" id="f_applyUrl" value="${escapeHtml(formData.applyUrl)}" placeholder="https://..." />
-          </div>
+        <div style="margin-bottom:12px;">
+          <label>Apply link (optional — only used as a fallback if this role has no online applications yet)</label>
+          <input type="text" id="f_applyUrl" value="${escapeHtml(formData.applyUrl)}" placeholder="https://..." />
         </div>
         <div style="margin-bottom:12px;">
-          <label>Description (optional, internal or for a future job detail page)</label>
+          <label>Description (shown to candidates on the application page)</label>
           <textarea id="f_description">${escapeHtml(formData.description)}</textarea>
         </div>
         <div style="margin-bottom:12px; display:flex; align-items:center; gap:8px;">
@@ -102,7 +96,7 @@
       </div>
     `;
 
-    ["role", "team", "location", "type", "applicants", "applyUrl", "description"].forEach((field) => {
+    ["role", "team", "location", "type", "applyUrl", "description"].forEach((field) => {
       document.getElementById("f_" + field).addEventListener("input", (e) => {
         formData[field] = e.target.value;
       });
@@ -127,7 +121,11 @@
         <td>${escapeHtml(j.team)}</td>
         <td>${escapeHtml(j.location)}</td>
         <td>${escapeHtml(j.type)}</td>
-        <td><input type="number" min="0" class="applicants-input" data-id="${j._id}" value="${j.applicants || 0}" /></td>
+        <td>
+          <button class="delete-btn view-applicants-btn" data-id="${j._id}" data-role="${escapeHtml(j.role)}" style="color:#1f6feb;">
+            View (${j.applicantsCount || 0})
+          </button>
+        </td>
         <td>${formatDate(j.postedDate)}</td>
         <td><span class="status-pill ${j.isActive ? "active" : "inactive"}">${j.isActive ? "Live" : "Hidden"}</span></td>
         <td style="white-space:nowrap;">
@@ -139,26 +137,6 @@
     });
   }
 
-  tableBody.addEventListener("change", async (e) => {
-    if (e.target.classList.contains("applicants-input")) {
-      const id = e.target.dataset.id;
-      const job = jobs.find((j) => j._id === id);
-      if (!job) return;
-      const applicants = parseInt(e.target.value, 10) || 0;
-      const res = await fetch(`/api/admin/jobs/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", ...authHeaders() },
-        body: JSON.stringify({ ...job, applicants }),
-      });
-      if (await handleAuthFailure(res)) return;
-      if (!res.ok) {
-        const data = await res.json();
-        alert(data.message || "Failed to update applicant count.");
-        loadJobs();
-      }
-    }
-  });
-
   tableBody.addEventListener("click", async (e) => {
     if (e.target.classList.contains("edit-job-btn")) {
       const id = e.target.dataset.id;
@@ -168,7 +146,7 @@
       formData = {
         team: job.team, role: job.role, location: job.location, type: job.type,
         description: job.description || "", applyUrl: job.applyUrl || "",
-        applicants: job.applicants || 0, isActive: job.isActive,
+        isActive: job.isActive,
       };
       renderForm();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -176,7 +154,7 @@
 
     if (e.target.classList.contains("delete-job-btn")) {
       const id = e.target.dataset.id;
-      if (!confirm("Delete this role permanently? This cannot be undone.")) return;
+      if (!confirm("Delete this role permanently? This cannot be undone. Past applications for it are kept for record-keeping.")) return;
       const res = await fetch(`/api/admin/jobs/${id}`, { method: "DELETE", headers: authHeaders() });
       if (await handleAuthFailure(res)) return;
       if (!res.ok) {
@@ -185,6 +163,10 @@
         return;
       }
       loadJobs();
+    }
+
+    if (e.target.classList.contains("view-applicants-btn")) {
+      openApplicantsModal(e.target.dataset.id, e.target.dataset.role);
     }
   });
 
@@ -223,6 +205,118 @@
       statusEl.textContent = "Network error. Please try again.";
       statusEl.className = "save-status error";
     }
+  }
+
+  // ---- Applicants modal ----
+
+  let modalEl = null;
+
+  function ensureModal() {
+    if (modalEl) return modalEl;
+    modalEl = document.createElement("div");
+    modalEl.className = "modal-overlay";
+    modalEl.innerHTML = `
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 id="modalTitle">Applicants</h3>
+          <button class="modal-close" id="modalCloseBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    `;
+    document.body.appendChild(modalEl);
+    modalEl.addEventListener("click", (e) => {
+      if (e.target === modalEl) closeModal();
+    });
+    document.getElementById("modalCloseBtn").addEventListener("click", closeModal);
+    return modalEl;
+  }
+
+  function closeModal() {
+    if (modalEl) modalEl.classList.remove("open");
+  }
+
+  async function openApplicantsModal(jobId, role) {
+    const modal = ensureModal();
+    document.getElementById("modalTitle").textContent = `Applicants — ${role}`;
+    const body = document.getElementById("modalBody");
+    body.innerHTML = "<p style='color:#6b7280;font-size:13px;'>Loading...</p>";
+    modal.classList.add("open");
+
+    const res = await fetch(`/api/admin/jobs/${jobId}/applications`, { headers: authHeaders() });
+    if (await handleAuthFailure(res)) return;
+    const data = await res.json();
+    if (!res.ok) {
+      body.innerHTML = `<p style="color:#b91c1c;">${escapeHtml(data.message || "Failed to load applicants.")}</p>`;
+      return;
+    }
+
+    const applications = data.applications || [];
+    if (!applications.length) {
+      body.innerHTML = "<p style='color:#6b7280;font-size:13px;'>No applications yet for this role.</p>";
+      return;
+    }
+
+    body.innerHTML = applications.map((a) => `
+      <div class="applicant-card" data-id="${a._id}">
+        <div class="applicant-card-top">
+          <div>
+            <div class="applicant-name">${escapeHtml(a.name)}</div>
+            <div class="applicant-meta">${escapeHtml(a.email)}${a.phone ? " · " + escapeHtml(a.phone) : ""}${a.location ? " · " + escapeHtml(a.location) : ""}</div>
+            <div class="applicant-meta">Applied ${formatDate(a.createdAt)}</div>
+          </div>
+          <select class="status-select applicant-status-select" data-id="${a._id}">
+            <option value="new" ${a.status === "new" ? "selected" : ""}>New</option>
+            <option value="reviewed" ${a.status === "reviewed" ? "selected" : ""}>Reviewed</option>
+            <option value="shortlisted" ${a.status === "shortlisted" ? "selected" : ""}>Shortlisted</option>
+            <option value="rejected" ${a.status === "rejected" ? "selected" : ""}>Rejected</option>
+            <option value="hired" ${a.status === "hired" ? "selected" : ""}>Hired</option>
+          </select>
+        </div>
+        ${a.linkedinUrl ? `<div class="applicant-meta">LinkedIn/Portfolio: <a href="${escapeHtml(a.linkedinUrl)}" target="_blank" rel="noopener">${escapeHtml(a.linkedinUrl)}</a></div>` : ""}
+        ${a.coverNote ? `<p class="applicant-note">${escapeHtml(a.coverNote)}</p>` : ""}
+        <button class="btn-secondary download-resume-btn" data-id="${a._id}" data-filename="${escapeHtml(a.resumeFilename || "resume")}">⬇ Download Resume</button>
+      </div>
+    `).join("");
+
+    body.querySelectorAll(".applicant-status-select").forEach((sel) => {
+      sel.addEventListener("change", async (e) => {
+        const id = e.target.dataset.id;
+        const status = e.target.value;
+        const r = await fetch(`/api/admin/applications/${id}/status`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json", ...authHeaders() },
+          body: JSON.stringify({ status }),
+        });
+        if (await handleAuthFailure(r)) return;
+        if (!r.ok) {
+          const d = await r.json();
+          alert(d.message || "Failed to update status.");
+        }
+      });
+    });
+
+    body.querySelectorAll(".download-resume-btn").forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
+        const id = e.target.dataset.id;
+        const filename = e.target.dataset.filename;
+        const r = await fetch(`/api/admin/applications/${id}/resume`, { headers: authHeaders() });
+        if (await handleAuthFailure(r)) return;
+        if (!r.ok) {
+          alert("Failed to download resume.");
+          return;
+        }
+        const blob = await r.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      });
+    });
   }
 
   window.StralynnCareers = { init: loadJobs };

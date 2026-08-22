@@ -8,6 +8,7 @@ export interface JobItem {
   type: string;
   description?: string;
   applyUrl?: string;
+  applicantsCount?: number;
 }
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";

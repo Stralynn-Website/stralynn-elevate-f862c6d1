@@ -287,3 +287,70 @@ tr:last-child td { border-bottom: none; }
 }
 .status-pill.active { background: #dcfce7; color: #166534; }
 .status-pill.inactive { background: #f3f4f6; color: #6b7280; }
+
+/* applicants modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 31, 58, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-header h3 { margin: 0; font-size: 16px; }
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--muted);
+  padding: 4px 8px;
+}
+.modal-body {
+  padding: 18px 22px;
+  overflow-y: auto;
+}
+.applicant-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.applicant-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.applicant-name { font-weight: 600; font-size: 14px; }
+.applicant-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.applicant-note {
+  font-size: 13px;
+  color: var(--text);
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  white-space: pre-wrap;
+}

@@ -1,10 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, MapPin, Briefcase, Search } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { useJobs } from "../hooks/use-jobs";
+
+const MotionLink = motion(Link);
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
@@ -96,13 +98,14 @@ function Careers() {
           <div className="mt-10 divide-y divide-border border-t border-b border-border">
             <AnimatePresence mode="popLayout">
               {filtered.map((j) => (
-                <motion.a
+                <MotionLink
                   key={j._id || j.role}
                   layout
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  href={j.applyUrl || "#"}
+                  to={j._id ? "/careers/apply/$jobId" : "/contact"}
+                  params={j._id ? { jobId: j._id } : undefined}
                   className="group flex flex-col md:flex-row md:items-center md:justify-between gap-3 py-6 hover:px-3 transition-all"
                 >
                   <div className="flex-1 min-w-0">
@@ -112,9 +115,11 @@ function Careers() {
                   <div className="flex items-center gap-5 text-sm text-muted-foreground shrink-0">
                     <span className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4" />{j.location}</span>
                     <span className="hidden md:inline-flex items-center gap-1.5"><Briefcase className="h-4 w-4" />{j.type}</span>
-                    <ArrowUpRight className="h-5 w-5 text-foreground group-hover:text-azure group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                    <span className="inline-flex items-center gap-1.5 text-azure font-semibold text-xs uppercase tracking-wider">
+                      Apply <ArrowUpRight className="h-4 w-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                    </span>
                   </div>
-                </motion.a>
+                </MotionLink>
               ))}
             </AnimatePresence>
             {filtered.length === 0 && (

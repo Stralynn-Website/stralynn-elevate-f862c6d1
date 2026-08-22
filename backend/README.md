@@ -137,7 +137,135 @@ sectionLabel) and add `"your-page-key"` to `PAGE_KEYS` in
 `backend/src/models/PageContent.js`. It'll show up in the admin sidebar's
 page picker automatically — no other backend changes needed.
 
-## 5. Security notes
+## 5. Careers — open roles editor
+
+The admin sidebar now has a third tab, **Careers**, for managing the open
+roles shown on the public `/careers` page — add, edit, or delete roles, and
+the live site updates immediately, no redeploy needed.
+
+**One-time setup — seed it with today's existing roles:**
+
+```bash
+cd backend
+npm run seed-jobs
+```
+
+Safe to re-run — it skips roles that already exist (matched by role + team)
+instead of duplicating them.
+
+**What the admin panel shows per role, and can edit:**
+- Role title, category/team, location, employment type (all required)
+- **Applicants** — a manually-editable number. There's no live "apply"
+  submission flow wired up yet (the public page's Apply link currently just
+  points wherever you set `applyUrl`, or nowhere if left blank), so this is
+  a counter the admin updates by hand to track interest — editable inline
+  directly in the table without opening the full edit form.
+- **Posted date** — set automatically when a role is created; shown in the table.
+- **Status** — Live / Hidden. Hiding a role keeps it in the admin list (and
+  its applicant count) without deleting it or showing it publicly — useful
+  for roles that are paused rather than closed for good.
+- Optional description and an optional external apply link.
+
+**How it works technically:**
+- New model: `backend/src/models/Job.js`.
+- Public read endpoint: `GET /api/jobs` — returns only `isActive: true`
+  roles, no auth, used by the live site.
+- Admin endpoints (JWT protected): `GET /api/admin/jobs` (all roles,
+  including hidden), `POST /api/admin/jobs`, `PUT /api/admin/jobs/:id`,
+  `DELETE /api/admin/jobs/:id`.
+- Frontend: `src/hooks/use-jobs.ts` fetches `/api/jobs` and falls back to
+  the original hardcoded list if the backend is unreachable. The category
+  filter pills on `/careers` are now generated from whatever teams exist in
+  the data, so a brand-new category you add in the admin panel (e.g.
+  "Sales") automatically gets its own filter button — no code change needed.
+- `src/routes/careers.tsx` was updated to call this hook instead of
+  rendering the hardcoded `jobs` array. That's the only frontend file this
+  feature touches.
+
+## 6. Admin panel fix: logout button always visible
+
+Previously the sidebar's height was tied to the tallest content on the page,
+so on longer views (like Page Content) you had to scroll all the way down to
+reach the Log out button. The sidebar is now pinned to the viewport
+(`position: sticky` + `height: 100vh`) so Log out — and both nav tabs — stay
+visible no matter how long the content next to it is. This was a CSS-only
+change in `backend/admin-panel/css/style.css`.
+
+## 7. Email — confirmation on contact form submission, and job applications
+
+Two things now send an automatic confirmation email:
+1. **Contact form** — when someone submits `/contact`, they get an email
+   confirming their message was received and that someone will reply shortly.
+2. **Job applications** (see section 8 below) — applicants get a similar
+   confirmation for their specific role.
+
+**Setup — add SMTP credentials to `backend/.env`:**
+
+```
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=tejashwnijaiswal@gmail.com
+SMTP_PASS=your_gmail_app_password_here
+MAIL_FROM="Stralynn <tejashwnijaiswal@gmail.com>"
+```
+
+If using Gmail, `SMTP_PASS` must be an **App Password**, not the account's
+normal login password — Google blocks plain-password SMTP login. Generate
+one at https://myaccount.google.com/apppasswords (requires 2-Step
+Verification to be turned on for the account first). Once you have a real
+`admin@stralynn.com` mailbox, swap in its SMTP details (or its provider's
+API-based SMTP relay) the same way — no code changes needed, just env vars.
+
+If these variables are left blank, the backend logs a warning and silently
+skips sending email — form submissions and applications still save
+correctly either way, so this is safe to leave unconfigured during local
+testing.
+
+**How it works:** `backend/src/utils/mailer.js` wraps `nodemailer` with two
+helpers, `sendContactConfirmation` and `sendApplicationConfirmation`. Both
+are fire-and-forget — a slow or failed email never delays or breaks the
+actual form/application submission, it's only logged to the server console.
+
+## 8. Careers: job applications with resume upload
+
+Clicking a role on `/careers` now opens a real application page instead of
+doing nothing. Candidates enter name, email, phone, location, LinkedIn/
+portfolio URL, an optional note, and upload a resume (PDF or Word, up to
+5MB). On submit they get a confirmation email, and the application shows up
+in the admin panel immediately.
+
+**In the admin panel:** the Careers tab's **Applicants** column is now a
+real, live count (`View (N)`) instead of a manually-typed number. Clicking
+it opens every applicant for that role — contact details, note, LinkedIn
+link, and a **Download Resume** button — plus a status dropdown per
+applicant (New / Reviewed / Shortlisted / Rejected / Hired) so you can track
+where each candidate is in the pipeline.
+
+**How it works technically:**
+- New model: `backend/src/models/Application.js` — resumes are stored
+  directly in MongoDB as binary data (no filesystem writes), which keeps
+  this working correctly on hosts with ephemeral/read-only filesystems
+  (Render, Railway, etc.) without needing S3 or similar for day one.
+- Public endpoint: `POST /api/jobs/:jobId/apply` (multipart/form-data,
+  handled by `multer`, memory storage, 5MB limit, PDF/Word only) — rate
+  limited to 8 submissions per 15 minutes per IP.
+- Admin endpoints (JWT protected): `GET /api/admin/jobs/:jobId/applications`
+  (list, resume binary excluded for speed), `PATCH
+  /api/admin/applications/:id/status`, `GET
+  /api/admin/applications/:id/resume` (streams the file for download).
+- `backend/src/controllers/jobs.controller.js` — `listJobsAdmin` now
+  computes each job's real applicant count via an aggregation over the
+  `Application` collection instead of trusting a manually-typed number.
+- Frontend: new route `src/routes/careers.apply.$jobId.tsx` — the
+  application form and confirmation screen. `src/routes/careers.tsx` was
+  updated so each role links to `/careers/apply/<id>` instead of a dead
+  `href="#"`. `src/hooks/use-jobs.ts` gained an `applicantsCount` field.
+- If a role is later deleted from the admin panel, its past applications
+  are kept (not cascade-deleted) for record-keeping — they're denormalized
+  with the role title/team at time of application so they stay meaningful.
+
+## 9. Security notes
 
 - Admin panel and API are protected by JWT (7-day expiry by default).
 - Passwords are hashed with bcrypt; there is no default/seeded password —

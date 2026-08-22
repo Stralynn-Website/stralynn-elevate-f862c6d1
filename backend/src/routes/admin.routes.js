@@ -18,6 +18,9 @@ const {
   createJob,
   updateJob,
   deleteJob,
+  getJobApplications,
+  updateApplicationStatus,
+  downloadResume,
 } = require("../controllers/jobs.controller");
 
 const router = express.Router();
@@ -44,5 +47,10 @@ router.get("/jobs", requireAdminAuth, listJobsAdmin);
 router.post("/jobs", requireAdminAuth, createJob);
 router.put("/jobs/:id", requireAdminAuth, updateJob);
 router.delete("/jobs/:id", requireAdminAuth, deleteJob);
+
+// --- Job applications ---
+router.get("/jobs/:jobId/applications", requireAdminAuth, getJobApplications);
+router.patch("/applications/:id/status", requireAdminAuth, updateApplicationStatus);
+router.get("/applications/:id/resume", requireAdminAuth, downloadResume);
 
 module.exports = router;

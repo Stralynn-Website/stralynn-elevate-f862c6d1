@@ -1,4 +1,5 @@
 const Contact = require("../models/Contact");
+const { sendContactConfirmation } = require("../utils/mailer");
 
 async function submitContact(req, res) {
   try {
@@ -40,6 +41,10 @@ async function submitContact(req, res) {
       ip: req.ip,
       userAgent: req.headers["user-agent"] || "",
     });
+
+    // Fire-and-forget: don't let a slow/failed email delay the response
+    // that confirms the submission was saved.
+    sendContactConfirmation({ to: email, firstName }).catch(() => {});
 
     return res.status(201).json({
       message: "Message received. A partner will be in touch within one business day.",

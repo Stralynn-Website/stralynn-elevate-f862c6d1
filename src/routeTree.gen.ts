@@ -26,6 +26,7 @@ import { Route as IndustriesPublicSectorRouteImport } from './routes/industries.
 import { Route as IndustriesPrivateEquityRouteImport } from './routes/industries.private-equity'
 import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
 import { Route as IndustriesFinancialServicesRouteImport } from './routes/industries.financial-services'
+import { Route as CareersApplyJobIdRouteImport } from './routes/careers.apply.$jobId'
 
 const InsightsRoute = InsightsRouteImport.update({
   id: '/insights',
@@ -119,11 +120,16 @@ const IndustriesFinancialServicesRoute =
     path: '/industries/financial-services',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CareersApplyJobIdRoute = CareersApplyJobIdRouteImport.update({
+  id: '/apply/$jobId',
+  path: '/apply/$jobId',
+  getParentRoute: () => CareersRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
+  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
@@ -138,11 +144,12 @@ export interface FileRoutesByFullPath {
   '/services/ma-advisory': typeof ServicesMaAdvisoryRoute
   '/services/netsuite-consulting': typeof ServicesNetsuiteConsultingRoute
   '/services/salesforce-transformation': typeof ServicesSalesforceTransformationRoute
+  '/careers/apply/$jobId': typeof CareersApplyJobIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
+  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
@@ -157,12 +164,13 @@ export interface FileRoutesByTo {
   '/services/ma-advisory': typeof ServicesMaAdvisoryRoute
   '/services/netsuite-consulting': typeof ServicesNetsuiteConsultingRoute
   '/services/salesforce-transformation': typeof ServicesSalesforceTransformationRoute
+  '/careers/apply/$jobId': typeof CareersApplyJobIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/careers': typeof CareersRoute
+  '/careers': typeof CareersRouteWithChildren
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
@@ -177,6 +185,7 @@ export interface FileRoutesById {
   '/services/ma-advisory': typeof ServicesMaAdvisoryRoute
   '/services/netsuite-consulting': typeof ServicesNetsuiteConsultingRoute
   '/services/salesforce-transformation': typeof ServicesSalesforceTransformationRoute
+  '/careers/apply/$jobId': typeof CareersApplyJobIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -198,6 +207,7 @@ export interface FileRouteTypes {
     | '/services/ma-advisory'
     | '/services/netsuite-consulting'
     | '/services/salesforce-transformation'
+    | '/careers/apply/$jobId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
     | '/services/ma-advisory'
     | '/services/netsuite-consulting'
     | '/services/salesforce-transformation'
+    | '/careers/apply/$jobId'
   id:
     | '__root__'
     | '/'
@@ -236,12 +247,13 @@ export interface FileRouteTypes {
     | '/services/ma-advisory'
     | '/services/netsuite-consulting'
     | '/services/salesforce-transformation'
+    | '/careers/apply/$jobId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CareersRoute: typeof CareersRoute
+  CareersRoute: typeof CareersRouteWithChildren
   ContactRoute: typeof ContactRoute
   InsightsRoute: typeof InsightsRoute
   IndustriesFinancialServicesRoute: typeof IndustriesFinancialServicesRoute
@@ -379,13 +391,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesFinancialServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers/apply/$jobId': {
+      id: '/careers/apply/$jobId'
+      path: '/apply/$jobId'
+      fullPath: '/careers/apply/$jobId'
+      preLoaderRoute: typeof CareersApplyJobIdRouteImport
+      parentRoute: typeof CareersRoute
+    }
   }
 }
+
+interface CareersRouteChildren {
+  CareersApplyJobIdRoute: typeof CareersApplyJobIdRoute
+}
+
+const CareersRouteChildren: CareersRouteChildren = {
+  CareersApplyJobIdRoute: CareersApplyJobIdRoute,
+}
+
+const CareersRouteWithChildren =
+  CareersRoute._addFileChildren(CareersRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CareersRoute: CareersRoute,
+  CareersRoute: CareersRouteWithChildren,
   ContactRoute: ContactRoute,
   InsightsRoute: InsightsRoute,
   IndustriesFinancialServicesRoute: IndustriesFinancialServicesRoute,
