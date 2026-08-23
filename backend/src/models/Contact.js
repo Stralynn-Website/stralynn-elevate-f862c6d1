@@ -18,6 +18,7 @@ const contactSchema = new mongoose.Schema(
     countryCode: { type: String, trim: true, maxlength: 10, default: "" },
     phone: { type: String, trim: true, maxlength: 30, default: "" },
     company: { type: String, required: true, trim: true, maxlength: 200 },
+    role: { type: String, trim: true, maxlength: 150, default: "" },
     message: { type: String, required: true, trim: true, maxlength: 1500 },
     privacyAccepted: { type: Boolean, required: true, default: false },
     status: {

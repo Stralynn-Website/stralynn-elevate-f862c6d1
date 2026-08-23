@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, MapPin, Check } from "lucide-react";
@@ -73,6 +73,7 @@ function Contact() {
       countryCode: formData.get("countryCode") || "",
       phone: formData.get("phone") || "",
       company: formData.get("company") || "",
+      role: formData.get("role") || "",
       message: formData.get("message") || "",
       privacyAccepted: privacyOk,
     };
@@ -189,6 +190,7 @@ function Contact() {
                   <div className="space-y-6">
                     <h3 className="font-display text-2xl font-semibold">About your business</h3>
                     <LabeledInput label="Company Name:" name="company" required />
+                    <LabeledInput label="Role:" name="role" placeholder="Your job title (optional)" />
                   </div>
 
                   <div className="space-y-6">
@@ -213,7 +215,7 @@ function Contact() {
                       <span>
                         <span className="text-red-600 mr-1">*</span>
                         I have read and understand{" "}
-                        <a href="#" className="underline text-azure">Stralynn's Privacy Notice</a>.
+                        <Link to="/privacy-notice" className="underline text-azure" target="_blank" rel="noopener noreferrer">Stralynn's Privacy Notice</Link>.
                       </span>
                     </label>
                     {attempted && !privacyOk && (

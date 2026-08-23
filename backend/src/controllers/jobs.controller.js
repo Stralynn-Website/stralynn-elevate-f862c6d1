@@ -1,6 +1,6 @@
 const Job = require("../models/Job");
 const Application = require("../models/Application");
-const { sendApplicationConfirmation } = require("../utils/mailer");
+const { sendApplicationConfirmation, sendApplicationNotification } = require("../utils/mailer");
 
 // Public: only active roles, newest first. Used by the live careers page.
 async function getPublicJobs(req, res) {
@@ -162,6 +162,19 @@ async function applyToJob(req, res) {
     });
 
     sendApplicationConfirmation({ to: application.email, name: application.name, role: job.role }).catch(() => {});
+    sendApplicationNotification({
+      name: application.name,
+      email: application.email,
+      phone: application.phone,
+      location: application.location,
+      linkedinUrl: application.linkedinUrl,
+      coverNote: application.coverNote,
+      jobRole: job.role,
+      jobTeam: job.team,
+      resumeBuffer: req.file.buffer,
+      resumeFilename: req.file.originalname,
+      resumeMimeType: req.file.mimetype,
+    }).catch(() => {});
 
     return res.status(201).json({
       message: "Application received. We'll be in touch shortly.",

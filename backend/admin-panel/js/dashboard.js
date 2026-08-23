@@ -77,6 +77,7 @@
         <td>${escapeHtml(item.email)}</td>
         <td>${escapeHtml(phone)}</td>
         <td>${escapeHtml(item.company)}</td>
+        <td>${escapeHtml(item.role)}</td>
         <td>${escapeHtml(item.reason)}</td>
         <td class="msg-cell">${escapeHtml(item.message)}</td>
         <td>

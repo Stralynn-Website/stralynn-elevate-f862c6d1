@@ -50,6 +50,7 @@ async function listSubmissions(req, res) {
         { lastName: re },
         { email: re },
         { company: re },
+        { role: re },
         { message: re },
       ];
     }
@@ -120,6 +121,7 @@ async function exportExcel(req, res) {
       { header: "Country Code", key: "countryCode", width: 14 },
       { header: "Phone", key: "phone", width: 18 },
       { header: "Company", key: "company", width: 24 },
+      { header: "Role", key: "role", width: 20 },
       { header: "Message", key: "message", width: 60 },
       { header: "Status", key: "status", width: 14 },
     ];
@@ -135,6 +137,7 @@ async function exportExcel(req, res) {
         countryCode: it.countryCode || "",
         phone: it.phone || "",
         company: it.company || "",
+        role: it.role || "",
         message: it.message || "",
         status: it.status || "",
       });
