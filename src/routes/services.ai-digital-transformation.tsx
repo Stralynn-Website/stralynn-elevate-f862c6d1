@@ -19,7 +19,7 @@ const workstreams = [
   {
     icon: ClipboardCheck,
     title: "AI Readiness Assessment",
-    desc: "Current-state analysis of data, processes, and platforms; identification of high-ROI automation candidates and integration constraints.",
+    desc: "Current state analysis of data, processes, and platforms; identification of high ROI automation candidates and integration constraints.",
   },
   {
     icon: Search,
@@ -44,9 +44,9 @@ const workstreams = [
 ];
 
 const useCases = [
-  { t: "Lead-to-Cash Automation", d: "StraL2C, Stralynn's lead-to-cash automation product, compresses quote, order, and billing cycles across CRM and ERP systems." },
+  { t: "Lead to Cash Automation", d: "StraL2C, Stralynn's lead to cash automation product, compresses quote, order, and billing cycles across CRM and ERP systems." },
   { t: "Citizen Services & Document Intake", d: "Intelligent document processing (IDP) that converts paper-based government intake into digital workflows — turning paperwork into clickwork." },
-  { t: "Post-Acquisition Intelligence", d: "AI-assisted data consolidation and reporting layers for PE portfolio companies during 100-day execution plans." },
+  { t: "Post Acquisition Intelligence", d: "AI assisted data consolidation and reporting layers for PE portfolio companies during 100 day execution plans." },
   { t: "Executive Visibility", d: "StraBoard dashboards giving leadership real-time operational and financial visibility across integrated systems." },
 ];
 
