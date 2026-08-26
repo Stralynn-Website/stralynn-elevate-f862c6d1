@@ -6,7 +6,7 @@ const jobSchema = new mongoose.Schema(
     role: { type: String, required: true, trim: true, maxlength: 150 },      // job title
     location: { type: String, required: true, trim: true, maxlength: 100 },
     type: { type: String, required: true, trim: true, default: "Full-time", maxlength: 60 },
-    description: { type: String, trim: true, default: "", maxlength: 3000 },
+    description: { type: String, trim: true, default: "", maxlength: 8000 }, // supports light markdown: "## Heading", "- bullet"
     applyUrl: { type: String, trim: true, default: "" },
     applicants: { type: Number, default: 0, min: 0 },
     postedDate: { type: Date, default: Date.now },

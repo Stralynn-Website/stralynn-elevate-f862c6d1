@@ -137,7 +137,7 @@ function Page() {
 
           {/* Credibility strip */}
           <div className="rounded-2xl border border-border bg-background px-6 py-5 text-sm text-muted-foreground leading-relaxed">
-            Certified platform teams across the US, Canada, and India · GSA Multiple Award Schedule contract holder (November 2025) · Public sector implementations aligned to FISMA requirements and NIST 800-53 controls.
+            Certified platform teams across the US, Canada, and India · GSA Multiple Award Schedule contract holder · Public sector implementations aligned to FISMA requirements and NIST 800-53 controls.
           </div>
         </div>
       </section>

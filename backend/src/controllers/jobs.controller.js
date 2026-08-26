@@ -131,9 +131,12 @@ async function applyToJob(req, res) {
       return res.status(404).json({ message: "This role is no longer open." });
     }
 
-    const { name, email, phone = "", location = "", coverNote = "", linkedinUrl = "" } = req.body;
+    const { firstName, lastName, name: fullNameField, email, phone = "", location = "", coverNote = "", linkedinUrl = "" } = req.body;
+    // Accept either a combined "name" field or separate firstName/lastName
+    // (the current apply form sends firstName + lastName).
+    const name = (fullNameField && fullNameField.trim()) || [firstName, lastName].filter(Boolean).join(" ").trim();
 
-    if (!name || !name.trim() || !email || !email.trim()) {
+    if (!name || !email || !email.trim()) {
       return res.status(400).json({ message: "Name and email are required." });
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

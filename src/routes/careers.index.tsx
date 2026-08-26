@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, MapPin, Briefcase, Search } from "lucide-react";
+import { ArrowUpRight, MapPin, Briefcase, Search, HeartHandshake, Rocket, Users, Layers } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { useJobs } from "../hooks/use-jobs";
@@ -12,19 +12,37 @@ export const Route = createFileRoute("/careers/")({
   head: () => ({
     meta: [
       { title: "Careers — Stralynn" },
-      { name: "description", content: "Join Stralynn. We hire senior operators and engineers who want consulting reinvented." },
+      { name: "description", content: "Join Stralynn, a Woman- and Minority-Owned Business recognized by CIO Review. We transform organizations — and careers." },
     ],
   }),
   component: Careers,
 });
 
 const jobsDefault = [
-  { team: "AI", role: "Principal AI Engineer", location: "Remote · Americas", type: "Full-time" },
-  { team: "AI", role: "Applied Scientist, Generative Systems", location: "New York", type: "Full-time" },
-  { team: "Strategy", role: "Engagement Manager, Private Equity", location: "London", type: "Full-time" },
-  { team: "Strategy", role: "Associate, Healthcare Practice", location: "Boston", type: "Full-time" },
-  { team: "Design", role: "Principal Product Designer", location: "Remote · EU", type: "Full-time" },
-  { team: "Operations", role: "Chief of Staff", location: "Bangalore", type: "Full-time" },
+  { team: "Program Management", role: "Project Manager", location: "United States (Remote)", type: "Contracted" },
+];
+
+const whyStralynn = [
+  {
+    icon: HeartHandshake,
+    title: "A Human-First Culture",
+    body: "We believe that our greatest asset isn't our technology or our methodology—it's you. Our \"Human-First\" philosophy means we prioritize empathy, psychological safety, and holistic well-being.",
+  },
+  {
+    icon: Rocket,
+    title: "Unmatched Career Acceleration",
+    body: "At Stralynn, you won't get lost in the crowd. We provide our team members with a platform to do meaningful, high-impact work from day one.",
+  },
+  {
+    icon: Users,
+    title: "A Seat at the Table with Leaders",
+    body: "Forget rigid hierarchies and red tape. Here, you work directly alongside our partners, and senior executives. We operate with an open-door policy where the people steering the company hear and value your ideas.",
+  },
+  {
+    icon: Layers,
+    title: "Cross-Functional Mastery",
+    body: "We don't believe in silos. Digital transformation requires a unified approach, and so does your development. As a Stralynn consultant, you will stretch beyond your primary domain collaborating across technology, business strategy, HR, and sales operations.",
+  },
 ];
 
 function Careers() {
@@ -46,23 +64,49 @@ function Careers() {
         image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
       />
 
+      {/* WHY STRALYNN */}
       <section className="py-24 md:py-32">
         <div className="container-x">
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[
-              { k: "Senior only teams", v: "Every engagement is staffed with partners and principals." },
-              { k: "Equity for everyone", v: "All full-time hires share in the firm's upside." },
-              { k: "Time for craft", v: "Six weeks a year for research, writing and open source." },
-            ].map((c) => (
-              <Reveal key={c.k}>
-                <div className="p-7 rounded-2xl border border-border bg-card h-full">
-                  <div className="font-display text-xl font-semibold mb-2">{c.k}</div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.v}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal>
+            <div className="max-w-3xl">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
+                Shape the Future of Digital Transformation. <span className="font-editorial italic">Starting with Yours.</span>
+              </h2>
+              <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+                As a proud Woman- and Minority-Owned Business—and recognized as a top Digital Transformation Solutions company by CIO Review—Stralynn is built on the belief that extraordinary business results are driven by exceptional people. We don't just transform organizations; we transform careers.
+              </p>
+            </div>
+          </Reveal>
 
+          <Reveal delay={0.1}>
+            <h3 className="font-display text-2xl font-semibold mt-16 mb-8">Why Build Your Career With Stralynn?</h3>
+          </Reveal>
+
+          <Stagger className="grid md:grid-cols-2 gap-5">
+            {whyStralynn.map((c) => (
+              <StaggerItem key={c.title}>
+                <div className="h-full p-7 rounded-2xl border border-border bg-card">
+                  <div className="h-11 w-11 rounded-xl gradient-hero grid place-items-center mb-5">
+                    <c.icon className="h-5 w-5 text-cream" />
+                  </div>
+                  <div className="font-display text-xl font-semibold mb-2">{c.title}</div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          <Reveal delay={0.15}>
+            <div className="mt-16 pt-10 border-t border-border">
+              <h3 className="font-display text-2xl font-semibold mb-2">Ready to Make an Impact?</h3>
+              <p className="text-muted-foreground">Explore our open roles and find out how you can contribute to an award-winning team that puts its people first.</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-24 md:pb-32">
+        <div className="container-x">
           <Reveal>
             <h2 className="font-display text-3xl md:text-4xl font-semibold mb-2">Open roles</h2>
             <p className="text-muted-foreground">{filtered.length} positions across {teams.length - 1} teams</p>
