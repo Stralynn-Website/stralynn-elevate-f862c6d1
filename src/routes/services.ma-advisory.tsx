@@ -51,7 +51,7 @@ function Page() {
       >
         <div className="flex flex-wrap gap-4">
           <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
-            Book a deal-timeline scoping call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            Schedule a 30 min discovery call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </PageHeader>
@@ -208,7 +208,7 @@ function Page() {
               <Link to="/contact" className="inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold">
                 <span>
                   <span className="block text-xs uppercase tracking-[0.2em] text-navy-deep/60 mb-1">Active deal</span>
-                  Book a 30-minute deal-timeline scoping call
+                  Schedule a 30 min discovery call
                 </span>
                 <ArrowUpRight className="h-5 w-5" />
               </Link>
