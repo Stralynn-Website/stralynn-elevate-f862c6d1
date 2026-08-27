@@ -50,7 +50,7 @@ function Page() {
         video="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4"
       >
         <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
-          Book a process assessment <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          Schedule a 30 minute process assessment <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       </PageHeader>
 
@@ -58,7 +58,6 @@ function Page() {
       <section className="py-24 md:py-32">
         <div className="container-x max-w-4xl">
           <Reveal>
-            <div className="eyebrow mb-3">Definition</div>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
               What is <span className="font-editorial italic">BPO transformation?</span>
             </h2>
@@ -178,7 +177,7 @@ function Page() {
             </h2>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" className="group inline-flex items-center justify-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
-                Book a 30-minute process assessment call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                Schedule a 30 minute process assessment call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link to="/contact" className="group inline-flex items-center justify-center gap-2 rounded-full border border-cream/30 px-6 py-3.5 text-sm font-semibold hover:bg-cream/10 transition-all">
                 Fill out the contact form <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
