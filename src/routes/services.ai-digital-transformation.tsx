@@ -3,7 +3,7 @@ import { ArrowUpRight, ClipboardCheck, Search, Bot, Plug, TrendingUp, CheckCircl
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 
-export const Route = createFileRoute("/services/ai-digital-transformation")({
+export const Route = createFileRoute("/services/ai-transformation")({
   head: () => ({
     meta: [
       { title: "AI Transformation Services for the Enterprise — Stralynn" },
@@ -73,7 +73,7 @@ function Page() {
       >
         <div className="flex flex-wrap gap-4">
           <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
-            Book a 30-minute scoping call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            Schedule a 30-minute discovery call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </PageHeader>
@@ -84,12 +84,12 @@ function Page() {
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12">
             <Reveal>
               <div className="eyebrow mb-3">Definition</div>
-              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">What is AI-powered digital transformation?</h2>
+              <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">What is AI powered digital transformation?</h2>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="space-y-5 text-lg text-muted-foreground leading-relaxed">
-                <p>AI-powered digital transformation is the redesign of core business processes around artificial intelligence, replacing manual workflows and legacy decision points with AI agents that perceive, learn, and act within the business environment.</p>
-                <p>Unlike traditional rule-based automation, Stralynn starts from the workflow and its business objective, then configures a StraAI agent fitted to that job. The agent adapts in real time, orchestrating multi-step processes such as lead-to-cash, case routing, and document intake while surfacing insights for strategic decisions.</p>
+                <p>AI powered digital transformation is the redesign of core business processes around artificial intelligence, replacing manual workflows and legacy decision points with AI agents that perceive, learn, and act within the business environment.</p>
+                <p>Unlike traditional rule based automation, Stralynn starts from the workflow and its business objective, then configures a StraAI agent fitted to that job. The agent adapts in real time, orchestrating multi-step processes such as lead-to-cash, case routing, and document intake while surfacing insights for strategic decisions.</p>
               </div>
             </Reveal>
           </div>
@@ -106,7 +106,7 @@ function Page() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                Engagements run on the STRABASE methodology — Stralynn's benefits-driven delivery framework that builds toward self-sufficient automation rather than open-ended consulting dependency. Defined-scope initiatives can be structured as 90 day Digital Capsules for rapid solution turn-up.
+                Engagements run on the STRABASE methodology — Stralynn's benefits driven delivery framework that builds toward self sufficient automation rather than open ended consulting dependency. Defined scope initiatives can be structured as 90 day Digital Capsules for rapid solution turn-up.
               </p>
             </Reveal>
           </div>
