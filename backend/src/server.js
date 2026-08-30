@@ -139,12 +139,31 @@ app.use((err, req, res, next) => {
 });
 
 // --------------------------------------------------
-// DATABASE CONNECTION
+// DATABASE CONNECTION & SERVER START
 // --------------------------------------------------
 
-connectDB().catch((err) => {
-  console.error("MongoDB connection error:", err);
-});
+const PORT = process.env.PORT || 5000;
+
+// On Vercel, the platform itself invokes the exported `app` per-request —
+// calling app.listen() there does nothing useful and can cause issues, so
+// it's skipped. Everywhere else (local `npm run dev`/`npm start`, or a
+// traditional host like Render/Railway), we need to actually bind to a
+// port or the server never accepts any connections.
+if (!process.env.VERCEL) {
+  connectDB()
+    .then(() => {
+      app.listen(PORT, () => {
+        console.log(`Stralynn backend running on port ${PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error("Failed to start server:", err);
+    });
+} else {
+  connectDB().catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
+}
 
 // --------------------------------------------------
 // VERCEL SERVERLESS EXPORT
