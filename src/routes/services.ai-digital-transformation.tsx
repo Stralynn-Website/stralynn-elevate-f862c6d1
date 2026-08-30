@@ -3,7 +3,7 @@ import { ArrowUpRight, ClipboardCheck, Search, Bot, Plug, TrendingUp, CheckCircl
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 
-export const Route = createFileRoute("/services/ai-transformation")({
+export const Route = createFileRoute("/services/ai-digital-transformation")({
   head: () => ({
     meta: [
       { title: "AI Transformation Services for the Enterprise — Stralynn" },

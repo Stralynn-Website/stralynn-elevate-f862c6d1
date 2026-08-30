@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Search, Bot, Plug, Users, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import bpoImage from "../assets/services/bpo-transformation.jpeg";
 
 export const Route = createFileRoute("/services/bpo-transformation")({
   head: () => ({
@@ -64,6 +65,15 @@ function Page() {
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               BPO transformation is the modernization of outsourced business processes — finance operations, customer service, claims handling, and back-office administration — by layering automation and AI intelligence over the existing outsourcing stack. The goal is to shift outsourced teams from manual transaction processing to exception handling, while AI agents execute the repeatable volume.
             </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="mt-10 rounded-3xl overflow-hidden aspect-[16/8] bg-secondary">
+              <img
+                src={bpoImage}
+                alt="Team collaborating on a transformed BPO workflow"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </Reveal>
         </div>
       </section>

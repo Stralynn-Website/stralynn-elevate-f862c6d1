@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { usePageContent } from "../hooks/use-page-content";
+import alpnaPortrait from "../assets/leadership/alpna-doshi.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,9 +138,6 @@ function Home() {
                 Schedule a conversation
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream hover:bg-cream/10 transition-colors">
-                Contact us
-              </Link>
             </div>
           </Reveal>
         </motion.div>
@@ -207,6 +205,13 @@ function Home() {
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
                 Executive leadership & <span className="font-editorial italic gradient-accent-text">methodological governance</span>
               </h2>
+              <div className="mt-8 rounded-2xl overflow-hidden aspect-[4/5] max-w-xs">
+                <img
+                  src={alpnaPortrait}
+                  alt="Alpna J. Doshi, NACD.DC — Founder CEO & Board Chairwoman of Stralynn"
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <ul className="mt-8 space-y-3">
                 {leadershipSignals.map((s) => (
                   <li key={s} className="flex items-start gap-3 text-sm text-cream/75">
@@ -417,12 +422,6 @@ function Home() {
 }
 
 const insights = [
-  {
-    icon: "FileText",
-    tag: "Case Study",
-    title: "UVP Portal Modernization",
-    description: "Operational record tracking 100% record fidelity and zero reportable data incidents during a complete government portal overhaul.",
-  },
   {
     icon: "Database",
     tag: "Technical Brief",

@@ -93,6 +93,15 @@ function Page() {
               </p>
             </Reveal>
           </div>
+          <Reveal delay={0.15}>
+            <div className="mt-10 rounded-3xl overflow-hidden aspect-[16/8] bg-secondary">
+              <img
+                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=80"
+                alt="Enterprise systems team reviewing a platform implementation roadmap"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 

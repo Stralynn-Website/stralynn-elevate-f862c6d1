@@ -204,18 +204,11 @@ function Page() {
             <div className="max-w-2xl">
               <h3 className="font-display text-3xl md:text-4xl font-semibold">Align Stralynn to your deal timeline</h3>
             </div>
-            <div className="mt-8 grid md:grid-cols-2 gap-4">
-              <Link to="/contact" className="inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold">
+            <div className="mt-8">
+              <Link to="/contact" className="inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold max-w-md">
                 <span>
                   <span className="block text-xs uppercase tracking-[0.2em] text-navy-deep/60 mb-1">Active deal</span>
                   Schedule a 30 min discovery call
-                </span>
-                <ArrowUpRight className="h-5 w-5" />
-              </Link>
-              <Link to="/contact" className="inline-flex items-center justify-between gap-3 rounded-2xl border border-cream/30 bg-cream/5 text-cream px-6 py-5 font-semibold backdrop-blur">
-                <span>
-                  <span className="block text-xs uppercase tracking-[0.2em] text-cream/60 mb-1">Pipeline planning</span>
-                  Download the technical due diligence brief
                 </span>
                 <ArrowUpRight className="h-5 w-5" />
               </Link>

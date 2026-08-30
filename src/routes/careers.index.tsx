@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, MapPin, Briefcase, Search, HeartHandshake, Rocket, Users, Layers } from "lucide-react";
+import { ArrowUpRight, MapPin, Briefcase, Search } from "lucide-react";
 import { PageHeader } from "../components/site/PageHeader";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { useJobs } from "../hooks/use-jobs";
@@ -24,22 +24,22 @@ const jobsDefault = [
 
 const whyStralynn = [
   {
-    icon: HeartHandshake,
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80",
     title: "A Human-First Culture",
     body: "We believe that our greatest asset isn't our technology or our methodology—it's you. Our \"Human-First\" philosophy means we prioritize empathy, psychological safety, and holistic well-being.",
   },
   {
-    icon: Rocket,
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80",
     title: "Unmatched Career Acceleration",
     body: "At Stralynn, you won't get lost in the crowd. We provide our team members with a platform to do meaningful, high-impact work from day one.",
   },
   {
-    icon: Users,
+    img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1000&q=80",
     title: "A Seat at the Table with Leaders",
     body: "Forget rigid hierarchies and red tape. Here, you work directly alongside our partners, and senior executives. We operate with an open-door policy where the people steering the company hear and value your ideas.",
   },
   {
-    icon: Layers,
+    img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1000&q=80",
     title: "Cross-Functional Mastery",
     body: "We don't believe in silos. Digital transformation requires a unified approach, and so does your development. As a Stralynn consultant, you will stretch beyond your primary domain collaborating across technology, business strategy, HR, and sales operations.",
   },
@@ -85,12 +85,14 @@ function Careers() {
           <Stagger className="grid md:grid-cols-2 gap-5">
             {whyStralynn.map((c) => (
               <StaggerItem key={c.title}>
-                <div className="h-full p-7 rounded-2xl border border-border bg-card">
-                  <div className="h-11 w-11 rounded-xl gradient-hero grid place-items-center mb-5">
-                    <c.icon className="h-5 w-5 text-cream" />
+                <div className="h-full rounded-2xl border border-border bg-card overflow-hidden">
+                  <div className="aspect-[16/9]">
+                    <img src={c.img} alt={c.title} className="h-full w-full object-cover" />
                   </div>
-                  <div className="font-display text-xl font-semibold mb-2">{c.title}</div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                  <div className="p-7">
+                    <div className="font-display text-xl font-semibold mb-2">{c.title}</div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                  </div>
                 </div>
               </StaggerItem>
             ))}
