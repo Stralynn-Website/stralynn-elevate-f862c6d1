@@ -50,7 +50,7 @@ function Page() {
         video="https://videos.pexels.com/video-files/6774633/6774633-hd_1920_1080_30fps.mp4"
       >
         <div className="flex flex-wrap gap-4">
-          <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+          <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
             Schedule a 30 min discovery call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
@@ -205,7 +205,7 @@ function Page() {
               <h3 className="font-display text-3xl md:text-4xl font-semibold">Align Stralynn to your deal timeline</h3>
             </div>
             <div className="mt-8">
-              <Link to="/contact" className="inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold max-w-md">
+              <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold max-w-md">
                 <span>
                   <span className="block text-xs uppercase tracking-[0.2em] text-navy-deep/60 mb-1">Active deal</span>
                   Schedule a 30 min discovery call
