@@ -72,7 +72,7 @@ function Page() {
         video="https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4"
       >
         <div className="flex flex-wrap gap-4">
-          <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+          <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
             Schedule a 30 minute discovery call <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
@@ -201,7 +201,7 @@ function Page() {
               <p className="mt-4 text-cream/80 leading-relaxed">Two intake paths depending on how you buy</p>
             </div>
             <div className="mt-8 grid md:grid-cols-2 gap-4">
-              <Link to="/contact" className="group inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold">
+              <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="group inline-flex items-center justify-between gap-3 rounded-2xl bg-cream text-navy-deep px-6 py-5 font-semibold">
                 <span>
                   <span className="block text-xs uppercase tracking-[0.2em] text-navy-deep/60 mb-1">Commercial</span>
                   Schedule a 30 minute discovery call
