@@ -155,7 +155,7 @@ function Healthcare() {
       >
         <div className="flex flex-wrap items-center gap-4">
           <Link
-            to="/contact"
+            to="https://calendar.app.google/KLsgxRZPuBSU4hvh6"
             className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all"
           >
             Schedule a strategic consultation{" "}
