@@ -85,7 +85,7 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-cream/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-cream/50">
           <div>© {new Date().getFullYear()} Stralynn Consulting. All rights reserved.</div>
-          <Link to="/contact" className="group inline-flex items-center gap-2 text-cream hover:text-cream/80">
+          <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="group inline-flex items-center gap-2 text-cream hover:text-cream/80">
             Start a conversation
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
