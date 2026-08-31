@@ -49,11 +49,8 @@ function Page() {
         video="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4"
       >
         <div className="flex flex-wrap gap-4">
-          <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+          <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
             Schedule a Strategic Consultation <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/5 text-cream px-6 py-3.5 text-sm font-semibold backdrop-blur hover:bg-cream/10 transition-all">
-            Contact Us
           </Link>
         </div>
       </PageHeader>
@@ -190,7 +187,7 @@ function Page() {
               <p className="mt-4 text-cream/80 leading-relaxed">Talk to Stralynn's ERP practice about migration, integration, and optimization.</p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+              <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
                 Schedule a Strategic Consultation <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/5 text-cream px-6 py-3.5 text-sm font-semibold backdrop-blur hover:bg-cream/10 transition-all">
