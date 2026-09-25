@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrivacyNoticeRouteImport } from './routes/privacy-notice'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AlpnaRouteImport } from './routes/alpna'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
@@ -38,6 +39,11 @@ const PrivacyNoticeRoute = PrivacyNoticeRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlpnaRoute = AlpnaRouteImport.update({
+  id: '/alpna',
+  path: '/alpna',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -141,6 +147,7 @@ const CareersApplyJobIdRoute = CareersApplyJobIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/alpna': typeof AlpnaRoute
   '/contact': typeof ContactRoute
   '/privacy-notice': typeof PrivacyNoticeRoute
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
@@ -163,6 +170,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/alpna': typeof AlpnaRoute
   '/contact': typeof ContactRoute
   '/privacy-notice': typeof PrivacyNoticeRoute
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/alpna': typeof AlpnaRoute
   '/contact': typeof ContactRoute
   '/privacy-notice': typeof PrivacyNoticeRoute
   '/industries/financial-services': typeof IndustriesFinancialServicesRoute
@@ -210,6 +219,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/alpna'
     | '/contact'
     | '/privacy-notice'
     | '/industries/financial-services'
@@ -232,6 +242,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/alpna'
     | '/contact'
     | '/privacy-notice'
     | '/industries/financial-services'
@@ -254,6 +265,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/alpna'
     | '/contact'
     | '/privacy-notice'
     | '/industries/financial-services'
@@ -277,6 +289,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AlpnaRoute: typeof AlpnaRoute
   ContactRoute: typeof ContactRoute
   PrivacyNoticeRoute: typeof PrivacyNoticeRoute
   IndustriesFinancialServicesRoute: typeof IndustriesFinancialServicesRoute
@@ -311,6 +324,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alpna': {
+      id: '/alpna'
+      path: '/alpna'
+      fullPath: '/alpna'
+      preLoaderRoute: typeof AlpnaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -445,6 +465,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AlpnaRoute: AlpnaRoute,
   ContactRoute: ContactRoute,
   PrivacyNoticeRoute: PrivacyNoticeRoute,
   IndustriesFinancialServicesRoute: IndustriesFinancialServicesRoute,

@@ -147,10 +147,75 @@ async function sendApplicationNotification({ name, email, phone, location, linke
   });
 }
 
+// The inbox that should be notified whenever someone schedules a speaking /
+// booking conversation with Alpna from the /alpna speaker page. Defaults to
+// alpnajdoshi@stralynn.com but can be overridden via env if that inbox ever changes.
+function getSpeakingNotifyEmail() {
+  return process.env.SPEAKING_NOTIFY_EMAIL || "alpnajdoshi@stralynn.com";
+}
+
+// Internal notification sent to Alpna whenever a "Schedule a Conversation"
+// request is submitted from the /alpna speaker page.
+async function sendSpeakingInquiryNotification({
+  eventName, eventDate, eventFormat, eventLocation, organization,
+  audienceSize, budgetRange, fullName, email, phone, message,
+}) {
+  const rows = [
+    ["Event Name", eventName],
+    ["Event Date", eventDate || "—"],
+    ["Event Format", eventFormat || "—"],
+    ["Event Location", eventLocation || "—"],
+    ["Organization", organization],
+    ["Estimated Audience Size", audienceSize || "—"],
+    ["Budget Range", budgetRange || "—"],
+    ["Requested By", fullName],
+    ["Email", email],
+    ["Phone", phone || "—"],
+  ];
+  const rowsHtml = rows
+    .map(([label, value]) => `<tr><td style="padding:4px 12px 4px 0;color:#6b7280;">${label}</td><td style="padding:4px 0;">${value}</td></tr>`)
+    .join("");
+  const rowsText = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
+
+  return sendMail({
+    to: getSpeakingNotifyEmail(),
+    subject: `Meeting scheduled — Speaking inquiry for "${eventName}"`,
+    text: `A meeting has been scheduled via the Stralynn website (stralynn.com/alpna).\n\nA new speaking inquiry was submitted and a conversation has been scheduled with the requester.\n\n${rowsText}\n\nAdditional details:\n${message || "(none)"}`,
+    html: `
+      <div style="font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 560px; margin: 0 auto; color: #14161a;">
+        <h2 style="color: #0b1f3a;">Meeting scheduled — new speaking inquiry</h2>
+        <p>A conversation has been scheduled from the <strong>stralynn.com/alpna</strong> speaker page. Details below:</p>
+        <table style="border-collapse: collapse; margin: 16px 0;">${rowsHtml}</table>
+        ${message ? `<div style="margin-top: 8px; padding: 14px; background: #f9fafb; border-radius: 8px; white-space: pre-wrap;"><strong>Additional details:</strong><br/>${message}</div>` : ""}
+        <p style="margin-top: 20px; color: #6b7280; font-size: 13px;">Reply directly to ${email} to confirm a time.</p>
+      </div>
+    `,
+  });
+}
+
+// Confirmation sent to the person requesting the speaking engagement.
+async function sendSpeakingInquiryConfirmation({ to, firstName, eventName }) {
+  const name = firstName || "there";
+  return sendMail({
+    to,
+    subject: `Your conversation with Alpna J. Doshi has been scheduled — Stralynn`,
+    text: `Hi ${name},\n\nThank you for your interest in booking Alpna J. Doshi for ${eventName}. Your request has been received and a conversation has been scheduled — our team will follow up shortly to confirm a time.\n\nBest regards,\nStralynn Consulting Services`,
+    html: `
+      <div style="font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 480px; margin: 0 auto; color: #14161a;">
+        <h2 style="color: #0b1f3a;">Thanks for reaching out, ${name}.</h2>
+        <p>Your request to book Alpna J. Doshi for <strong>${eventName}</strong> has been received, and a conversation has been scheduled. Our team will follow up shortly to confirm a time.</p>
+        <p style="margin-top: 24px;">Best regards,<br/>Stralynn Consulting Services</p>
+      </div>
+    `,
+  });
+}
+
 module.exports = {
   sendMail,
   sendContactConfirmation,
   sendContactNotification,
   sendApplicationConfirmation,
   sendApplicationNotification,
+  sendSpeakingInquiryNotification,
+  sendSpeakingInquiryConfirmation,
 };

@@ -8,6 +8,9 @@ touches the frontend build.
 
 - `POST /api/contact` — public endpoint the website's contact form submits to.
   Rate-limited (5 requests / 15 min / IP) and validated.
+- `POST /api/speaking-inquiry` — public endpoint the `/alpna` speaker page's
+  "Schedule a Conversation" form submits to (see section 10 below).
+  Rate-limited (5 requests / 15 min / IP) and validated.
 - `POST /api/admin/login` — admin login, returns a JWT.
 - `GET /api/admin/submissions` — paginated, searchable, filterable list (JWT protected).
 - `PATCH /api/admin/submissions/:id/status` — update status (new / in_progress / resolved).
@@ -265,7 +268,45 @@ where each candidate is in the pipeline.
   are kept (not cascade-deleted) for record-keeping — they're denormalized
   with the role title/team at time of application so they stay meaningful.
 
-## 9. Security notes
+## 10. Alpna J. Doshi speaker page (`/alpna`)
+
+A standalone speaker/booking page at `stralynn.com/alpna` — her photo on the
+left, bio/signature talks/speaking topics on the right (pulled from her
+speaker one-sheet), and a **"Schedule a Conversation"** button that expands
+into a booking-inquiry form (event name, date, format, location, org,
+audience size, budget range, requester's contact details, and a free-text
+message) modeled on eSpeakers' private-job-posting form.
+
+On submit:
+1. The inquiry is saved to MongoDB.
+2. An internal notification email — subject line `Meeting scheduled —
+   Speaking inquiry for "<event name>"`, with every field from the form —
+   is sent to `alpnajdoshi@stralynn.com` (overridable via
+   `SPEAKING_NOTIFY_EMAIL` in `.env`; see `.env.example`).
+3. The requester gets a confirmation email at the address they entered.
+
+Both emails are fire-and-forget, same as the contact form: a slow or failed
+send never blocks the success response the visitor sees.
+
+**How it works technically:**
+- New model: `backend/src/models/SpeakingInquiry.js`.
+- Public endpoint: `POST /api/speaking-inquiry` (see above).
+- `backend/src/controllers/speaking.controller.js` — validates required
+  fields (event name, organization, first/last name, email format), saves
+  the inquiry, and fires both emails.
+- `backend/src/utils/mailer.js` gained two helpers:
+  `sendSpeakingInquiryNotification` (to Alpna) and
+  `sendSpeakingInquiryConfirmation` (to the requester).
+- Frontend: `src/routes/alpna.tsx` — reuses the existing
+  `src/assets/leadership/alpna-doshi.jpeg` portrait (same photo already used
+  on `/about`), so no new image asset was added. The form expand/collapse
+  and success state use `framer-motion`, matching the rest of the site's
+  animation style.
+- There is currently no link to `/alpna` from the site's header/footer nav —
+  it's only reachable by direct URL. Add a nav entry in
+  `src/routes/__root.tsx` if you want it discoverable from the main menu.
+
+## 11. Security notes
 
 - Admin panel and API are protected by JWT (7-day expiry by default).
 - Passwords are hashed with bcrypt; there is no default/seeded password —

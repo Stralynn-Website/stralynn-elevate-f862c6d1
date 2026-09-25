@@ -8,6 +8,7 @@ A modern corporate consulting website built dynamically using React, TypeScript,
 * **AI-Ready Consulting Interface:** Streamlined corporate styling optimized for modern enterprise solutions.
 * **Component-Driven Architecture:** Styled beautifully via Tailwind CSS and built seamlessly on top of Radix UI elements.
 * **Optimized Local Asset Management:** Features standalone asset pathing for performance independent of cloud-generation dependencies.
+* **Speaker Profile Page (`/alpna`):** A dedicated booking page for Alpna J. Doshi with a "Schedule a Conversation" inquiry form. Requires the backend (see `backend/README.md`, section 10) to be running for form submissions to save and trigger email notifications.
 
 ---
 
