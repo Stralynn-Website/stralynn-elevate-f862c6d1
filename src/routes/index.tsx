@@ -230,7 +230,7 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-cream/70 leading-relaxed">
-                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book, <a href="https://books2read.com/u/bOQPRJ" target="_blank" rel="noreferrer" className="text-cyan-glow underline decoration-cyan-glow/60 underline-offset-4 hover:text-cyan-300">The Superintelligence Code</a>, she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
+                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book, <a href="https://books2read.com/u/bOQPRJ">The Superintelligence Code</a>, she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
