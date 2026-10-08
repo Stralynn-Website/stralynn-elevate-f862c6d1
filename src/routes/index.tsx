@@ -129,7 +129,7 @@ function Home() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg md:text-xl text-cream/75 leading-relaxed">
-              Stralynn executes specialized IT consulting services, driving complex Enterprise modernizations, Salesforce implementations, and data migrations for Private Equity backed enterprises and public sector agencies.
+              Stralynn executes specialized IT consulting services, driving complex Enterprise modernizations, Salesforce implementations, and data migrations for Private Equity backed enterprises and public sector organizations.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
@@ -180,7 +180,7 @@ function Home() {
             <div>
               <Reveal>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15]">
-                  Stralynn Consulting Services is an enterprise technology consultancy that delivers <span className="font-editorial italic text-azure">AI transformation, M&A technical due diligence, and ERP and Salesforce implementations</span> for private equity, healthcare, financial services, and public sector organizations
+                  Stralynn Consulting Services is an enterprise technology consultancy that delivers <span className="font-editorial italic text-azure">AI transformation, M&A technical due diligence, and operational modernization</span> for complex organizations.
                 </h2>
               </Reveal>
               <Reveal delay={0.15}>
@@ -225,18 +225,18 @@ function Home() {
           <div className="space-y-8">
             <Reveal>
               <p className="text-lg text-cream/80 leading-relaxed">
-                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder CEO, and Board Chairwoman. A former Fortune 500 Group CIO at Royal Philips and Reliance Group, an alumna Operating Partner at Thoma Bravo, and a former board director at Mimecast, Alpna brings proven enterprise scale, board-level governance, and transaction execution experience to every Stralynn engagement.
+                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder CEO, and Board Chairwoman. A former Fortune 500 technology executive and board director, she has led enterprise transformations across regulated, high-risk, and mission-critical environments.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-cream/70 leading-relaxed">
-                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book, The Superintelligence Code, she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
+                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book, <a href="https://books2read.com/u/bOQPRJ" target="_blank" rel="noreferrer" className="text-cyan-glow underline decoration-cyan-glow/60 underline-offset-4 hover:text-cyan-300">The Superintelligence Code</a>, she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <blockquote className="rounded-2xl border border-cream/10 bg-cream/[0.04] backdrop-blur p-8 md:p-10">
                 <p className="font-editorial italic text-2xl md:text-3xl leading-snug text-cream">
-                  “In high-stakes enterprise transformation, speed without governance creates unacceptable risk. We engineer resilient technical architectures that allow boardrooms, private equity partners, and government leadership to execute complex modernizations with total confidence.”
+                  “In high-stakes enterprise transformation, speed without governance creates unacceptable risk. We engineer resilient technical architectures that allow boardrooms, private equity sponsors, and public sector leaders to move with confidence.”
                 </p>
                 <footer className="mt-6 text-sm text-cyan-glow">
                   Alpna J. Doshi, NACD.DC — Founder CEO & Board Chairwoman
@@ -390,7 +390,7 @@ function Home() {
                   <p className="mt-4 text-cream/75 max-w-md">
                     Review active M&A integration deadlines, Salesforce deployments, or ERP cutover schedules with a senior partner.
                   </p>
-                  <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold">
+                  <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
                     Schedule a conversation
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
@@ -408,7 +408,7 @@ function Home() {
                 <p className="mt-4 text-muted-foreground max-w-md">
                   Access Stralynn's official Capability Statement, request a technical security briefing, or submit an agency RFI/RFP requirement.
                 </p>
-                <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full border border-navy/20 text-navy px-6 py-3.5 text-sm font-semibold hover:bg-navy hover:text-cream transition-colors">
+                <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full border border-navy/20 text-navy px-6 py-3.5 text-sm font-semibold hover:bg-navy hover:text-cream transition-all">
                   Contact public sector team
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
@@ -451,7 +451,7 @@ function InsightsSection() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-navy-deep text-cream">
       <div aria-hidden className="absolute inset-0 [background:radial-gradient(700px_400px_at_85%_15%,oklch(0.72_0.14_220/.25),transparent_60%)]" />
-      <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:repeating-linear-gradient(0deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px),repeating-linear-gradient(90deg,transparent_0_60px,oklch(0.95_0_0)_60px_61px)]" />
+      <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:repeating-linear-gradient(0deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px),repeating-linear-gradient(90deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px)]" />
 
       <div className="relative container-x">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-end mb-14">
