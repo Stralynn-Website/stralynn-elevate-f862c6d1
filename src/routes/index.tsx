@@ -230,7 +230,7 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-cream/70 leading-relaxed">
-                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. Having shared main keynote stages at Google Cloud Next alongside Google CEO Sundar Pichai and Google Cloud CEO Thomas Kurian, her execution frameworks bridge the gap between complex core architectures and high-velocity AI automation.
+                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book, The Superintelligence Code, she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
