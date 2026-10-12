@@ -5,6 +5,7 @@ import {
   ArrowUpRight, ArrowDown, Sparkles, Workflow, Brain, Handshake,
   Stethoscope, Banknote, Cpu, Building2, ShieldCheck, Landmark,
   Database, Server, CalendarCheck, FileText, GaugeCircle, ClipboardCheck,
+  BookOpen,
 } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
 import { usePageContent } from "../hooks/use-page-content";
@@ -173,23 +174,23 @@ function Home() {
       {/* ABOUT */}
       <section className="py-24 md:py-32 bg-secondary/50">
         <div className="container-x">
-          <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
-            <Reveal>
-              <div className="eyebrow mb-3">About Stralynn</div>
-            </Reveal>
-            <div>
-              <Reveal>
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15]">
-                  Stralynn Consulting Services is an enterprise technology consultancy that delivers <span className="font-editorial italic text-azure">AI transformation, M&A technical due diligence, and operational modernization</span> for complex organizations.
-                </h2>
-              </Reveal>
-              <Reveal delay={0.15}>
-                <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                  We move fast, protect data integrity, and deliver at scale without the risk of a slow, generic transformation partner.
-                </p>
-              </Reveal>
-            </div>
-          </div>
+          <Reveal>
+            <div className="eyebrow mb-6">About Stralynn</div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15]">
+              Stralynn Consulting Services is an enterprise technology consultancy that delivers{" "}
+              <span className="font-editorial italic text-azure">
+                AI transformation, M&A technical due diligence, and ERP and Salesforce implementations
+              </span>{" "}
+              for private equity, healthcare, financial services, and public sector organizations.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              We move fast, protect data integrity, and deliver at scale without the risk of a slow, generic transformation partner.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -230,7 +231,22 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-cream/70 leading-relaxed">
-                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book, <a href="https://books2read.com/u/bOQPRJ">The Superintelligence Code</a>, she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
+                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book,{" "}
+                <a
+                  href="https://books2read.com/u/bOQPRJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 px-3 py-1 my-0.5 rounded-full border border-cyan-glow/40 bg-cyan-glow/10 hover:bg-cyan-glow/20 hover:border-cyan-glow/80 text-cyan-glow hover:text-white font-medium transition-all shadow-[0_0_14px_oklch(0.72_0.14_220/0.15)] align-middle cursor-pointer"
+                  title="Open 'The Superintelligence Code' (external link)"
+                >
+                  <BookOpen className="h-3.5 w-3.5 text-cyan-glow group-hover:text-white transition-colors shrink-0" />
+                  <span className="font-editorial italic font-semibold text-cream group-hover:text-white transition-colors">
+                    The Superintelligence Code
+                  </span>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-cyan-glow group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+                </a>
+                {", "}
+                she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
@@ -242,6 +258,17 @@ function Home() {
                   Alpna J. Doshi, NACD.DC — Founder CEO & Board Chairwoman
                 </footer>
               </blockquote>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="pt-2">
+                <Link
+                  to="/alpna"
+                  className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all shadow-lg hover:shadow-cyan-glow/20"
+                >
+                  Schedule a meeting
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
             </Reveal>
           </div>
         </div>
