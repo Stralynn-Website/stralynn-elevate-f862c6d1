@@ -9,41 +9,31 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PrivacyNoticeRouteImport } from './routes/privacy-notice'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AlpnaRouteImport } from './routes/alpna'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AlpnaRouteImport } from './routes/alpna'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PrivacyNoticeRouteImport } from './routes/privacy-notice'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
-import { Route as ServicesSalesforceTransformationRouteImport } from './routes/services.salesforce-transformation'
-import { Route as ServicesNetsuiteConsultingRouteImport } from './routes/services.netsuite-consulting'
-import { Route as ServicesMaAdvisoryRouteImport } from './routes/services.ma-advisory'
-import { Route as ServicesEnterpriseImplementationsRouteImport } from './routes/services.enterprise-implementations'
-import { Route as ServicesCertiniaConsultingRouteImport } from './routes/services.certinia-consulting'
-import { Route as ServicesBpoTransformationRouteImport } from './routes/services.bpo-transformation'
-import { Route as ServicesAiDigitalTransformationRouteImport } from './routes/services.ai-digital-transformation'
-import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
-import { Route as IndustriesTechnologyRouteImport } from './routes/industries.technology'
-import { Route as IndustriesPublicSectorRouteImport } from './routes/industries.public-sector'
-import { Route as IndustriesPrivateEquityRouteImport } from './routes/industries.private-equity'
-import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
 import { Route as IndustriesFinancialServicesRouteImport } from './routes/industries.financial-services'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
+import { Route as IndustriesPrivateEquityRouteImport } from './routes/industries.private-equity'
+import { Route as IndustriesPublicSectorRouteImport } from './routes/industries.public-sector'
+import { Route as IndustriesTechnologyRouteImport } from './routes/industries.technology'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ServicesAiDigitalTransformationRouteImport } from './routes/services.ai-digital-transformation'
+import { Route as ServicesBpoTransformationRouteImport } from './routes/services.bpo-transformation'
+import { Route as ServicesCertiniaConsultingRouteImport } from './routes/services.certinia-consulting'
+import { Route as ServicesEnterpriseImplementationsRouteImport } from './routes/services.enterprise-implementations'
+import { Route as ServicesMaAdvisoryRouteImport } from './routes/services.ma-advisory'
+import { Route as ServicesNetsuiteConsultingRouteImport } from './routes/services.netsuite-consulting'
+import { Route as ServicesSalesforceTransformationRouteImport } from './routes/services.salesforce-transformation'
 import { Route as CareersApplyJobIdRouteImport } from './routes/careers.apply.$jobId'
 
-const PrivacyNoticeRoute = PrivacyNoticeRouteImport.update({
-  id: '/privacy-notice',
-  path: '/privacy-notice',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AlpnaRoute = AlpnaRouteImport.update({
-  id: '/alpna',
-  path: '/alpna',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -51,14 +41,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AlpnaRoute = AlpnaRouteImport.update({
+  id: '/alpna',
+  path: '/alpna',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsIndexRoute = InsightsIndexRouteImport.update({
-  id: '/insights/',
-  path: '/insights/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyNoticeRoute = PrivacyNoticeRouteImport.update({
+  id: '/privacy-notice',
+  path: '/privacy-notice',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersIndexRoute = CareersIndexRouteImport.update({
@@ -66,33 +61,46 @@ const CareersIndexRoute = CareersIndexRouteImport.update({
   path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSalesforceTransformationRoute =
-  ServicesSalesforceTransformationRouteImport.update({
-    id: '/services/salesforce-transformation',
-    path: '/services/salesforce-transformation',
+const IndustriesFinancialServicesRoute =
+  IndustriesFinancialServicesRouteImport.update({
+    id: '/industries/financial-services',
+    path: '/industries/financial-services',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ServicesNetsuiteConsultingRoute =
-  ServicesNetsuiteConsultingRouteImport.update({
-    id: '/services/netsuite-consulting',
-    path: '/services/netsuite-consulting',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ServicesMaAdvisoryRoute = ServicesMaAdvisoryRouteImport.update({
-  id: '/services/ma-advisory',
-  path: '/services/ma-advisory',
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesEnterpriseImplementationsRoute =
-  ServicesEnterpriseImplementationsRouteImport.update({
-    id: '/services/enterprise-implementations',
-    path: '/services/enterprise-implementations',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ServicesCertiniaConsultingRoute =
-  ServicesCertiniaConsultingRouteImport.update({
-    id: '/services/certinia-consulting',
-    path: '/services/certinia-consulting',
+const IndustriesPrivateEquityRoute = IndustriesPrivateEquityRouteImport.update({
+  id: '/industries/private-equity',
+  path: '/industries/private-equity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesPublicSectorRoute = IndustriesPublicSectorRouteImport.update({
+  id: '/industries/public-sector',
+  path: '/industries/public-sector',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesTechnologyRoute = IndustriesTechnologyRouteImport.update({
+  id: '/industries/technology',
+  path: '/industries/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAiDigitalTransformationRoute =
+  ServicesAiDigitalTransformationRouteImport.update({
+    id: '/services/ai-digital-transformation',
+    path: '/services/ai-digital-transformation',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesBpoTransformationRoute =
@@ -101,41 +109,33 @@ const ServicesBpoTransformationRoute =
     path: '/services/bpo-transformation',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ServicesAiDigitalTransformationRoute =
-  ServicesAiDigitalTransformationRouteImport.update({
-    id: '/services/ai-digital-transformation',
-    path: '/services/ai-digital-transformation',
+const ServicesCertiniaConsultingRoute =
+  ServicesCertiniaConsultingRouteImport.update({
+    id: '/services/certinia-consulting',
+    path: '/services/certinia-consulting',
     getParentRoute: () => rootRouteImport,
   } as any)
-const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/insights/$slug',
-  path: '/insights/$slug',
+const ServicesEnterpriseImplementationsRoute =
+  ServicesEnterpriseImplementationsRouteImport.update({
+    id: '/services/enterprise-implementations',
+    path: '/services/enterprise-implementations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesMaAdvisoryRoute = ServicesMaAdvisoryRouteImport.update({
+  id: '/services/ma-advisory',
+  path: '/services/ma-advisory',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesTechnologyRoute = IndustriesTechnologyRouteImport.update({
-  id: '/industries/technology',
-  path: '/industries/technology',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesPublicSectorRoute = IndustriesPublicSectorRouteImport.update({
-  id: '/industries/public-sector',
-  path: '/industries/public-sector',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesPrivateEquityRoute = IndustriesPrivateEquityRouteImport.update({
-  id: '/industries/private-equity',
-  path: '/industries/private-equity',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
-  id: '/industries/healthcare',
-  path: '/industries/healthcare',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesFinancialServicesRoute =
-  IndustriesFinancialServicesRouteImport.update({
-    id: '/industries/financial-services',
-    path: '/industries/financial-services',
+const ServicesNetsuiteConsultingRoute =
+  ServicesNetsuiteConsultingRouteImport.update({
+    id: '/services/netsuite-consulting',
+    path: '/services/netsuite-consulting',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesSalesforceTransformationRoute =
+  ServicesSalesforceTransformationRouteImport.update({
+    id: '/services/salesforce-transformation',
+    path: '/services/salesforce-transformation',
     getParentRoute: () => rootRouteImport,
   } as any)
 const CareersApplyJobIdRoute = CareersApplyJobIdRouteImport.update({
@@ -312,25 +312,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/privacy-notice': {
-      id: '/privacy-notice'
-      path: '/privacy-notice'
-      fullPath: '/privacy-notice'
-      preLoaderRoute: typeof PrivacyNoticeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/alpna': {
-      id: '/alpna'
-      path: '/alpna'
-      fullPath: '/alpna'
-      preLoaderRoute: typeof AlpnaRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -340,18 +326,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/alpna': {
+      id: '/alpna'
+      path: '/alpna'
+      fullPath: '/alpna'
+      preLoaderRoute: typeof AlpnaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/': {
-      id: '/insights/'
-      path: '/insights'
-      fullPath: '/insights/'
-      preLoaderRoute: typeof InsightsIndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-notice': {
+      id: '/privacy-notice'
+      path: '/privacy-notice'
+      fullPath: '/privacy-notice'
+      preLoaderRoute: typeof PrivacyNoticeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers/': {
@@ -361,81 +354,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/salesforce-transformation': {
-      id: '/services/salesforce-transformation'
-      path: '/services/salesforce-transformation'
-      fullPath: '/services/salesforce-transformation'
-      preLoaderRoute: typeof ServicesSalesforceTransformationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/netsuite-consulting': {
-      id: '/services/netsuite-consulting'
-      path: '/services/netsuite-consulting'
-      fullPath: '/services/netsuite-consulting'
-      preLoaderRoute: typeof ServicesNetsuiteConsultingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/ma-advisory': {
-      id: '/services/ma-advisory'
-      path: '/services/ma-advisory'
-      fullPath: '/services/ma-advisory'
-      preLoaderRoute: typeof ServicesMaAdvisoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/enterprise-implementations': {
-      id: '/services/enterprise-implementations'
-      path: '/services/enterprise-implementations'
-      fullPath: '/services/enterprise-implementations'
-      preLoaderRoute: typeof ServicesEnterpriseImplementationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/certinia-consulting': {
-      id: '/services/certinia-consulting'
-      path: '/services/certinia-consulting'
-      fullPath: '/services/certinia-consulting'
-      preLoaderRoute: typeof ServicesCertiniaConsultingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/bpo-transformation': {
-      id: '/services/bpo-transformation'
-      path: '/services/bpo-transformation'
-      fullPath: '/services/bpo-transformation'
-      preLoaderRoute: typeof ServicesBpoTransformationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/ai-digital-transformation': {
-      id: '/services/ai-digital-transformation'
-      path: '/services/ai-digital-transformation'
-      fullPath: '/services/ai-digital-transformation'
-      preLoaderRoute: typeof ServicesAiDigitalTransformationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/insights/$slug': {
-      id: '/insights/$slug'
-      path: '/insights/$slug'
-      fullPath: '/insights/$slug'
-      preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/technology': {
-      id: '/industries/technology'
-      path: '/industries/technology'
-      fullPath: '/industries/technology'
-      preLoaderRoute: typeof IndustriesTechnologyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/public-sector': {
-      id: '/industries/public-sector'
-      path: '/industries/public-sector'
-      fullPath: '/industries/public-sector'
-      preLoaderRoute: typeof IndustriesPublicSectorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries/private-equity': {
-      id: '/industries/private-equity'
-      path: '/industries/private-equity'
-      fullPath: '/industries/private-equity'
-      preLoaderRoute: typeof IndustriesPrivateEquityRouteImport
+    '/industries/financial-services': {
+      id: '/industries/financial-services'
+      path: '/industries/financial-services'
+      fullPath: '/industries/financial-services'
+      preLoaderRoute: typeof IndustriesFinancialServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries/healthcare': {
@@ -445,11 +368,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesHealthcareRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/financial-services': {
-      id: '/industries/financial-services'
-      path: '/industries/financial-services'
-      fullPath: '/industries/financial-services'
-      preLoaderRoute: typeof IndustriesFinancialServicesRouteImport
+    '/industries/private-equity': {
+      id: '/industries/private-equity'
+      path: '/industries/private-equity'
+      fullPath: '/industries/private-equity'
+      preLoaderRoute: typeof IndustriesPrivateEquityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/public-sector': {
+      id: '/industries/public-sector'
+      path: '/industries/public-sector'
+      fullPath: '/industries/public-sector'
+      preLoaderRoute: typeof IndustriesPublicSectorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/technology': {
+      id: '/industries/technology'
+      path: '/industries/technology'
+      fullPath: '/industries/technology'
+      preLoaderRoute: typeof IndustriesTechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/ai-digital-transformation': {
+      id: '/services/ai-digital-transformation'
+      path: '/services/ai-digital-transformation'
+      fullPath: '/services/ai-digital-transformation'
+      preLoaderRoute: typeof ServicesAiDigitalTransformationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/bpo-transformation': {
+      id: '/services/bpo-transformation'
+      path: '/services/bpo-transformation'
+      fullPath: '/services/bpo-transformation'
+      preLoaderRoute: typeof ServicesBpoTransformationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/certinia-consulting': {
+      id: '/services/certinia-consulting'
+      path: '/services/certinia-consulting'
+      fullPath: '/services/certinia-consulting'
+      preLoaderRoute: typeof ServicesCertiniaConsultingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/enterprise-implementations': {
+      id: '/services/enterprise-implementations'
+      path: '/services/enterprise-implementations'
+      fullPath: '/services/enterprise-implementations'
+      preLoaderRoute: typeof ServicesEnterpriseImplementationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/ma-advisory': {
+      id: '/services/ma-advisory'
+      path: '/services/ma-advisory'
+      fullPath: '/services/ma-advisory'
+      preLoaderRoute: typeof ServicesMaAdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/netsuite-consulting': {
+      id: '/services/netsuite-consulting'
+      path: '/services/netsuite-consulting'
+      fullPath: '/services/netsuite-consulting'
+      preLoaderRoute: typeof ServicesNetsuiteConsultingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/salesforce-transformation': {
+      id: '/services/salesforce-transformation'
+      path: '/services/salesforce-transformation'
+      fullPath: '/services/salesforce-transformation'
+      preLoaderRoute: typeof ServicesSalesforceTransformationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers/apply/$jobId': {
