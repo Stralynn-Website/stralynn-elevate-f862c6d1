@@ -5,6 +5,7 @@ import { ArrowUpRight, Check, Mic, Link as LinkIcon, Globe, Phone, Mail, Calenda
 import { Reveal } from "../components/site/Reveal";
 import { COUNTRY_CODES, type CountryCode } from "../lib/country-codes";
 import { CountryCodeSelect } from "../components/site/CountryCodeSelect";
+import { BooksSection } from "../components/site/BooksSection";
 import alpnaPortrait from "../assets/leadership/alpna-doshi.jpeg";
 
 export const Route = createFileRoute("/alpna")({
@@ -199,6 +200,9 @@ function AlpnaSpeakerPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Books & Publications Section */}
+              <BooksSection />
             </div>
           </Reveal>
 
