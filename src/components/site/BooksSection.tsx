@@ -3,6 +3,51 @@ import { BookOpen, ArrowUpRight } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../ui/dialog";
 import { ALPNA_BOOKS, type Book } from "../../data/alpna-books";
 
+function formatInlineFormatting(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-foreground">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("*") && part.endsWith("*")) {
+      return (
+        <em key={i} className="italic text-foreground/90">
+          {part.slice(1, -1)}
+        </em>
+      );
+    }
+    return part;
+  });
+}
+
+function renderDescription(description: string) {
+  return description.split("\n\n").map((para, idx) => {
+    if (para.includes("\n- ")) {
+      const [heading, ...bullets] = para.split("\n");
+      return (
+        <div key={idx} className="space-y-2 pt-1">
+          {heading && (
+            <p className="font-semibold text-foreground">{formatInlineFormatting(heading)}</p>
+          )}
+          <ul className="space-y-1.5 pl-1">
+            {bullets.map((b, bIdx) => (
+              <li key={bIdx} className="flex items-start gap-2">
+                <span className="text-azure shrink-0 mt-0.5">•</span>
+                <span>{formatInlineFormatting(b.replace(/^[-\s*]+/, ""))}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return <p key={idx}>{formatInlineFormatting(para)}</p>;
+  });
+}
+
 export function BooksSection() {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
@@ -74,15 +119,17 @@ export function BooksSection() {
                   />
                 </div>
 
-                <a
-                  href={selectedBook.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full gradient-hero text-cream px-5 py-2.5 text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity w-full max-w-[180px]"
-                >
-                  <span>View Book</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
+                {selectedBook.link && (
+                  <a
+                    href={selectedBook.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full gradient-hero text-cream px-5 py-2.5 text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity w-full max-w-[180px]"
+                  >
+                    <span>View Book</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
               </div>
 
               {/* RIGHT COLUMN: Title, Author, Description */}
@@ -97,9 +144,7 @@ export function BooksSection() {
                 </DialogHeader>
 
                 <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
-                  {selectedBook.description.split("\n\n").map((para, idx) => (
-                    <p key={idx}>{para}</p>
-                  ))}
+                  {renderDescription(selectedBook.description)}
                 </div>
               </div>
             </div>
