@@ -2,12 +2,28 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
-  ArrowUpRight, ArrowDown, Sparkles, Workflow, Brain, Handshake,
-  Stethoscope, Banknote, Cpu, Building2, ShieldCheck, Landmark,
-  Database, Server, CalendarCheck, FileText, GaugeCircle, ClipboardCheck,
+  ArrowUpRight,
+  ArrowDown,
+  Sparkles,
+  Workflow,
+  Brain,
+  Handshake,
+  Stethoscope,
+  Banknote,
+  Cpu,
+  Building2,
+  ShieldCheck,
+  Landmark,
+  Database,
+  Server,
+  CalendarCheck,
+  FileText,
+  GaugeCircle,
+  ClipboardCheck,
   BookOpen,
 } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "../components/site/Reveal";
+import { HomeBooksSection } from "../components/site/HomeBooksSection";
 import { usePageContent } from "../hooks/use-page-content";
 import alpnaPortrait from "../assets/leadership/alpna-doshi.jpeg";
 
@@ -15,7 +31,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Stralynn — Enterprise AI Transformation" },
-      { name: "description", content: "Stralynn delivers specialized IT consulting — ERP modernizations, Salesforce implementations, and data migrations for private equity-backed enterprises and public sector agencies." },
+      {
+        name: "description",
+        content:
+          "Stralynn delivers specialized IT consulting — ERP modernizations, Salesforce implementations, and data migrations for private equity-backed enterprises and public sector agencies.",
+      },
     ],
   }),
   component: Home,
@@ -26,28 +46,32 @@ const services = [
     icon: Brain,
     title: "AI Transformation",
     desc: "Architecting enterprise AI agent frameworks, custom LLM integrations, and intelligent process automation layers.",
-    outcome: "Reclaims executive and operational bandwidth, accelerates decision speed, and drives high-margin operational efficiency.",
+    outcome:
+      "Reclaims executive and operational bandwidth, accelerates decision speed, and drives high-margin operational efficiency.",
     to: "/services/ai-digital-transformation",
   },
   {
     icon: Handshake,
     title: "M&A Technical Integration",
     desc: "Conducting technical due diligence, carve-out data separations, and post-acquisition tech stack consolidations.",
-    outcome: "Protects deal timelines, eliminates post-close transition risk, and captures portfolio synergies within 60–90 day windows.",
+    outcome:
+      "Protects deal timelines, eliminates post-close transition risk, and captures portfolio synergies within 60–90 day windows.",
     to: "/services/ma-advisory",
   },
   {
     icon: Workflow,
     title: "BPO Transformation",
     desc: "Re-engineering legacy outsourcing stacks through autonomous workflow automation and straight-through processing.",
-    outcome: "Shrinks operational overhead, reduces manual error rates, and elevates delivery speed across enterprise workflows.",
+    outcome:
+      "Shrinks operational overhead, reduces manual error rates, and elevates delivery speed across enterprise workflows.",
     to: "/services/bpo-transformation",
   },
   {
     icon: Building2,
     title: "Enterprise Implementations",
     desc: "Executing complex architectures across Salesforce, ERP platforms, and Certinia enterprise environments.",
-    outcome: "Guarantees zero-downtime platform cutovers, complete data integrity, and unified real-time visibility across global operations.",
+    outcome:
+      "Guarantees zero-downtime platform cutovers, complete data integrity, and unified real-time visibility across global operations.",
     to: "/services/enterprise-implementations",
   },
 ];
@@ -86,9 +110,20 @@ const industries = [
 ];
 
 const stats = [
-  { kpi: "42 TB", label: "Core data assets successfully migrated and validated within a compressed 90 day window" },
-  { kpi: "800 GB", label: "Multi-cloud database transition executed with total schema integrity and zero business disruption" },
-  { kpi: "90 Days", label: "Complete enterprise content platform cutover finalized post-close with zero operational data loss" },
+  {
+    kpi: "42 TB",
+    label: "Core data assets successfully migrated and validated within a compressed 90 day window",
+  },
+  {
+    kpi: "800 GB",
+    label:
+      "Multi-cloud database transition executed with total schema integrity and zero business disruption",
+  },
+  {
+    kpi: "90 Days",
+    label:
+      "Complete enterprise content platform cutover finalized post-close with zero operational data loss",
+  },
 ];
 
 const leadershipSignals = [
@@ -106,15 +141,27 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-screen overflow-hidden gradient-hero text-cream">
+      <section
+        ref={heroRef}
+        className="relative min-h-screen overflow-hidden gradient-hero text-cream"
+      >
         <video
-          autoPlay muted loop playsInline
+          autoPlay
+          muted
+          loop
+          playsInline
           className="absolute inset-0 h-full w-full object-cover opacity-40"
           src="https://videos.pexels.com/video-files/3252919/3252919-hd_1920_1080_25fps.mp4"
           poster="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=2000&q=80"
         />
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-navy-deep/60 to-navy-deep" />
-        <div aria-hidden className="absolute inset-0 [background:radial-gradient(900px_500px_at_70%_20%,oklch(0.72_0.14_220/.35),transparent_60%)]" />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-navy-deep/60 to-navy-deep"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 [background:radial-gradient(900px_500px_at_70%_20%,oklch(0.72_0.14_220/.35),transparent_60%)]"
+        />
 
         <motion.div style={{ y, opacity }} className="relative container-x pt-40 md:pt-48 pb-32">
           <Reveal>
@@ -125,17 +172,23 @@ function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="mt-8 font-display text-5xl md:text-7xl lg:text-[88px] font-semibold leading-[0.98] tracking-tight max-w-5xl">
-              Enterprise <span className="font-editorial italic gradient-accent-text">AI Transformation</span>
+              Enterprise{" "}
+              <span className="font-editorial italic gradient-accent-text">AI Transformation</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg md:text-xl text-cream/75 leading-relaxed">
-              Stralynn executes specialized IT consulting services, driving complex Enterprise modernizations, Salesforce implementations, and data migrations for Private Equity backed enterprises and public sector organizations.
+              Stralynn executes specialized IT consulting services, driving complex Enterprise
+              modernizations, Salesforce implementations, and data migrations for Private Equity
+              backed enterprises and public sector organizations.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-wrap gap-4">
-              <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all"
+              >
                 Schedule a conversation
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
@@ -163,13 +216,23 @@ function Home() {
             Trusted across Private Equity, Healthcare, Financial Services & the Public Sector
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-foreground/40 font-display text-xl md:text-2xl font-semibold">
-            {["Salesforce", "Certinia", "NetSuite", "SAP", "Oracle", "Google Cloud", "AWS", "Azure"].map((b) => (
-              <span key={b} className="hover:text-foreground transition-colors">{b}</span>
+            {[
+              "Salesforce",
+              "Certinia",
+              "NetSuite",
+              "SAP",
+              "Oracle",
+              "Google Cloud",
+              "AWS",
+              "Azure",
+            ].map((b) => (
+              <span key={b} className="hover:text-foreground transition-colors">
+                {b}
+              </span>
             ))}
           </div>
         </div>
       </section>
-
 
       {/* ABOUT */}
       <section className="py-24 md:py-32 bg-secondary/50">
@@ -181,14 +244,16 @@ function Home() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15]">
               Stralynn Consulting Services is an enterprise technology consultancy that delivers{" "}
               <span className="font-editorial italic text-azure">
-                AI transformation, M&A technical due diligence, and ERP and Salesforce implementations
+                AI transformation, M&A technical due diligence, and ERP and Salesforce
+                implementations
               </span>{" "}
               for private equity, healthcare, financial services, and public sector organizations.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-3xl">
-              We move fast, protect data integrity, and deliver at scale without the risk of a slow, generic transformation partner.
+              We move fast, protect data integrity, and deliver at scale without the risk of a slow,
+              generic transformation partner.
             </p>
           </Reveal>
         </div>
@@ -196,7 +261,10 @@ function Home() {
 
       {/* LEADERSHIP */}
       <section className="relative py-24 md:py-32 overflow-hidden bg-navy-deep text-cream">
-        <div aria-hidden className="absolute inset-0 [background:radial-gradient(800px_450px_at_20%_20%,oklch(0.72_0.14_220/.22),transparent_60%)]" />
+        <div
+          aria-hidden
+          className="absolute inset-0 [background:radial-gradient(800px_450px_at_20%_20%,oklch(0.72_0.14_220/.22),transparent_60%)]"
+        />
         <div className="relative container-x grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16">
           <Reveal>
             <div className="lg:sticky lg:top-32">
@@ -204,7 +272,10 @@ function Home() {
                 <ShieldCheck className="h-3.5 w-3.5 text-cyan-glow" /> Leadership
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Executive leadership & <span className="font-editorial italic gradient-accent-text">methodological governance</span>
+                Executive leadership &{" "}
+                <span className="font-editorial italic gradient-accent-text">
+                  methodological governance
+                </span>
               </h2>
               <div className="mt-8 rounded-2xl overflow-hidden aspect-[4/5] max-w-xs">
                 <img
@@ -226,12 +297,18 @@ function Home() {
           <div className="space-y-8">
             <Reveal>
               <p className="text-lg text-cream/80 leading-relaxed">
-                Stralynn operates under the strategic leadership of <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>, Founder CEO, and Board Chairwoman. A former Fortune 500 technology executive and board director, she has led enterprise transformations across regulated, high-risk, and mission-critical environments.
+                Stralynn operates under the strategic leadership of{" "}
+                <strong className="text-cream font-semibold">Alpna J. Doshi, NACD.DC</strong>,
+                Founder CEO, and Board Chairwoman. A former Fortune 500 technology executive and
+                board director, she has led enterprise transformations across regulated, high-risk,
+                and mission-critical environments.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-cream/70 leading-relaxed">
-                As an NACD-certified director and globally recognized thought leader on agentic AI, data strategy, and enterprise risk management, Alpna has spearheaded some of the IT industry's most complex digital transformations. In her book,{" "}
+                As an NACD-certified director and globally recognized thought leader on agentic AI,
+                data strategy, and enterprise risk management, Alpna has spearheaded some of the IT
+                industry's most complex digital transformations. In her book,{" "}
                 <a
                   href="https://books2read.com/u/bOQPRJ"
                   target="_blank"
@@ -246,13 +323,17 @@ function Home() {
                   <ArrowUpRight className="h-3.5 w-3.5 text-cyan-glow group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
                 </a>
                 {", "}
-                she delivers execution frameworks that bridge the gap between complex core architectures and high-velocity AI automation.
+                she delivers execution frameworks that bridge the gap between complex core
+                architectures and high-velocity AI automation.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <blockquote className="rounded-2xl border border-cream/10 bg-cream/[0.04] backdrop-blur p-8 md:p-10">
                 <p className="font-editorial italic text-2xl md:text-3xl leading-snug text-cream">
-                  “In high-stakes enterprise transformation, speed without governance creates unacceptable risk. We engineer resilient technical architectures that allow boardrooms, private equity sponsors, and public sector leaders to move with confidence.”
+                  “In high-stakes enterprise transformation, speed without governance creates
+                  unacceptable risk. We engineer resilient technical architectures that allow
+                  boardrooms, private equity sponsors, and public sector leaders to move with
+                  confidence.”
                 </p>
                 <footer className="mt-6 text-sm text-cyan-glow">
                   Alpna J. Doshi, NACD.DC — Founder CEO & Board Chairwoman
@@ -274,25 +355,32 @@ function Home() {
         </div>
       </section>
 
+      {/* FEATURED BOOKS */}
+      <HomeBooksSection />
+
       {/* STATS */}
       <section className="py-24 md:py-32">
         <div className="container-x">
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-12 items-end mb-16">
             <Reveal>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Documented scale metrics <span className="font-editorial italic text-azure">& operational outcomes</span>
+                Documented scale metrics{" "}
+                <span className="font-editorial italic text-azure">& operational outcomes</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Stralynn tracks precise operational milestones across data integrity, migration velocity, and post-acquisition system integration to eliminate delivery risk.
+                Stralynn tracks precise operational milestones across data integrity, migration
+                velocity, and post-acquisition system integration to eliminate delivery risk.
               </p>
             </Reveal>
           </div>
           <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden shadow-soft">
             {stats.map((s) => (
               <StaggerItem key={s.label} className="bg-background p-8 md:p-10">
-                <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-navy-deep">{s.kpi}</div>
+                <div className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-navy-deep">
+                  {s.kpi}
+                </div>
                 <div className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.label}</div>
               </StaggerItem>
             ))}
@@ -308,15 +396,21 @@ function Home() {
               <div>
                 <div className="eyebrow mb-3">What we do</div>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
-                  Enterprise technical consulting services & <span className="font-editorial italic text-azure">value delivery</span>
+                  Enterprise technical consulting services &{" "}
+                  <span className="font-editorial italic text-azure">value delivery</span>
                 </h2>
                 <p className="mt-5 text-muted-foreground max-w-2xl leading-relaxed">
-                  Stralynn delivers specialized IT consulting services engineered to modernize core enterprise systems, eliminate integration risk, and deploy high margin AI automation workflows.
+                  Stralynn delivers specialized IT consulting services engineered to modernize core
+                  enterprise systems, eliminate integration risk, and deploy high margin AI
+                  automation workflows.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <Link to="/services/ai-digital-transformation" className="text-sm font-semibold inline-flex items-center gap-2 text-navy hover:text-azure transition-colors">
+              <Link
+                to="/services/ai-digital-transformation"
+                className="text-sm font-semibold inline-flex items-center gap-2 text-navy hover:text-azure transition-colors"
+              >
                 All services <ArrowUpRight className="h-4 w-4" />
               </Link>
             </Reveal>
@@ -355,17 +449,22 @@ function Home() {
             <div className="lg:sticky lg:top-32">
               <div className="eyebrow mb-3">Industries</div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Vertical IT consulting capabilities & <span className="font-editorial italic">sector boundaries</span>
+                Vertical IT consulting capabilities &{" "}
+                <span className="font-editorial italic">sector boundaries</span>
               </h2>
               <p className="mt-5 text-muted-foreground leading-relaxed">
-                Stralynn aligns enterprise technology implementations with industry specific regulatory standards and operational business models across five distinct sectors.
+                Stralynn aligns enterprise technology implementations with industry specific
+                regulatory standards and operational business models across five distinct sectors.
               </p>
             </div>
           </Reveal>
           <Stagger className="grid sm:grid-cols-2 gap-5">
             {industries.map((i) => (
               <StaggerItem key={i.name} className="h-full">
-                <Link to={i.to} className="group flex flex-col h-full p-8 rounded-2xl bg-card border border-border hover-lift">
+                <Link
+                  to={i.to}
+                  className="group flex flex-col h-full p-8 rounded-2xl bg-card border border-border hover-lift"
+                >
                   <div className="h-11 w-11 rounded-xl bg-secondary grid place-items-center mb-5 group-hover:gradient-hero transition-all">
                     <i.icon className="h-5 w-5 text-navy group-hover:text-cream transition-colors" />
                   </div>
@@ -393,12 +492,14 @@ function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Initiate a strategic engagement <span className="font-editorial italic">or consultation</span>
+                Initiate a strategic engagement{" "}
+                <span className="font-editorial italic">or consultation</span>
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                Stralynn provides direct engagement pathways tailored to your active deal timelines, enterprise rollouts, or public agency procurement requirements.
+                Stralynn provides direct engagement pathways tailored to your active deal timelines,
+                enterprise rollouts, or public agency procurement requirements.
               </p>
             </Reveal>
           </div>
@@ -406,7 +507,10 @@ function Home() {
           <div className="grid lg:grid-cols-2 gap-6">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl gradient-hero p-10 md:p-12 text-cream h-full">
-                <div aria-hidden className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-glow/20 blur-3xl" />
+                <div
+                  aria-hidden
+                  className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-cyan-glow/20 blur-3xl"
+                />
                 <div className="relative">
                   <div className="inline-flex items-center gap-2 eyebrow-light mb-5">
                     <CalendarCheck className="h-3.5 w-3.5" /> Commercial & Private Equity
@@ -415,9 +519,13 @@ function Home() {
                     Schedule a 30 minute strategic consultation
                   </h3>
                   <p className="mt-4 text-cream/75 max-w-md">
-                    Review active M&A integration deadlines, Salesforce deployments, or ERP cutover schedules with a senior partner.
+                    Review active M&A integration deadlines, Salesforce deployments, or ERP cutover
+                    schedules with a senior partner.
                   </p>
-                  <Link to="https://calendar.app.google/8MA2wV1iHwWdNoHB9" className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all">
+                  <Link
+                    to="https://calendar.app.google/8MA2wV1iHwWdNoHB9"
+                    className="mt-8 group inline-flex items-center gap-2 rounded-full bg-cream text-navy-deep px-6 py-3.5 text-sm font-semibold hover:bg-cream/90 transition-all"
+                  >
                     Schedule a conversation
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
@@ -433,9 +541,13 @@ function Home() {
                   Public sector procurement pathway
                 </h3>
                 <p className="mt-4 text-muted-foreground max-w-md">
-                  Access Stralynn's official Capability Statement, request a technical security briefing, or submit an agency RFI/RFP requirement.
+                  Access Stralynn's official Capability Statement, request a technical security
+                  briefing, or submit an agency RFI/RFP requirement.
                 </p>
-                <Link to="/contact" className="mt-8 group inline-flex items-center gap-2 rounded-full border border-navy/20 text-navy px-6 py-3.5 text-sm font-semibold hover:bg-navy hover:text-cream transition-all">
+                <Link
+                  to="/contact"
+                  className="mt-8 group inline-flex items-center gap-2 rounded-full border border-navy/20 text-navy px-6 py-3.5 text-sm font-semibold hover:bg-navy hover:text-cream transition-all"
+                >
                   Contact public sector team
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
@@ -453,32 +565,44 @@ const insights = [
     icon: "Database",
     tag: "Technical Brief",
     title: "42 TB Infrastructure Migration",
-    description: "Technical timeline data, scale metrics, and validation methodologies used to move core enterprise assets in 90 days.",
+    description:
+      "Technical timeline data, scale metrics, and validation methodologies used to move core enterprise assets in 90 days.",
   },
   {
     icon: "GaugeCircle",
     tag: "Diligence Insight",
     title: "Technical Due Diligence",
-    description: "Risk evaluation parameters used to identify post-close transition risks and secure operational continuity for PE-backed acquisitions.",
+    description:
+      "Risk evaluation parameters used to identify post-close transition risks and secure operational continuity for PE-backed acquisitions.",
   },
   {
     icon: "Server",
     tag: "Cutover Playbook",
     title: "800 GB Cloud Database Cutover",
-    description: "Structural cloud deployment completed with documented sub-10% error rates and validated rollback checkpoints.",
+    description:
+      "Structural cloud deployment completed with documented sub-10% error rates and validated rollback checkpoints.",
   },
 ];
 
 const INSIGHT_ICON_MAP: Record<string, typeof FileText> = {
-  FileText, Database, GaugeCircle, Server,
+  FileText,
+  Database,
+  GaugeCircle,
+  Server,
 };
 
 function InsightsSection() {
   const { items } = usePageContent("home", insights);
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-navy-deep text-cream">
-      <div aria-hidden className="absolute inset-0 [background:radial-gradient(700px_400px_at_85%_15%,oklch(0.72_0.14_220/.25),transparent_60%)]" />
-      <div aria-hidden className="absolute inset-0 opacity-[0.06] [background-image:repeating-linear-gradient(0deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px),repeating-linear-gradient(90deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px)]" />
+      <div
+        aria-hidden
+        className="absolute inset-0 [background:radial-gradient(700px_400px_at_85%_15%,oklch(0.72_0.14_220/.25),transparent_60%)]"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.06] [background-image:repeating-linear-gradient(0deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px),repeating-linear-gradient(90deg,transparent_0_38px,oklch(0.95_0_0)_38px_39px)]"
+      />
 
       <div className="relative container-x">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-end mb-14">
@@ -489,13 +613,18 @@ function InsightsSection() {
                 Insights
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-                Verified case studies & <span className="font-editorial italic gradient-accent-text">evidence-rich technical material</span>
+                Verified case studies &{" "}
+                <span className="font-editorial italic gradient-accent-text">
+                  evidence-rich technical material
+                </span>
               </h2>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-lg text-cream/75 leading-relaxed">
-              Documented case studies, structured technical briefs, and source material demonstrating past engineering performance across regulated and high stakes environments.
+              Documented case studies, structured technical briefs, and source material
+              demonstrating past engineering performance across regulated and high stakes
+              environments.
             </p>
           </Reveal>
         </div>
@@ -505,15 +634,22 @@ function InsightsSection() {
             const IconComp = INSIGHT_ICON_MAP[item.icon || ""] || FileText;
             return (
               <StaggerItem key={item._id || item.title || idx}>
-                <Link to="/insights" className="group block h-full p-7 md:p-8 rounded-2xl border border-cream/10 bg-cream/[0.03] backdrop-blur hover:bg-cream/[0.06] hover:border-cream/20 transition-all">
+                <Link
+                  to="/insights"
+                  className="group block h-full p-7 md:p-8 rounded-2xl border border-cream/10 bg-cream/[0.03] backdrop-blur hover:bg-cream/[0.06] hover:border-cream/20 transition-all"
+                >
                   <div className="flex items-start gap-5">
                     <div className="h-12 w-12 rounded-xl bg-cream/10 grid place-items-center shrink-0 group-hover:bg-cyan-glow/20 transition-colors">
                       <IconComp className="h-5 w-5 text-cyan-glow" />
                     </div>
                     <div className="flex-1 min-w-0">
                       {item.tag && <div className="eyebrow-light mb-2">{item.tag}</div>}
-                      <h3 className="font-display text-xl md:text-2xl font-semibold leading-snug text-cream">{item.title}</h3>
-                      <p className="mt-3 text-sm text-cream/70 leading-relaxed">{item.description}</p>
+                      <h3 className="font-display text-xl md:text-2xl font-semibold leading-snug text-cream">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm text-cream/70 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </Link>
